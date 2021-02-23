@@ -73,7 +73,7 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
     <td>2021-04-08</td>
     <td>Gdy danych do trenowania jest mało (rozdz. 5.1-5.2)</td>
     <td>Techniki augmentacji danych.</td>
-    <td>Wypisanie jakie techniki augmentacji są stosowane + dodać inne lub pozmieniać obecne</td>
+    <td>Wypisanie jakie techniki augmentacji są stosowane + dodać nowe/zmodyfikować obecne</td>
     <td>5 pkt.</td>
   </tr>
   <tr>
@@ -81,7 +81,7 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
     <td>2021-04-15</td>
     <td>Transfer learning (rozdz. 5.3-5.4)</td>
     <td>Jak korzystać z sieci neuronowych wytrenowanych na ogromnych zbiorach danych.</td>
-    <td>Wypisać stosowane techniki augmentacji danych + dodać nowe/zmodyfikować obecne.</td>
+    <td>Załadować wagi z innego modelu.</td>
     <td>5 pkt.</td>
   </tr>
   <tr>
