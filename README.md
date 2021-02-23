@@ -172,4 +172,5 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
 ### Niezbędna literatura:
 - Francois Chollet "Deep Learning. Praca z językiem Python i biblioteką Keras" (pol)
 - [François Chollet "Deep Learning with Python" (ang)](http://faculty.neu.edu.cn/yury/AAI/Textbook/Deep%20Learning%20with%20Python.pdf)
-- [Jupyter notebooks for the book "Deep Learning with Python"](https://github.com/fchollet/deep-learning-with-python-notebooks)
+- [Jupyter notebooks do książki wspomnianej wyżej (pol)](https://ftp.helion.pl/przyklady/delepy.zip)
+- [Jupyter notebooks for the book mentioned above (ang)](https://github.com/fchollet/deep-learning-with-python-notebooks)
