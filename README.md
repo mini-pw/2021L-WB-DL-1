@@ -126,8 +126,8 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
   </tr>
   <tr>
     <td></td>
-    <td>2021-05-21 </td>
-    <td colspan="3"> Prezentacja projektu podczas wykładu.  </td>
+    <td>2021-05-27 </td>
+    <td colspan="3"> Prezentacja projektu.  </td>
     <td>20 pkt.</td>
   </tr>
   <tr>
