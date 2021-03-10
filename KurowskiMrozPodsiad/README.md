@@ -1,5 +1,6 @@
-# Instrukcje odpalenia DeepCOVIDExplainer
-## Grupa: Kurowski Mróz Podsiad
+### Grupa: Kurowski Mróz Podsiad
+
+## Instrukcje odpalenia DeepCOVIDExplainer
 
 1. Stworzenie wirtualnego środowiska
 	- Wersja Pythona 3.6 (3.6.9 lub nowsza)
