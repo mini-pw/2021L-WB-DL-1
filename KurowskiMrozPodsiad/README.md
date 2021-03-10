@@ -11,7 +11,7 @@
 2. Instalacja CUDA (?)
 3. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
 	> import sys
-	sys.path.insert(0, '..')
+	> sys.path.insert(0, '..')
 4. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
 5. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy:
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
