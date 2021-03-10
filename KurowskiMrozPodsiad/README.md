@@ -10,7 +10,7 @@
 		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, weightwatcher, innvestigate
 2. Instalacja CUDA (?)
 3. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
-	> import sys
+	> import sys  
 	> sys.path.insert(0, '..')
 4. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
 5. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy:
