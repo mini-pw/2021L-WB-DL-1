@@ -10,13 +10,14 @@
 	- h5py 2.10.0
 	- najnowsze kompatybilne wersje: 
 		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, weightwatcher, innvestigate
-<!--- # 2. Instalacja CUDA (?) --->
+<!--- 2. Instalacja CUDA (?) --->
 1. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
 	> import sys  
 	> sys.path.insert(0, '..')
 1. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
-1. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy za pomocą notebooka image_loader.ipynb:
+1. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy za pomocą notebooka preprocess_data.ipynb:
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
 	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
 
-Notebook z kodem: https://nbviewer.jupyter.org/github/z-mrozu/2021L-WB-DL-1/blob/main/KurowskiMrozPodsiad/preprocess-data.ipynb
+<!--- Notebook z kodem: https://nbviewer.jupyter.org/github/z-mrozu/2021L-WB-DL-1/blob/main/KurowskiMrozPodsiad/preprocess-data.ipynb  --->
+VGG19 i przykłady z samym VGG19 udało się odpalić. W przykładzie z ResNet-18 nadal są błędy (wczytywanie wag, wywoływanie z więszką ilością argumentów niż przyjmuje model, sam network odpala się pomyślnie). Nie zostało także zamieszczone DenseNet161, więc nie da się odpalić przykładu z weightwatcherem. 
