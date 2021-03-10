@@ -7,6 +7,7 @@
 	- numpy 1.18.1
 	- tensorflow 1.14.0
 	- keras 2.3.1
+	- h5py 2.10.0
 	- najnowsze kompatybilne wersje: 
 		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, weightwatcher, innvestigate
 [comment]: # 2. Instalacja CUDA (?)
