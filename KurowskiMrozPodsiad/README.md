@@ -16,4 +16,4 @@
 4. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
 5. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy:
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
-	- y: etykiety COVID-19/pneumonia/normal
+	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
