@@ -8,8 +8,9 @@
 	- tensorflow 1.14.0
 	- keras 2.3.1
 	- h5py 2.10.0
+	- weightwatcher 0.2.7
 	- najnowsze kompatybilne wersje: 
-		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, weightwatcher, innvestigate
+		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, innvestigate
 <!--- 2. Instalacja CUDA (?) --->
 2. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
 	> import sys  
