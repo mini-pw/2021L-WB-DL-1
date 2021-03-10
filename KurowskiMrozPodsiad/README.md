@@ -11,11 +11,11 @@
 	- najnowsze kompatybilne wersje: 
 		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, weightwatcher, innvestigate
 <!--- 2. Instalacja CUDA (?) --->
-1. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
+2. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
 	> import sys  
 	> sys.path.insert(0, '..')
-1. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
-1. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy za pomocą notebooka preprocess_data.ipynb:
+3. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
+4. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy za pomocą notebooka preprocess_data.ipynb:
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
 	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
 
