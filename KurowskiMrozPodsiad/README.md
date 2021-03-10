@@ -18,4 +18,4 @@
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
 	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
 
-Notebook z kodem: https://nbviewer.jupyter.org/github/z-mrozu/2021L-WB-DL-1/blob/main/KurowskiMrozPodsiad/preprocess-data.npynb
+Notebook z kodem: https://nbviewer.jupyter.org/github/z-mrozu/2021L-WB-DL-1/blob/main/KurowskiMrozPodsiad/preprocess-data.ipynb
