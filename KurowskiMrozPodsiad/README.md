@@ -18,4 +18,4 @@
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
 	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
    
-Robimy to za pomocą skryptu image_loader.ipnb
+Robimy to za pomocą notebooka image_loader.ipynb
