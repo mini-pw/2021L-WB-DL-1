@@ -10,7 +10,7 @@
 	- h5py 2.10.0
 	- najnowsze kompatybilne wersje: 
 		- matplotlib, scipy, scikit-learn, pandas, pydicom, ipython, jupyter, ipykernel, opencv, torch, PIL, xlrd, openpyxl, weightwatcher, innvestigate
-[comment]: # 2. Instalacja CUDA (?)
+<!--- # 2. Instalacja CUDA (?) --->
 1. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
 	> import sys  
 	> sys.path.insert(0, '..')
