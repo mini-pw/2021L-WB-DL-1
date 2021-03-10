@@ -20,4 +20,4 @@
 	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
 
 <!--- Notebook z kodem: https://nbviewer.jupyter.org/github/z-mrozu/2021L-WB-DL-1/blob/main/KurowskiMrozPodsiad/preprocess-data.ipynb  --->
-VGG19 i przykłady z samym VGG19 udało się odpalić. W przykładzie z ResNet-18 nadal są błędy (wczytywanie wag, wywoływanie z więszką ilością argumentów niż przyjmuje model, sam network odpala się pomyślnie). Nie zostało także zamieszczone DenseNet161, więc nie da się odpalić przykładu z weightwatcherem. 
+VGG19 i przykłady z samym VGG19 udało się odpalić. W przykładzie z ResNet-18 nadal są błędy (wczytywanie wag, wywoływanie modelu z więszką ilością argumentów niż przyjmuje), ale sam network odpala się pomyślnie. Nie zostało także zamieszczone DenseNet161, więc nie da się odpalić przykładu z weightwatcherem. 
