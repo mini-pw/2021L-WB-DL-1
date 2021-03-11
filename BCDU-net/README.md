@@ -37,3 +37,7 @@ tf.compat.v1.keras.backend.set_session(session)
 - W pliku `train_lung.py` dodaliśmy parametr `save_weights_only=True` do tworzenia `ModelCheckpoint`
 
 Dodatkowo zainstalowaliśmy `CUDA 11.2.1` oraz dodaliśmy bibliotekę `cuDNN 11.1`.
+
+
+
+//Notatka robocza: Wymagany pakiet nibabel
