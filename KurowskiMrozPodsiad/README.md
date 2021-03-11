@@ -14,7 +14,7 @@
 2. Dodanie przy imporcie plików z folderów *Classifiers* oraz *utils* żeby importowały się bez problemu
 	> import sys  
 	> sys.path.insert(0, '..')
-3. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md
+3. Stworzenie datasetu COVIDx zgodnie z instrukcjami zawartymi w https://github.com/lindawangg/COVID-Net/blob/master/docs/COVIDx.md (create_COVIDx.ipynb).
 4. Własnoręczny preprocessing datasetu wyżej do odpowiedniej formy za pomocą notebooka preprocess_data.ipynb:
 	- X: zdjęcia w wymiarach 224x224x3 gdzie ostatni wymiar to skala RGB
 	- y: etykiety normal/COVID-19/pneumonia jako 0/1/2
