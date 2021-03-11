@@ -40,4 +40,4 @@ Dodatkowo zainstalowaliśmy `CUDA 11.2.1` oraz dodaliśmy bibliotekę `cuDNN 11.
 
 
 
-//Notatka robocza: Wymagany pakiet nibabel
+//Notatka robocza: Wymagane pakiet nibabel oraz scipy.
