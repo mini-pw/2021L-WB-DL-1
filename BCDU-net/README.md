@@ -10,9 +10,14 @@ Każdemu z nas udało się uruchomić kod dostarczony przez autora artykułu.
 **tu wpisałem swoje wersje, ale możemy uzgodnić, żebyśmy wszyscy na takich samych robili, albo po prostu najnowszych**
 
 Program został uruchominy na wersjach:
-- `python 3.8.7`
+- `python 3.8.7` (`python 3.6.9` ~Paweł)
 - `keras==2.4.3`
 - `tensorflow==2.4.1`
+- `nibabel==3.2.1`
+- `scipy==1.5.4`
+- `matplotlib==3.3.4`
+- `scikit-learn==0.24.1`
+- `numpy==1.19.5`
 
 Zmiany, których dokonaliśmy, aby się to nam udało:
 
@@ -34,10 +39,6 @@ config.gpu_options.allow_growth = True
 session = tf.compat.v1.Session(config=config)
 tf.compat.v1.keras.backend.set_session(session)
 ```
-- W pliku `train_lung.py` dodaliśmy parametr `save_weights_only=True` do tworzenia `ModelCheckpoint`
+- W pliku `train_lung.py` dodaliśmy parametr `save_weights_only=True` do tworzenia `ModelCheckpoint` - punkt ten jest niezbędny w celu uruchomienia programu dokonującego ewaluacji modelu.
 
 Dodatkowo zainstalowaliśmy `CUDA 11.2.1` oraz dodaliśmy bibliotekę `cuDNN 11.1`.
-
-
-
-//Notatka robocza: Wymagane pakiet nibabel oraz scipy, oczywiście matplotlib i sklearn. Problem z evaluate? 
