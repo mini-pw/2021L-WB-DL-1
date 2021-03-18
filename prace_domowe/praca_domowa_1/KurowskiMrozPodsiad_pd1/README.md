@@ -43,8 +43,11 @@ Można to zaimplenetować na przykład przypisując wagi klasom odwrotnie propor
 w<sub>j</sub> = n<sub>sample</sub> / (n<sub>klas</sub>\*n<sub>sample_j</sub>)
 
 w<sub>j</sub> - waga dla każdej klasy (j oznacza klasę)
+
 n<sub>sample</sub> - całkowita liczba próbek (wierszy) w zbiorze danych
+
 n<sub>klas</sub> - całkowita liczba unikalnych klas w zbiorze danych
+
 n<sub>sample_j</sub> - całkowita liczba próbek (wierszy) danej klasy
 
 <!---
