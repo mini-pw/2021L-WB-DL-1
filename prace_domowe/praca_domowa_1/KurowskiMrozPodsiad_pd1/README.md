@@ -65,16 +65,5 @@ W notebooku *preprocess_data_COVIDx.ipynb* został umieszczony skrypt który gen
 Over-sampling został zrobiony w oparciu o kod autorów artykułu. Zaszła jednak potrzeba zmiany części kodu, więc piszemy nowe funkcje. Wykorzystujemy: *imblearn.over_sampling.RandomOverSampler*. Kod generujący datasety umieszczony został w notebooku: *random_over_sampling.ipynb*.
 
 Under-sampling został zrobiony przy użyciu *imblearn.under_sampling.RandomUnderSampler* przy zadaniu *sampling strategy* tak, by wartości wszystkich klas były równe najmniejszej. Ustawienie *random_state* czyni proces powtarzalnym. Kod generujący podzielone pliki .npyowe umieszczony jest w notebooku *random_under_sampler.ipynb*. (Należy znaznaczyć, że ścieżki w tym pliku są lokalne - wymagają zatem manualnej zmiany).   
-Poniżej *confusion matrix* przy użyciu VGG-19:
-
-	              precision   recall   f1-score  support
-
-           0        0.70      0.78     0.74       100
-           1        0.75      0.77     0.76       100
-           2        0.76      0.65     0.70       100
-
-	accuracy                           0.73       300
-	macro avg       0.74      0.73     0.73       300
-	weighted avg    0.74      0.73     0.73       300
 
 Niestety mieliśmy duże trudności z poprawnym wygenerowaniem datasetu COVIDx. W dokumentacji wspomniane jest że próbek z COVID19 powinno być w okolicach 1700 jednak skrypt generujący ten dataset w naszym przypadku mówił o około 4100 próbkach z COVID19 i nadal nie jesteśmy pewni z czego to wynika. Na szczęście udało nam się w końcu pozyskać poprawną wersję i zrobić na niej over-sampling i under-sampling ale nie zdążyliśmy już przepuścić wszystkich zbiorów przez sieci neuronowe. 
