@@ -34,12 +34,15 @@ Autorzy użyli “wag klasowych” (class weighting), które pozwala na ocenę m
 
 Można to zaimplenetować na przykład przypisując wagi klasom odwrotnie proporcjonalnie do ich częstości, czyli wg wzoru:
 
-<img src="https://render.githubusercontent.com/render/math?math=w_j = /frac{n_{sample}}{n_{klas} * n_{sample_j}}">
+<img src="https://render.githubusercontent.com/render/math?math=w_j = \frac{n_{sample}}{n_{klas} * n_{sample_j}}">
 
 <img src="https://render.githubusercontent.com/render/math?math=w_j"> - waga dla każdej klasy (j oznacza klasę)
-n_sample - całkowita liczba próbek (wierszy) w zbiorze danych
-n_klas - całkowita liczba unikalnych klas w zbiorze danych
-n_sample_j - całkowita liczba próbek (wierszy) danej klasy
+
+<img src="https://render.githubusercontent.com/render/math?math=n_{sample}"> - całkowita liczba próbek (wierszy) w zbiorze danych
+
+<img src="https://render.githubusercontent.com/render/math?math=n_{klas}"> - całkowita liczba unikalnych klas w zbiorze danych
+
+<img src="https://render.githubusercontent.com/render/math?math=n_{sample_j}"> - całkowita liczba próbek (wierszy) danej klasy
 
 > “To tackle the class imbalance issue, we apply class weighting to penalize a model when it missclassifies a positive sample. Although accuracy is an intuitive evaluation criterion for many bio-imaging problems, e.g., osteoarthritis severity prediction, those evaluation criteria are most suitable for balanced class scenarios. Keeping in mind the imbalanced scenario with widely different class distributions between classes, we report precision, recall, F1, and positive predictive value (PPV) produced through random search and 5-fold cross-validation tests, i.e., for each hyperparameter group of the specific network structure, 5 repeated experiments are conducted.”
 
