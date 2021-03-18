@@ -40,12 +40,12 @@ Autorzy użyli “wag klasowych” (class weighting), które pozwala na ocenę m
 
 Można to zaimplenetować na przykład przypisując wagi klasom odwrotnie proporcjonalnie do ich częstości, czyli wg wzoru:
 
-w<sub>j</sub> = n<sub>sample</sub> / (n<sub>klas</sub>\*n<sub>sample_j</sub>)
+w<sub>j</sub> = n<sub>sample</sub> / (n<sub>klas</sub>\*n<sub>sample<sub>j</sub></sub>)
 
 w<sub>j</sub> - waga dla każdej klasy (j oznacza klasę)  
 n<sub>sample</sub> - całkowita liczba próbek (wierszy) w zbiorze danych  
 n<sub>klas</sub> - całkowita liczba unikalnych klas w zbiorze danych  
-n<sub>sample_j</sub> - całkowita liczba próbek (wierszy) danej klasy
+n<sub>sample<sub>j</sub></sub> - całkowita liczba próbek (wierszy) danej klasy
 
 <!---
 <img src="https://render.githubusercontent.com/render/math?math=w_j = \frac{n_{sample}}{n_{klas} * n_{sample_j}}">
