@@ -1,5 +1,11 @@
 # Praca domowa nr 1 - Zbiory danych
 ## 1. Opis zbioru danych
+Zbiór danych wykorzystywany przez twórców artykułu składa się z czterech plików z rozszerzeniem nii.gz. Jest to format NIfTI (Neuroimaging Informatics Technology Initiative), który jest formatem otwartym używanym do przechowywania zdjęć medycznych. Pliki w tym formacie zawierają nagłówek, z którego można odczytać podstawowe informacje na temat obrazu.
+
+Autorzy artykułu korzystają z czterech zdjęć 3D wykonanych przy pomocy tomografii komputerowej o łącznym rozmiarze 427MB. Na każde zdjęcie składa się od 117 do 470 poziomych przekrojów(widok płuc patrząc z góry) o rozdzielczości 512 x 512. Rozmiar pojedynczego zdjęcia 3D waha się pomiędzy 43MB a 168MB w zależności od liczby przekrojów, z których się składa. Po rozpakowaniu zdjęć oraz wczytaniu ich zawartości, mierzymy rozmiar pojedynczego przekroju i zauważamy, że wynosi on około 2MB.
+Podsumowując otrzymujemy około 1200 zdjęć płuc w poziomym przekroju o wymiarach 512 x 512 o rozmiarze 2MB i to one są wykorzystywane do uczenia sieci neuronowej BCDU-Net.
+
+Dodatkowe własności możemy odczytać z nagłówka każdego z wyżej wymienionych plików. Dla wszystkich zdjęć rozmiar voxela wynosi 16 bitów oraz przechowuje on jedną liczbę typu `int`, możemy z tego wywnioskować, że omawiane zdjęcia są skali szarości.
 
 
 ## 2. i 3. Zbadanie właściwości zbioru danych
