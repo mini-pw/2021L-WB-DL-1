@@ -69,9 +69,9 @@ Poniżej *confusion matrix* przy użyciu VGG-19:
 
 	         precision   recall   f1-score    support
 
-           0       0.70      0.78      0.74           100
-           1       0.75      0.77      0.76           100
-           2       0.76      0.65      0.70           100
+           0        0.70      0.78      0.74       100
+           1        0.75      0.77      0.76       100
+           2        0.76      0.65      0.70       100
 
 	accuracy                           0.73       300
 	macro avg       0.74      0.73     0.73       300
