@@ -33,14 +33,14 @@ Autorzy użyli “wag klasowych” (class weighting), które pozwala na ocenę m
 “Class weighting” polega na tym, że modyfikujemy obecny algorytm treningowy tak, aby uwzględniał niezbalansowanie klas. Osiągamy to poprzez nadanie różnych wag klasom większościowym i mniejszościowym. Różnica w wagach będzie miała wpływ na klasyfikację klas podczas fazy szkolenia. Celem jest ukaranie błędnej klasyfikacji dokonanej przez klasę mniejszościową poprzez ustawienie wyższej wagi dla klasy i jednoczesne zmniejszenie wagi dla klasy większościowej.
 
 Można to zaimplenetować na przykład przypisując wagi klasom odwrotnie proporcjonalnie do ich częstości, czyli wg wzoru:
-	$$
-	w_j = n_{sample} / (n_{klas} * n_{sample_j}) \\ 
-	\\~\\ 
-	w_j - waga \ dla \ każdej \ klasy \ (j \ oznacza \ klasę) \\
-	n_{sample} - całkowita \ liczbą \ próbek \ (wierszy) \ w \ zbiorze \ danych \\
-	n_{klas} - całkowita \ liczba \ unikalnych \ klas \ w \ zbiorze \ danych \\
-	n_{sample_j} - całkowita \ liczba \ próbek \ (wierszy) \ danej \ klasy
-	$$
+$$
+w_j = n_{sample} / (n_{klas} * n_{sample_j}) \\ 
+\\~\\ 
+w_j - waga \ dla \ każdej \ klasy \ (j \ oznacza \ klasę) \\
+n_{sample} - całkowita \ liczbą \ próbek \ (wierszy) \ w \ zbiorze \ danych \\
+n_{klas} - całkowita \ liczba \ unikalnych \ klas \ w \ zbiorze \ danych \\
+n_{sample_j} - całkowita \ liczba \ próbek \ (wierszy) \ danej \ klasy
+$$
 
 > “To tackle the class imbalance issue, we apply class weighting to penalize a model when it missclassifies a positive sample. Although accuracy is an intuitive evaluation criterion for many bio-imaging problems, e.g., osteoarthritis severity prediction, those evaluation criteria are most suitable for balanced class scenarios. Keeping in mind the imbalanced scenario with widely different class distributions between classes, we report precision, recall, F1, and positive predictive value (PPV) produced through random search and 5-fold cross-validation tests, i.e., for each hyperparameter group of the specific network structure, 5 repeated experiments are conducted.”
 
