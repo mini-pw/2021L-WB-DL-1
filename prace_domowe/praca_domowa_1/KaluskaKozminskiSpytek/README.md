@@ -21,9 +21,9 @@ W opisie zamieszczony jest jednak odnośnik do strony [http://luna16.grand-chall
 
 ## 4. Segmentacja: informacje o maskach oraz porównanie ich z oryginalnymi obrazami
 
-Proponowana przez twórców artykułu sieć neuronowa  BCDU-Net, zwracająca maski płuc na podstawie obrazu tomografii komputerowej, składa się z kilku komplementarnych modułów. Budowa całego modelu jest dosć skomplikowana, wobec czego autorzy zdecydowali się na stworzenie diagramu ilustrującego przepływ danych w sieci.  ![Architektura sieci neuronowej BCDU-Net](bcdunet.png)
+Proponowana przez twórców artykułu sieć neuronowa  BCDU-Net, zwracająca maski płuc na podstawie obrazu tomografii komputerowej, składa się z kilku komplementarnych modułów. Budowa całego modelu jest dosć skomplikowana, wobec czego autorzy zdecydowali się na stworzenie diagramu ilustrującego przepływ danych w sieci.  ![Architektura sieci neuronowej BCDU-Net](pics/bcdunet.png)
 Istotnym momentem w procesie estymacji maski jest usunięcie z obrazu tkanek otaczających płuca, które w przypadku tych badań nie mają znaczenia (koncentracja na predykcji kształtu samych płuc) - autorzy uczynili to w etapie tzw. "post-processingu". Ostatecznie, wytworzone maski są de facto tablicą z pakietu numpy (`numpy.array`), składującą wartości 0 lub 1 - utworzony obraz jest o jednobitowej głębi kolorów. Taka struktura maski pozwoliła zmierzyć efektywność modelu przy pomocy miar typowych dla problemu klasyfikacji. Rozmiar obrazu zawierającego maskę to 512 x 512. Proponowany przez autorów zbiór testowy składał się z 307 predykcji. Poniższe grafiki prezentują przykładowe oryginalne obrazy tomografii komputerowej płuc oraz wytworzone na ich podstawie maski.
-![Obrazy tomografii komputerowej płuc z maskami nałożonymi w półprzezroczystości](./CT_Est_transparent.png)
+![Obrazy tomografii komputerowej płuc z maskami nałożonymi w półprzezroczystości](pics/CT_Est_transparent.png)
 *Obrazy tomografii komputerowej płuc z maskami nałożonymi w półprzezroczystości*
-![Porównanie obrazów tomografii komputerowej płuc z wytworzonymi maskami](./CT_Estimated.png)
+![Porównanie obrazów tomografii komputerowej płuc z wytworzonymi maskami](pics/CT_Estimated.png)
 *Porównanie obrazów tomografii komputerowej płuc z wytworzonymi maskami*
