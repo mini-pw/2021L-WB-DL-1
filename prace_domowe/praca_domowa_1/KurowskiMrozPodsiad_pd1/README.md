@@ -67,7 +67,7 @@ Over-sampling został zrobiony w oparciu o kod autorów artykułu. Zaszła jedna
 Under-sampling został zrobiony przy użyciu *imblearn.under_sampling.RandomUnderSampler* przy zadaniu *sampling strategy* tak, by wartości wszystkich klas były równe najmniejszej. Ustawienie *random_state* czyni proces powtarzalnym. Kod generujący podzielone pliki .npyowe umieszczony jest w notebooku *random_under_sampler.ipynb*. (Należy znaznaczyć, że ścieżki w tym pliku są lokalne - wymagają zatem manualnej zmiany).   
 Poniżej *confusion matrix* przy użyciu VGG-19:
 
-	               precision   recall   f1-score    support
+	              precision   recall   f1-score  support
 
            0        0.70      0.78      0.74     100
            1        0.75      0.77      0.76     100
