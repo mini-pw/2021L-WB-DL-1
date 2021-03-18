@@ -20,6 +20,12 @@ Modyfikowana przez nich wersja datasetu COVIDx v2.0 zawiera “15,959 zdjęć CX
 
 Wygenerowany przez nas dataset COVIDx ma następujący skład, który sumarycznie zbalansowaniem jest podobny do zbioru autorów:
 
+	Final stats
+	Train count:  {'normal': 7966, 'pneumonia': 5475, 'COVID-19': 1670}
+	Test count:  {'normal': 885, 'pneumonia': 594, 'COVID-19': 100}
+	Total length of train:  15111
+	Total length of test:  1579
+
 > “We consider 2 different versions of the datasets: first, we used the ‘COVIDx v1.0’ dataset by Wang et al. used to train and evaluate the COVID-Net, comprised of a total of 13,975 CXR images across 13,870 patient cases. COVIDx is mainly based on RSNA Pneumonia Detection Challenge, ActualMed COVID-19 Chest X-ray Dataset Initiative, COVID-19 radiography database, giving 219 COVID-19 positive images, 1,341 normal images, and 1,345 viral pneumonia images. This gives 358 CXR images from 266 COVID-19 patient cases and total of 8,066 patient cases who have no pneumonia (i.e.,normal) and 5,538 patient cases who have non-COVID19 pneumonia. The updated dataset, which we refer to ‘COVIDx v2.0’ is categorized as normal (i.e., no-findings), pneumonia, and COVID-19 viral are enriched with CXR images of adult subjects of COVID-19, pneumonia, and normal examples, leaving 15,959 CXR images across 15,854 patients:
 > - COVID chest X-ray-dataset: Joseph P.C. et al.: 660 PA (i.e., frontal view) CXR images.
 > - COVID-19 patients lungs X-ray images: 70 COVID-19 and 70 normal CXR images.
