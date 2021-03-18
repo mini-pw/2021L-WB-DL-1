@@ -4,7 +4,7 @@
 
 ### 1. Format Datasetu
 
-Zdjęcia CXR, format png (większość i te są w grayscale w 1024 x 1024), jpeg i jpg,  kolory 8-bitowe, format RGB: większość to grayscale ale jest w datasecie kilka fioletowych (i czarno-białych) w sRGB i autorzy konwertują na RGB, różne liczby pikseli (finalnie przekonwertowane na 50176), rozdzielczość: różne, są zdjęcia w 1024 x 1024 (większość), są w 500x500, itd.  - wszystkie finalnie przekonwertowane na 224x224.
+Zdjęcia CXR, format png (większość i te są w grayscale w 1024 x 1024) i jpg,  kolory 8-bitowe, format RGB: większość to grayscale ale jest w datasecie kilka fioletowych (i czarno-białych) w sRGB i autorzy konwertują na RGB, różne liczby pikseli (finalnie przekonwertowane na 50176), rozdzielczość: różne, są zdjęcia w 1024 x 1024 (większość), są w 500x500, itd.  - wszystkie finalnie przekonwertowane na 224x224.
 
 Autorzy w fazie preprocessingu danych starali się usunąć artefakty obrazów CXR (np. Oznaczenia R, L na kolejno, prawe i lewe strony klatki piersiowej) poprzez ustawienie górnej granicy jasności pikseli w celu usunięcia tych najjaśniejszych. Usunięte miejsca zostały potem uzupełnione.
 
