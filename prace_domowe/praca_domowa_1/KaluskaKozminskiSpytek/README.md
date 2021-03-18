@@ -26,4 +26,5 @@ Istotnym momentem w procesie estymacji maski jest usunięcie z obrazu tkanek ota
 ![Obrazy tomografii komputerowej płuc z maskami nałożonymi w półprzezroczystości](pics/CT_Est_transparent.png)
 *Obrazy tomografii komputerowej płuc z maskami nałożonymi w półprzezroczystości*
 ![Porównanie obrazów tomografii komputerowej płuc z wytworzonymi maskami](pics/CT_Estimated.png)
+
 *Porównanie obrazów tomografii komputerowej płuc z wytworzonymi maskami*
