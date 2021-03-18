@@ -58,4 +58,10 @@ n<sub>sample<sub>j</sub></sub> - całkowita liczba próbek (wierszy) danej klasy
 
 ### 4. Over-sampling i Under-sampling
 
-TO DO
+W używanym przez nas datasecie COVIDx występuje dosyć spore niezbalansowanie klas, bo około 8800:6000:1700. Do poradzenia sobie z tym może zostać wykorzystany over-sampling (powielenie naszej najmniejszej klasy aż jest równa z pozostałymi) albo under-sampling (wybranie losowo mniejszej ilości próbek z większych klas żeby były porównywalne wielkością z tą mniejszą).
+
+Jak zrobiliśmy Over-sampling, które pliki .npy to mają (*...\_oversampling.npy*)
+
+Jak zrobiliśmy Under-sampling, które pliki .npy to mają (*...\_undersampling.npy*)
+
+Niestety mieliśmy duże trudności z poprawnym wygenerowaniem datasetu COVIDx. W dokumentacji wspomniane jest że próbek z COVID19 powinno być w okolicach 1700 jednak skrypt generujący ten dataset w naszym przypadku mówił o około 4100 próbkach z COVID19 i nadal nie jesteśmy pewni z czego to wynika. Na szczęście udało nam się w końcu pozyskać poprawną wersję ale nie zdążyliśmy już przepuścić zbiorów na których został wykonany over/under-sampling przez sieci neuronowe.
