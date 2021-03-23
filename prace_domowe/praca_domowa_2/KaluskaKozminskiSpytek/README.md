@@ -7,6 +7,39 @@ Celem przypomnienia, tak wygląda architektura proponowana przez autorów projek
 
 ## Mikołaj
 
+### Dokonane zmiany
+
+W mojej modyfikacji spróbowałem "odchudzić" sieć neuronową poprzez usunięcie niektórych warstw. Moją główną motywacją było przeczucie i chęć zobaczenia, co się stanie po takich zmianach. Skoro oryginalny, bardzo rozbudowany model osiągał świetne wyniki (Accuracy na poziomie 0.9972), to być może uda się wytrenować podobny model, tylko w krótszym czasie, a spadek dokładności będzie niewielki i taki tradeoff będzie korzystny. Dokonałem więc następujących zmian:
+- zmieniłem wymiar outputu pierwszej warstwy maxpoolingu, tak, aby pasowała do następnego wejścia i podpiąłem ją bezpośrednio tam, 
+- odłączyłem od sieci jeden z modułów `Long Short Term Memory`,
+- zmieniłem rozmiar wyjściowy drugiej warstwy upsamplingowej, aby dało się ją przypiąć o poziom wyżej. 
+
+Sieć po modyfikacji przedstawia poniższy diagram:
+
+![Diagram sieci neuronowej po zmianach](./data/bcdunet_mikolaj.png)
+
+
+### Wyniki
+
+Wyniki działania tego modelu zupełnie mnie zaskoczyły. Przede wszystkim, nie stało się to, czego oczekiwałem. Model z mniejszą ilością warstw uczył się dużo dłużej. Podczas, gdy model z artykułu osiągnął accuracy >0.99 już po ok. 5 epokach, model po moich zmianach osiągnął taki poziom, dopiero po wykonaniu pełnych 20 epok, które założyłem jako maksimum. Jednak model nie był dużo gorszy, niż ten z artykułu. Porównanie najważniejszych metryk przedstawia tabelka:
+
+
+| Metryki: | Accuracy |  AUC ROC | F1 Score | Specificity | Sensitivity | Jaccard similarity score|
+| ------- | --------- | ------| -----| ---| ---| ---|
+| BCDU-Net| 0.9972 | 0.9946 |0.9904 |0.9982|0.9910 |0.9972
+|  Po zmianach| 0.9929 | 0.9892 | 0.9817 | 0.9953 | 0.9830 | 0.9641|
+
+
+Widzimy, że we wszystkich miarach większe wartości osiąga model oryginalny. Jednak zmodyfikowany również jest dużo lepszy od losowości.
+
+Niestety za gorsze wyniki nie uzyskaliśmy żadnej rekompensaty - model nie uczy się szybciej, więc nie ma sensu stosowanie go, lepiej stosować model oryginalny. Różnica czasu trenowania na moim sprzęcie to ok. 1,5 h dla modelu oryginalnego i ok. 6 dla modelu z modyfikacjami.
+
+Przykładowe wyniki działania modelu po modyfikacji przedstawia rysunek:
+
+![Wyniki zmodyfikowanego modelu](./data/sample_resultsmikolaj.png)
+
+
+
 ## Paweł Koźmiński
 ### Motywacja pierwszej próby
 Podjęta w moim wykonaniu pierwsza próba modyfikacji architektury sieci neuronowej `BCDU-Net` motywowana była własnymi intuicjami na podstawie zaproponowanego rozwiązania przez autorów projektu oraz obserwacji z tytułu uczestnictwa w zajęciach z przedmiotu Metody Inteligencji Obliczeniowej. Wprowadziłem szereg prób, jednak jak się okazało, nie były one skuteczne:
