@@ -37,8 +37,10 @@ Miejsca zmian zostały zaznaczone na poniższej ilustracji:
 ### Wynik drugiej próby
 
 Proponowana druga wersja modyfikacji architektura sieci przyniosła wyższe wyniki od pierwszej. Wartość AUC na poziomie 0.78, czułość bliska 1 oraz swoistość 0.56 również nie są najgorsze. Analizując jednak uzyskane maski, szybko można zauważyć jednak, że sieć nie zwracam poprawnych wyników. Odpowiednio określany jest rozmiar przekroju ciała, którego obraz tomografii został wykonany, jednak z wnętrze płuc pozyskiwane są wyłącznie nieliczne punkty. Czas trenowania nowej sieci wzrósł w porównaniu z pierwotną o około 9%.
+
 Przykłady estymowanych masek:
 ![Efekt działania drugiej modyfikacji sieci](./data/sample_results02.png)
+
 Wykres ROC proponowanej architektury:
 ![Wykres ROC uzyskany przez drugą modyfikację sieci](./data/ROC02.png)
 
