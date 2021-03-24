@@ -1,7 +1,7 @@
 # Praca domowa nr 2 - Architektura sieci neuronowych
 Celem pracy domowej nr 2 jest modyfikacja architektury sieci neuronowej `BCDU-Net`, używanej do tworzenia masek na podstawie obrazów tomografii komputerowej. W wyniku zmian powstały trzy nowe architektury, proponowane przez każdego z członków zespołu.
 
-Celem przypomnienia, tak wygląda architektura proponowana przez autorów projektu `BCDU-Net` [(Azad et. all, 2020)](https://github.com/rezazad68/BCDU-Net):
+Celem przypomnienia, tak wygląda architektura proponowana przez autorów projektu `BCDU-Net` [(Azad et al., 2020)](https://github.com/rezazad68/BCDU-Net):
 ![Oryginalna architektura sieci](./data/bcdunet.png)
 ## Marysia
 
@@ -25,8 +25,8 @@ Wyniki działania tego modelu zupełnie mnie zaskoczyły. Przede wszystkim, nie 
 
 
 | Metryki: | Accuracy |  AUC ROC | F1 Score | Specificity | Sensitivity | Jaccard similarity score|
-| ------- | --------- | ------| -----| ---| ---| ---|
-| BCDU-Net| 0.9972 | 0.9946 |0.9904 |0.9982|0.9910 |0.9972
+| ------- | --------- | ------ | ----- | --- | --- | --- |
+| BCDU-Net | 0.9972 | 0.9946 | 0.9904 | 0.9982 | 0.9910 | 0.9972 |
 |  Po zmianach| 0.9929 | 0.9892 | 0.9817 | 0.9953 | 0.9830 | 0.9641|
 
 
