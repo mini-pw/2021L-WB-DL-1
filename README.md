@@ -49,13 +49,13 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
     <td>2021-03-18</td>
     <td>Budowa sieci neuronowych (rozdz. 3)</td>
     <td>Omówienie i rozpoznawanie w kodzie poszczególnych elementów sieci neuronowej.</td>
-    <td>Anatomia sieci neuronowej.</td>
+    <td>Architektura sieci neuronowej.</td>
     <td>5 pkt.</td>
   </tr>
   <tr>
     <td>5</td>
     <td>2021-03-25</td>
-    <td>Podział danych na zbiory. Preprocessing danych (rozdz. 4.1-4.3)</td>
+    <td>Podział danych na zbiory. Preprocessing danych (rozdz. 4.1-4.3, 4.5.3, 4.5.4)</td>
     <td>Jakie są typowe podziały na zbiór treningowy, walidacyjny i testowy. W jaki sposób i po co obrabiamy zdjęcia przed treningiem.</td>
     <td>Podział na zbiór treningowy, walidacyjny, testowowy. Preprocessing danych.</td>
     <td>5 pkt.</td>
@@ -162,8 +162,8 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
 	- wstęp, motywacja [0-8 punktów]
 	- literatura [0-4 punktów]
 	- główne wyniki pracy [0-16 punktów]
-	- wnioski [0-8 punktów]  
-	- jakość wykresów/wizualizacji/diagramów [0-4 punktów]   
+	- wnioski [0-8 punktów]
+	- jakość wykresów/wizualizacji/diagramów [0-4 punktów]
 -   prezentacja - 20 pkt.
 	- prezentacja wyników projektu podczas wykładu (oceniana przez wszystkich prowadzących)
 -   praca na laboratoriach - 40 pkt.
