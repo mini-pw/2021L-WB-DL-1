@@ -85,7 +85,7 @@ Przykład zwróconych przez sieć wyników:
 Po porażce poniesionej przez pierwszą wersję zmodyfikowanej architektury, zdecydoawłem się zajrzeć do literatury - badań naukowych zajmujących się podobnym problemem. Autorzy projektu `BCDU-Net` sami wskazują kilka analogicznych projektów - między innymi [(Ronneberger and etc. all, 2015)](https://arxiv.org/abs/1505.04597). Korzystając z proponowanej formy w powyższym artykule zdecydowałem się na:
  - usunięcie jednej z warstw połączeń gęstych na najniższym z poziomów,
  - zmiana rozmiaru niektórych warstw poprzez dwukrotne ich zwiększenie - zgodnie z wersją proponowanym w cytowanym artykule oraz
- - pozostawienie metody inicjalizacji Xaviera - tym razem jednak `glorot_normal`.`
+ - pozostawienie metody inicjalizacji Xaviera - tym razem jednak `glorot_normal`.
 Funkcja aktywacji ostatniej z warstw pozostała niezmieniona - `sigmoid`. 
 
 Miejsca zmian zostały zaznaczone na poniższej ilustracji:
