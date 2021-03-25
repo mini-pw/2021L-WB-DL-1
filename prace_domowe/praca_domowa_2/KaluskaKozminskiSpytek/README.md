@@ -3,9 +3,31 @@ Celem pracy domowej nr 2 jest modyfikacja architektury sieci neuronowej `BCDU-Ne
 
 Celem przypomnienia, tak wygląda architektura proponowana przez autorów projektu `BCDU-Net` [(Azad et al., 2020)](https://github.com/rezazad68/BCDU-Net):
 ![Oryginalna architektura sieci](./data/bcdunet.png)
-## Marysia
+## Marysia Kałuska
+W ramach moich modyfikacji sieci  zaproponowanej przez twórców artykułu postanowiłam wprowadzić kilka zmian:
+- Zmiana funkcji aktywacji z `relu` na `tanh` - `tanh` przyjmuje wartości od -1 do 1, co oznacza, że nie ucina części ujemnej, chciałam sprawdzić czy uwzględnienie ujemnych wartości zamiast ich pominięcia poprawi skuteczność modelu;
+- Z powodów wydajnościowych `batch_size` ustawiłam na 1 – przy 2 ze względu brak pamięci uczenie kończyło się błędem;
+- Zmiany architektuktury sieci - zduplikowałam warstwę `Conv2D` tak jak na rysunku, kierując się przesłanką, że więcej warstw może oznaczać większą skuteczność modelu.
+Model został wytrenowany w 50 epokach tak jak model z artykułu.
+Poniżej zamieszczam diagram prezentujący zmiany w architekturze sieci.
 
-## Mikołaj
+![Architektura sieci po modyfikacji](./data/bcdunet_marysia.png)
+
+### Wyniki
+Wyniki osiągnięte przez zmodifikowaną sieć były gorsze od sieci oryginalnej. 
+Wprowadzone zmiany nie wpłynęły drastycznie na pogorszenie sieci możliwe, że gdyby można było wytrenować
+tę sieć przy ustawieniach `batch_size=2` wyniki byłyby bardziej zbliżone.
+Poniżej zamieszczam porównanie.
+
+| Metryki: | Accuracy |  AUC ROC | F1 Score | Specificity | Sensitivity | Jaccard similarity score|
+| ------- | --------- | ------ | ----- | --- | --- | --- |
+| BCDU-Net | 0.9972 | 0.9946 | 0.9904 | 0.9982 | 0.9910 | 0.9972 |
+|  Po zmianach| 0.9947 | 0.9928 | 0.9861 | 0.9958 | 0.9898 | 0.9947|
+
+![Predykcje zmodyfikowanego modelu(po prawej)](./data/sample_results_marysia.png)
+
+
+## Mikołaj Spytek
 
 ### Dokonane zmiany
 
