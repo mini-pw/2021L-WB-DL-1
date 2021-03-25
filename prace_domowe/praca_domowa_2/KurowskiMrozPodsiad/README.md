@@ -3,32 +3,26 @@
 ## Praca domowa nr 2 - Architektura sieci neuronowych
 
 ### Wybrana sieć
+Zdecydowaliśmy się na zmodyfikowanie sieci VGG ze względu na jej przejrzystą strukturę i to że zwracała najlepsze wyniki w naszych poprzednich testach. Ogółem VGG19 składa się z 5 bloków konwolucyjnych (warstwy konwolucyjne + MaxPooling) i bloku klasyfikacji z dwoma Dense Layerami (512 neuronów + Dropout 0.5 oraz 128 neuronów). Na outpucie mamy oczywiście Dense Layera z funkcją aktywacji softmax. Poza ostatnią warstwą wszystkie warstwy (gdzie jest to aplikowalne) mają funkcję aktywacji ReLu, czego zdecydowaliśmy się nie zmieniać.
 
-Zdecydowaliśmy się na zmodyfikowanie sieci VGG ze względu na jej przejrzystą strukturę i to że zwracała najlepsze wyniki w naszych poprzednich testach.
-Postanowiliśmy nie modyfikować funkcji aktywacji oraz kształtu inputu, żeby ułatwić testowanie. Oprócz tego funkcja ReLu jest uważana za najskuteczniejszą przy sieciach neuronowych o takiej liczbie warstw i skomplikowanej architekturze.
+### Modyfikacje
+Postanowiliśmy zainspirować się podejściem “lepiej więcej niż mniej”. Poniżej wykonane przez nas zmiany w architekturze:
 
-### Modyfikacje:
+1. zmiana wartości filtra z 16 na 32 w ostatnim (piątym) bloku konwolucyjnym 
+2. dodanie nowego (szóstego) bloku konwolucyjnego na końcu sieci z wartościami takimi jak pozostałe bloki, z wyjątkiem filtra który ustawiony został na 32
+3. dodanie kolejnej gęstej warstwy (256 neuronów + Dropout 0.25 pomiędzy pierwszą a drugą gęstą warstwą) w bloku klasyfikującym
+4. 
 
-1. zmiana wartości filtra z 16 na 32 w ostatniej warstwie
-2. dodanie nowej warstwy konwolucyjnej na końcu sieci 
-3. dodanie gęstej warstwy wyjściowej 
+Wyniki tych zmian zamieszczone są odpowiednio w notebookach *VGG-19_zmiana1.ipynb*, *VGG-19_zmiana2.ipynb* i *VGG-19_zmiana3.ipynb*. Dla porównania umieściliśmy też *VGG-19.ipynb* w którym architektura pozostała bez zmian. Wszystkie notebooki zawierają metryki precision, recall oraz F1-score a także Confusion Matrix.
 
-### Co się zmieniło:
+### Co się zmieniło
+Poniżej krótkie podsumowanie tego, co zmieniło się po każdej wykonanej przez nas zmianie:
 
-1. więcej osób jest zaklasyfikowanych jako zdrowe
-2. a
-3. a
- 
- Zmodyfikować sieć neuronową używaną w artykule. Można to zrobić całościowo, albo częściowo.
+1. Więcej osób jest klasyfikowanych jako zdrowe lub covid;  nieznaczne zwiększenie trafności przewidywania, poza wykrywaniem pneumonii
+2. Nieznacznie gorzej niż po zmianie 1; więcej ludzi zakwalifikowanych jako zdrowych, ogółem mały ale zauważalny spadek trafności sieci
+3. Niewielki wzrost trafności klasyfikacji COVID19 i pacjentów bez chorób, nadal jednak porównywalnie do sieci bez zmian
 
-Rekomendowane podejścia:
-- samemu
-- poszukać rozwiązań z innych artykułów.
+W każdym przypadku wystąpił porównywalny czas trenowania sieci. Trenowanie odbyło się na danych, na których wykonany został undersampling z poprzedniej pracy domowej.
 
-Chciałabym, aby każda osoba zrobiła swoją zmianę w sieci, co daje w sumie trzy różne zmiany na grupę. Wyjątkiem jest grupa, która musi napisać jeszcze trenowanie sieci - ona ma o jedną zmianę mniej do zrobienia.
+Ogólnie nasze zmiany nie polepszyły znacząco jakości klasyfikacji sieci neuronowej, ale dały nam wgląd w możliwości dostosowywania architektury sieci. Doszliśmy do wniosku, że nasze zmiany powodują nieznaczne zmiany w wynikach klasyfikacji, ale miary trafności pozostają w tym samym przedziale ~ 75-80%.
 
-Jeśli komuś uda się osiągnąć lepsze wyniki od aktualnych, to ekstra. Jeśli nie, to normalne. Przecież uczymy się na tych przykładach. Co chciałabym to, aby wyniki były lepsze od losowych.
-
-Proszę uzasadnić wybrany pomysł na zmianę i dlaczego taką zmianę zdecydowało się wprowadzić.
-
-Prócz wprowadzenia zmiany, chciałabym, abyście pokazali / napisali co ona zmieniła np. metryki jakości modelu, czas trenowania.
