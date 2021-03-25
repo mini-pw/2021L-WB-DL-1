@@ -15,7 +15,7 @@ Postanowiliśmy nie modyfikować funkcji aktywacji oraz kształtu inputu, żeby 
 
 ### Co się zmieniło:
 
-1. lepsze wykrywanie osób zdrowych
+1. więcej osób jest zaklasyfikowanych jako zdrowe
 2. a
 3. a
  
