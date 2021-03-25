@@ -1,4 +1,12 @@
+### Grupa: Kurowski Mróz Podsiad
+
 ## Praca domowa nr 2 - Architektura sieci neuronowych
+
+### Modyfikacje:
+
+1. aaa
+2. aaa
+3. aaa
 
 Zmodyfikować sieć neuronową używaną w artykule. Można to zrobić całościowo, albo częściowo.
 
