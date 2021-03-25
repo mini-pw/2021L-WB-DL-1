@@ -57,7 +57,7 @@ Widzimy, że we wszystkich miarach większe wartości osiąga model oryginalny. 
 
 Niestety za gorsze wyniki nie uzyskaliśmy żadnej rekompensaty - model nie uczy się szybciej, więc nie ma sensu stosowanie go, lepiej stosować model oryginalny. Różnica czasu trenowania na moim sprzęcie to ok. 1,5 h dla modelu oryginalnego i ok. 6 dla modelu z modyfikacjami.
 
-Przykładowe wyniki działania modelu po modyfikacji przedstawia rysunek:
+Przykładowe wyniki działania modelu po modyfikacji przedstawia rysunek. Co ciekawe - widzimy, że maski w tym modelu są bardziej rozmyte i niewyraźne:
 
 ![Wyniki zmodyfikowanego modelu](./data/sample_resultsmikolaj.png)
 
@@ -104,3 +104,5 @@ Przykłady estymowanych masek oraz wykres ROC proponowanej architektury:
 Uzyskane przez proponowane zmodyfikowane architektury sieci są znacząco niższe od tych prezentowanych przez twórców artykułu. Niestety trudno było rywalizować z rozwiązaniem, które osiągnęło wartość AUC równą 0.9946. Uzyskane estymacje masek są jednak niskiej jakości i raczej nie mogłyby być użyte w praktycznych zastosowaniach.
 
 ## Podsumowanie
+
+Okazało się, że żaden z uzyskanych przez nas modeli nie osiągnął lepszych wyników, niż ten opracowany przez autorów artykułu. Mogliśmy się jednak tego spodziewać, gdyż mają oni dużo większą wiedzę specjalistyczną oraz dużo więcej czasu na trenowanie modeli i wybieranie najlepszych hiperparametrów metodą prób i błędów. Ćwiczenie to jednak pozwoliło nam zdobyć choć minimalne doświaczenie przy pracy z sieciami neronowymi. Wiemy już, co na pewno nie będzie działać oraz mogliśmy zaobserwować jak niektóre hiperparametry wpływają na model (np. zmiana funkcji aktywacji). Dodatkowo przy wprowadzaniu modyfikacji poznaliśmy część składni bilioteki keras.
