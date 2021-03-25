@@ -24,7 +24,8 @@ Poniżej zamieszczam porównanie.
 | BCDU-Net | 0.9972 | 0.9946 | 0.9904 | 0.9982 | 0.9910 | 0.9972 |
 |  Po zmianach| 0.9947 | 0.9928 | 0.9861 | 0.9958 | 0.9898 | 0.9947|
 
-![Predykcje zmodyfikowanego modelu(po prawej)](./data/sample_results_marysia.png)
+Predykcje zmienionego modelu znajdują się w prawej kolumnie. Widzimy, że choć jego skuteczność jest wysoka, niedokładność tego modelu jest widoczna dla ludzkiego oka . Możemy zauważyć, że model lekko przeszacowuje powierzchnię płuc.
+![Predykcje zmodyfikowanego modelu](./data/sample_results_marysia.png)
 
 
 ## Mikołaj Spytek
