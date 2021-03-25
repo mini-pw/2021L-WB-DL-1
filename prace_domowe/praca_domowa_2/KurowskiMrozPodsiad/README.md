@@ -8,8 +8,8 @@ Zdecydowaliśmy się na zmodyfikowanie sieci VGG ze względu na jej przejrzystą
 ### Modyfikacje
 Postanowiliśmy zainspirować się podejściem “lepiej więcej niż mniej”. Poniżej wykonane przez nas zmiany w architekturze:
 
-1. zmiana wartości filtra z 16 na 32 w ostatnim (piątym) bloku konwolucyjnym 
-2. dodanie nowego (szóstego) bloku konwolucyjnego na końcu sieci z wartościami takimi jak pozostałe bloki, z wyjątkiem filtra który ustawiony został na 32
+1. zmiana wartości *filters* z 16 na 32 w ostatnim (piątym) bloku konwolucyjnym 
+2. dodanie nowego (szóstego) bloku konwolucyjnego na końcu sieci z wartościami takimi jak pozostałe bloki, z wyjątkiem wartości *filters* która ustawiona została na 32 filtry
 3. dodanie kolejnej gęstej warstwy (256 neuronów + Dropout 0.25 pomiędzy pierwszą a drugą gęstą warstwą) w bloku klasyfikującym
 
 Wyniki tych zmian zamieszczone są odpowiednio w notebookach *VGG-19_zmiana1.ipynb*, *VGG-19_zmiana2.ipynb* i *VGG-19_zmiana3.ipynb*. Dla porównania umieściliśmy też *VGG-19.ipynb* w którym architektura pozostała bez zmian. Wszystkie notebooki zawierają metryki precision, recall oraz F1-score a także Confusion Matrix.
