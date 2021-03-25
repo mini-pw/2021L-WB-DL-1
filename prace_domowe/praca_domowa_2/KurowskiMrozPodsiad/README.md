@@ -2,13 +2,24 @@
 
 ## Praca domowa nr 2 - Architektura sieci neuronowych
 
+### Wybrana sieć
+
+Zdecydowaliśmy się na zmodyfikowanie sieci VGG ze względu na jej przejrzystą strukturę i to że zwracała najlepsze wyniki w naszych poprzednich testach.
+Postanowiliśmy nie modyfikować funkcji aktywacji oraz kształtu inputu, żeby ułatwić testowanie. Oprócz tego funkcja ReLu jest uważana za najskuteczniejszą przy sieciach neuronowych o takiej liczbie warstw i skomplikowanej architekturze.
+
 ### Modyfikacje:
 
-1. aaa
-2. aaa
-3. aaa
+1. zmiana wartości filtra z 16 na 32 w ostatniej warstwie
+2. dodanie nowej warstwy konwolucyjnej na końcu sieci 
+3. dodanie gęstej warstwy wyjściowej 
 
-Zmodyfikować sieć neuronową używaną w artykule. Można to zrobić całościowo, albo częściowo.
+### Co się zmieniło:
+
+1. lepsze wykrywanie osób zdrowych
+2. a
+3. a
+ 
+ Zmodyfikować sieć neuronową używaną w artykule. Można to zrobić całościowo, albo częściowo.
 
 Rekomendowane podejścia:
 - samemu
