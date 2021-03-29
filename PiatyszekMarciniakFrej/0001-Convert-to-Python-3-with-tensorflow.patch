@@ -1,0 +1,121 @@
+From 725e2bb3142d6d1c0b3908aeea4c9ce4ae35baf2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Piotr=20Pi=C4=85tyszek?= <piotrp@wektor.xyz>
+Date: Thu, 4 Mar 2021 13:08:21 +0000
+Subject: [PATCH] Convert to Python 3 with tensorflow
+
+---
+ LungNet.py        |  2 +-
+ custom_layers.py  | 10 ++++++----
+ custom_metrics.py |  3 ++-
+ get_fmd_db.py     | 11 ++++++-----
+ 4 files changed, 15 insertions(+), 11 deletions(-)
+
+diff --git a/LungNet.py b/LungNet.py
+index b6be7bd..77e05ee 100644
+--- a/LungNet.py
++++ b/LungNet.py
+@@ -79,7 +79,7 @@ def get_model(n_classes, class_weights, unsuper_weight=0):
+     return model
+ 
+ def sample_generator(db_path, augment=True):
+-    db = np.load(db_path)['db'][()]
++    db = np.load(db_path, allow_pickle=True)['db'][()]
+     X = db['X']
+     Y = db['Y']
+ 
+diff --git a/custom_layers.py b/custom_layers.py
+index 429b97b..8895200 100644
+--- a/custom_layers.py
++++ b/custom_layers.py
+@@ -59,6 +59,8 @@ class Softmax4D(Layer):
+     def compute_output_shape(self, input_shape):
+         return input_shape
+ 
++    def get_config(self):
++        return super().get_config().copy()
+ 
+ class BatchNormalization(Layer):
+     """
+@@ -143,18 +145,18 @@ class BatchNormalization(Layer):
+         self.input_spec = [InputSpec(shape=input_shape)]
+         shape = (input_shape[self.axis],)
+ 
+-        self.gamma = self.add_weight(shape,
++        self.gamma = self.add_weight(shape=shape,
+                                      initializer=self.gamma_init,
+                                      regularizer=self.gamma_regularizer,
+                                      name='{}_gamma'.format(self.name))
+-        self.beta = self.add_weight(shape,
++        self.beta = self.add_weight(shape=shape,
+                                     initializer=self.beta_init,
+                                     regularizer=self.beta_regularizer,
+                                     name='{}_beta'.format(self.name))
+-        self.running_mean = self.add_weight(shape, initializer='zero',
++        self.running_mean = self.add_weight(shape=shape, initializer='zero',
+                                             name='{}_running_mean'.format(self.name),
+                                             trainable=False)
+-        self.running_std = self.add_weight(shape, initializer='one',
++        self.running_std = self.add_weight(shape=shape, initializer='one',
+                                            name='{}_running_std'.format(self.name),
+                                            trainable=False)
+ 
+diff --git a/custom_metrics.py b/custom_metrics.py
+index 9b64621..ddd6c5e 100644
+--- a/custom_metrics.py
++++ b/custom_metrics.py
+@@ -24,6 +24,7 @@ be found at: https://github.com/intact-project/LungNet
+ from keras import backend as K
+ 
+ from ipdb import set_trace as bp
++import tensorflow as tf
+ 
+ class loss(object):
+     '''
+@@ -74,7 +75,7 @@ class entrONA(object):
+     def __init__(self, unsuper_channel=-1):
+         self.config = {'unsuper_channel': unsuper_channel}
+         self.__name__ = 'entrONA'
+-        self.unsuper_channel = K.variable(unsuper_channel, dtype='int')
++        self.unsuper_channel = K.variable(unsuper_channel, dtype=tf.int64)
+ 
+     def __call__(self, y_true, y_pred):
+         unsupermask = y_true[:,:,:,self.unsuper_channel]
+diff --git a/get_fmd_db.py b/get_fmd_db.py
+index 5592134..c0cc61a 100644
+--- a/get_fmd_db.py
++++ b/get_fmd_db.py
+@@ -28,7 +28,8 @@ validation data.
+ '''
+ import glob
+ import os.path
+-import urllib2
++#import urllib2
++import urllib.request as urllib2
+ import zipfile
+ import numpy as np
+ import gzip, pickle
+@@ -41,9 +42,9 @@ def download_and_unzip_from_url(url,directory):
+     if not os.path.isfile(file_name):
+         u = urllib2.urlopen(url)
+         f = open(file_name, 'wb')
+-        meta = u.info()
+-        file_size = int(meta.getheaders("Content-Length")[0])
+-        print "Downloading: %s Bytes: %s" % (file_name, file_size)
++        #meta = u.info()
++        file_size = int(u.getheader("Content-Length"))
++        print("Downloading: %s Bytes: %s" % (file_name, file_size))
+ 
+         file_size_dl = 0
+         block_sz = 8192
+@@ -56,7 +57,7 @@ def download_and_unzip_from_url(url,directory):
+             f.write(buffer)
+             status = r"%10d  [%3.2f%%]" % (file_size_dl, file_size_dl * 100. / file_size)
+             status = status + chr(8)*(len(status)+1)
+-            print status,
++            print(status)
+ 
+         f.close()
+ 
+-- 
+2.17.1
+
