@@ -15,7 +15,7 @@ tr_data   = tr_data /255.
 
 indexes = [1,100, 435]
 counter = 0 
-fig,ax = plt.subplots(6, 2, figsize=[15,15])
+fig,ax = plt.subplots(6, 2, figsize=[30,80])
 for sss in indexes:
 
     ax[0+counter,0].hist(np.reshape(tr_data[sss,: ,:, 0], (262144,)))
@@ -35,5 +35,5 @@ for sss in indexes:
     counter+=2
 
 
-plt.show()
+plt.savefig("hist_eq.png")
 
