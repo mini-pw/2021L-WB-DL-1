@@ -16,7 +16,7 @@ Natomiast usunięcie adnotacji to wykorzystanie biblioteki OpenCV do usunięcia 
 Przykładowy preprocessing obrazu zamieszczamy w notebooku *image_preprocessing.ipynb*.
 
 
-### 2. Nasze 3 ulepszenia
+### 2. Nasze trzy ulepszenia
 
 TODO
 
