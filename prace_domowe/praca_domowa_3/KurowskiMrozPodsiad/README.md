@@ -51,23 +51,23 @@ Poniżej przykład preprocessingu wykonanego na 3 próbkach odręcznie pisanego 
 
 Jak można się domyślić, problem pozbywania się liter z obrazków sprowadza się do dwóch mniejszych problemów: wykrycia tekstu oraz wypełnienia go czymś “sensownym” dla ludzkiego oka.
 
-**Wykrywanie liter na obrazkach**: 
+#### **Wykrywanie liter na obrazkach**: 
 
 TODO
 
-**Wykrywanie artefaktów na zdjęciach**:
+#### **Wykrywanie artefaktów na zdjęciach**:
 
 TODO
 
-**Image inpainting**: 
+#### **Image inpainting**: 
 
 Jest to proces rekonstrukcji brakujących części obrazu w taki sposób, że obserwatorzy nie są w stanie stwierdzić, że te regiony zostały poddane rekonstrukcji. Technika ta jest często używana do usuwania niepożądanych obiektów z obrazu lub do przywracania uszkodzonych fragmentów starych zdjęć.
 
 Początkowo wymagała ona ręcznego wykonania pracy przez człowieka. Obecnie jednak istnieje wiele metod automatycznego wypełniania. Oprócz obrazu, większość z tych metod wymaga również jako danych wejściowych maski pokazującej regiony wymagających wypełnienia. Regiony te mogą być podane przez człowieka lub automatycznie wykryte.
 
-**Porównanie technik**:  
+#### **Porównanie technik**:  
 
-*PDE (Partial Differential Equation)*:
+**PDE (Partial Differential Equation)**:
 - Wykorzystuje podejście oparte na izofotach (krzywa na oświetlonej powierzchni, która łączy punkty o jednakowej jasności, w tym przypadku linie proste o równych wartościach w skali szarości) i zachowuje wszystkie informacje o strukturze
 - Działa na poziomie pikseli, daje efekt rozmycia dla większych obszarów i zajmuje dużo czasu. Brzegi są przedłużane w prostej linii, dlatego ten algorytm nie jest odpowiedni dla krawędzi zakrzywionych
 <p align="center">
