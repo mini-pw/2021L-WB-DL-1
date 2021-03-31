@@ -90,7 +90,7 @@ Poniżej porównanie kilku metod:
 **Total Variation**
 - Najlepiej nadaje się, gdy obszar do wypełnienia jest cienki (np. tekst)
 - Doskonale nadaje się do usuwania szumu ze zdjęć
-Radzi sobie tylko z wypełnianiem małych obszarów obrazu
+- Radzi sobie tylko z wypełnianiem małych obszarów obrazu
 <p align="center">
 <img src="https://i.imgur.com/DzsBVI2.png">
 </p>
