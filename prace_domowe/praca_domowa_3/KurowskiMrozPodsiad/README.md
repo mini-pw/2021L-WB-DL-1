@@ -26,7 +26,7 @@ Preprocessing w OCR (optycznym rozpoznywaniu znaków) jest często stosowany że
 
 * **Binaryzacja**, czyli konwersja kolorowego zdjęcia na takie, które zawiera tylko białe i czarne piksele. Określony musi być odpowiedni *threshold*, według którego odpowiednio klasyfikowane są piksele. *Threshold* może być ustalony jeden dla całego obrazu albo może mieć różne wartości dla różnych części zdjęcia (*adaptive thresholding*).
 
-<img align="center" src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg" height="500px">
+<img style="text-align:center" src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg" height="500px">
 
 * **Korekcja nachylenia**, czyli przekrzywienie obrazu w celu nadania mu właściwego formatu i kształtu - tekst powinien pojawiać się poziomo i nie powinien być pochylony pod żadnym kątem. Może to być wykonane w na przykład taki sposób:
     - rzutujemy binaryzowany obraz poziomo (czyli bierzemy sumę pikseli wzdłuż wierszy macierzy obrazu), aby uzyskać histogram pikseli wzdłuż wysokości obrazu
