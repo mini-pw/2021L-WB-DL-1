@@ -25,9 +25,8 @@ TODO
 Preprocessing w OCR (optycznym rozpoznywaniu znaków) jest często stosowany żeby poprawić precyzję. Chcemy żeby obrazy, na których wykonywany jest OCR miały jak najbardziej czytelne znaki (wysoką ostrość, duży kontrast, dobre wypoziomowanie, małe szumy). Poniżej techniki które wykorzystywane są do polepszenia tak zdefiniowanej jakości zdjęć:
 
 * **Binaryzacja**, czyli konwersja kolorowego zdjęcia na takie, które zawiera tylko białe i czarne piksele. Określony musi być odpowiedni *threshold*, według którego odpowiednio klasyfikowane są piksele. *Threshold* może być ustalony jeden dla całego obrazu albo może mieć różne wartości dla różnych części zdjęcia (*adaptive thresholding*).
-* 
 <p align="center">
-<img src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg" height="400px">
+<img src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg" height="500px">
 </p>
 
 * **Korekcja nachylenia**, czyli przekrzywienie obrazu w celu nadania mu właściwego formatu i kształtu - tekst powinien pojawiać się poziomo i nie powinien być pochylony pod żadnym kątem. Może to być wykonane w na przykład taki sposób:
