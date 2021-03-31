@@ -33,8 +33,9 @@ Preprocessing w OCR (optycznym rozpoznywaniu znaków) jest często stosowany że
     - rzutujemy binaryzowany obraz poziomo (czyli bierzemy sumę pikseli wzdłuż wierszy macierzy obrazu), aby uzyskać histogram pikseli wzdłuż wysokości obrazu
     - obracamy obraz w małym przedziale kątów i obliczamy różnicę między wierzchołkami histogramu. Kąt, przy którym mamy maksymalną różnicę między wierzchołkami to nasz kąt nachylenia.
     - po znalezieniu kąta nachylenia obracamy nasz obraz o kąt przeciwny do kąta nachylenia i otrzymujemy dobrze wypoziomowany obraz.
-
-<div style="text-align:center">![Korekcja nachylenia](https://miro.medium.com/max/610/1*b76nvNcSUNwMnBdm1rd7WQ.gif)</div>
+<p align="center">
+<img src="https://miro.medium.com/max/610/1*b76nvNcSUNwMnBdm1rd7WQ.gif" width="800px">
+</p>
 
 * **Odchudzanie i szkieletowanie**, których to używa się w przypadku gdy badamy tekst pisany ręcznie. Procesy te pomagają nam uzyskać jednolitą grubość kresek, co polepsza dokładność wyników OCR.
 
@@ -42,6 +43,8 @@ Preprocessing w OCR (optycznym rozpoznywaniu znaków) jest często stosowany że
 
 Poniżej przykład preprocessingu wykonanego na 3 próbkach odręcznie pisanego tekstu.
 
-<div style="text-align:center">![Preprocessing](https://miro.medium.com/max/700/1*Yajazz-a5PwbFOYS9w7nlg.png)</div>
+<p align="center">
+<img src="https://miro.medium.com/max/700/1*Yajazz-a5PwbFOYS9w7nlg.png" width="800px">
+</p>
 
 
