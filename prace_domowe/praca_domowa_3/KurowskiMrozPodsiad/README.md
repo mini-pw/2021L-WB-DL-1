@@ -65,7 +65,8 @@ Jest to proces rekonstrukcji brakujących części obrazu w taki sposób, że ob
 
 Początkowo wymagała ona ręcznego wykonania pracy przez człowieka. Obecnie jednak istnieje wiele metod automatycznego wypełniania. Oprócz obrazu, większość z tych metod wymaga również jako danych wejściowych maski pokazującej regiony wymagających wypełnienia. Regiony te mogą być podane przez człowieka lub automatycznie wykryte.
 
-**Porównanie technik**:
+**Porównanie technik**:  
+
 *PDE (Partial Differential Equation)*:
 - Wykorzystuje podejście oparte na izofotach (krzywa na oświetlonej powierzchni, która łączy punkty o jednakowej jasności, w tym przypadku linie proste o równych wartościach w skali szarości) i zachowuje wszystkie informacje o strukturze
 - Działa na poziomie pikseli, daje efekt rozmycia dla większych obszarów i zajmuje dużo czasu. Brzegi są przedłużane w prostej linii, dlatego ten algorytm nie jest odpowiedni dla krawędzi zakrzywionych
