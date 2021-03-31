@@ -24,20 +24,20 @@ TODO
 
 Preprocessing w OCR (optycznym rozpoznywaniu znaków) jest często stosowany żeby poprawić precyzję. Chcemy żeby obrazy, na których wykonywany jest OCR miały jak najbardziej czytelne znaki (wysoką ostrość, duży kontrast, dobre wypoziomowanie, małe szumy). Poniżej techniki które wykorzystywane są do polepszenia tak zdefiniowanej jakości zdjęć:
 
-**Binaryzacja**, czyli konwersja kolorowego zdjęcia na takie, które zawiera tylko białe i czarne piksele. Określony musi być odpowiedni *threshold*, według którego odpowiednio klasyfikowane są piksele. *Threshold* może być ustalony jeden dla całego obrazu albo może mieć różne wartości dla różnych części zdjęcia (*adaptive thresholding*).
+* **Binaryzacja**, czyli konwersja kolorowego zdjęcia na takie, które zawiera tylko białe i czarne piksele. Określony musi być odpowiedni *threshold*, według którego odpowiednio klasyfikowane są piksele. *Threshold* może być ustalony jeden dla całego obrazu albo może mieć różne wartości dla różnych części zdjęcia (*adaptive thresholding*).
 
 ![Binaryzacja](https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg)
 
-**Korekcja nachylenia**, czyli przekrzywienie obrazu w celu nadania mu właściwego formatu i kształtu - tekst powinien pojawiać się poziomo i nie powinien być pochylony pod żadnym kątem. Może to być wykonane w na przykład taki sposób:
+* **Korekcja nachylenia**, czyli przekrzywienie obrazu w celu nadania mu właściwego formatu i kształtu - tekst powinien pojawiać się poziomo i nie powinien być pochylony pod żadnym kątem. Może to być wykonane w na przykład taki sposób:
     - rzutujemy binaryzowany obraz poziomo (czyli bierzemy sumę pikseli wzdłuż wierszy macierzy obrazu), aby uzyskać histogram pikseli wzdłuż wysokości obrazu
     - obracamy obraz w małym przedziale kątów i obliczamy różnicę między wierzchołkami histogramu. Kąt, przy którym mamy maksymalną różnicę między wierzchołkami to nasz kąt nachylenia.
     - po znalezieniu kąta nachylenia obracamy nasz obraz o kąt przeciwny do kąta nachylenia i otrzymujemy dobrze wypoziomowany obraz.
 
 ![Korekcja nachylenia](https://miro.medium.com/max/610/1*b76nvNcSUNwMnBdm1rd7WQ.gif)
 
-**Odchudzanie i szkieletowanie**, których to używa się w przypadku gdy badamy tekst pisany ręcznie. Procesy te pomagają nam uzyskać jednolitą grubość kresek, co polepsza dokładność wyników OCR.
+* **Odchudzanie i szkieletowanie**, których to używa się w przypadku gdy badamy tekst pisany ręcznie. Procesy te pomagają nam uzyskać jednolitą grubość kresek, co polepsza dokładność wyników OCR.
 
-**Usuwanie szumów**, którego głównym celem jest wygładzenie obrazu poprzez usunięcie małych kropek, które mają większą intensywność niż reszta obrazu. Usuwanie szumów może być wykonywane zarówno dla obrazów kolorowych jak i binarnych.
+* **Usuwanie szumów**, którego głównym celem jest wygładzenie obrazu poprzez usunięcie małych kropek, które mają większą intensywność niż reszta obrazu. Usuwanie szumów może być wykonywane zarówno dla obrazów kolorowych jak i binarnych.
 
 Poniżej przykład preprocessingu wykonanego na 3 próbkach odręcznie pisanego tekstu.
 
