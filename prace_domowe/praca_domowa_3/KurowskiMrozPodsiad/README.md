@@ -81,7 +81,7 @@ Poniżej porównanie kilku metod:
 
 **Exemplar**
 - W tej technice wybierane są najlepiej pasujące fragmenty ze znanych regionów zdjęcia za pomocą określonych metryk, a następnie wstawiane są one w wypełniany obszar
-Wydajny dla większych obszarów docelowych
+- Wydajny dla większych obszarów docelowych
 - Dłuższy czas obliczania
 <p align="center">
 <img src="https://i.imgur.com/KZ694B8.png">
