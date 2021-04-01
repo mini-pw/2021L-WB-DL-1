@@ -66,9 +66,24 @@ Poniżej przykład preprocessingu wykonanego na 3 próbkach odręcznie pisanego 
 
 Jak można się domyślić, problem pozbywania się liter z obrazków sprowadza się do dwóch mniejszych problemów: wykrycia tekstu oraz wypełnienia go czymś “sensownym” dla ludzkiego oka.
 
-**Wykrywanie liter na obrazkach**: 
+**Wykrywanie liter na zdjęciach**: 
 
 Proces ten polega na rozpoznaniu symboli literowych (zależnie od języka niekoniecznie to są litery). Przeważnie symbole te cechują się zwiększoną gęstością kantów i/lub większym kontrastem okolicznego miejsca na obrazie.
+
+*Porównanie technik*:
+
+- Oparta na Laplasjanie: opiera się na przejściu wpierw maską o sumie 0 i większej wartości w środku przez obraz w celu znalezienia miejsc o największym kontraście. Potem, szukając największego gradientu, wyszukujemy piksele  tekstowe, które łączymy w bloki. 
+<p align="center">
+<img src="https://iq.opengenus.org/content/images/2020/05/download-3.png">
+</p>
+- Oparta na kantach: Opiera się na wyszukiwaniu kantów charakterystycznych dla bloków tekstowych. W szczególności, znajdowane są wierzchołki bloku tekstowego.
+<p align="center">
+<img src="https://i.imgur.com/LUjDqVK.png">
+</p>
+- Oparta na DCT: DCT (discrete cosine transform) jest metodą podobną do discrete fourier transform, ale rezultatem są tylko liczby rzeczywiste. 
+<p align="center">
+<img src="https://i.imgur.com/HNNETtl.png">
+</p>
 
 **Wykrywanie artefaktów na zdjęciach**:
 
