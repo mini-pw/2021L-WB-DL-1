@@ -19,6 +19,9 @@ Przykładowy preprocessing obrazu zamieszczamy w notebooku *image_preprocessing.
 
 Oryginalny kod autorów znajduje się w pliku *CXR_preprocessing.py*.
 
+Fragment artykułu:
+
+"Since radiographs usually have dark edges, images with such distinctly darker regions impact the classification. We perform global contrast enhancement, edge enhancement, and noise elimination on entire CXR images with histogram equal ization and unsharp masking edge enhancement."
 
 ### 2. Nasze ulepszenia
 
