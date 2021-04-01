@@ -42,6 +42,8 @@ Trzecią metodą będzie nasza własna modyfikacja kodu autorów. Jako, że nie 
  - modyfikacja (pogrubienie) maski za pomocą funkcji dilate z OpenCV (żeby możliwe było wykrycie cienkich linii),
  - usunięcie adnotacji z obrazu za pomocą funkcji inpaint z OpenCV i wykorzystaniem stworzonej już maski.
 
+Zrezygnowaliśmy natomiast z podziału obrazów na dwie części odpowiadające prawej i lewej stronie.
+
 Przed: 
 <p align="center">
 <img src="https://i.imgur.com/QBRZ3yR.png" height="400px">
