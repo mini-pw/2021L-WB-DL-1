@@ -74,7 +74,7 @@ Proces ten polega na rozpoznaniu symboli literowych (zależnie od języka niekon
 
 - Oparta na Laplasjanie: opiera się na przejściu wpierw maską o sumie 0 i większej wartości w środku przez obraz w celu znalezienia miejsc o największym kontraście. Potem, szukając największego gradientu, wyszukujemy piksele  tekstowe, które łączymy w bloki. 
 <p align="center">
-<img src="https://iq.opengenus.org/content/images/2020/05/download-3.png" width="300px">
+<img src="https://iq.opengenus.org/content/images/2020/05/download-3.png" width="500px">
 </p>
 - Oparta na kantach: Opiera się na wyszukiwaniu kantów charakterystycznych dla bloków tekstowych. W szczególności, znajdowane są wierzchołki bloku tekstowego.
 <p align="center">
