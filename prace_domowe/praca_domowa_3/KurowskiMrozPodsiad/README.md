@@ -33,7 +33,24 @@ Uzyskana macierz pomyłek:
 <img src="https://i.imgur.com/LIfShEf.png">
 </p>
 
+Trzecią metodą będzie nasza własna modyfikacja kodu autorów. Jako, że nie dało się go uruchomić, wprowadziliśmy dużo zmian i usunęliśmy niepotrzebne procedury. Finalnie nasz preprocessing składa się z następujących kroków: 
+ - zmiana rozmiaru zdjęcia z antialiasingiem, 
+ - rozciągnięcie histogramu (zwiększenie kontrastu), 
+ - redukcja zaszumienia przy pomocy funkcji anisotropic_diffusion, 
+ - przekonwertowanie z formatu RGB do greyscale dla szybszego działania, 
+ - stoworzenie maski za pomocą funkcji threshold z biblioteki OpenCV (wykrycie najjaśniejszych miejsc na zdjęciu),
+ - modyfikacja (pogrubienie) maski za pomocą funkcji dilate z OpenCV (żeby możliwe było wykrycie cienkich linii),
+ - usunięcie adnotacji z obrazu za pomocą funkcji inpaint z OpenCV i wykorzystaniem stworzonej już maski.
 
+Przed: 
+<p align="center">
+<img src="https://i.imgur.com/QBRZ3yR.png">
+</p>
+
+Po: 
+<p align="center">
+<img src="https://i.imgur.com/XM80exd.png">
+</p>
 
 ### 3. Preprocessing w OCR
 
