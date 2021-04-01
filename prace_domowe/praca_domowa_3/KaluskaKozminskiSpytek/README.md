@@ -47,8 +47,8 @@ W zależności od różnych parametrów skanowania i rekonstrukcji obrazów tomo
 I tak, poszczególne zdjęcia to:
 - (A) medium kernel - koncentracja na jasnych obszarach czaszki
 - (B) okno [0HU, 100HU] - koncentracja na tkankach mózgowych
-- (C) wygładzanie gaussowskie 3D - 
-- (D) wygładzenie Perona-Mailka -
+- (C) wygładzanie gaussowskie 3D 
+- (D) wygładzenie Perona-Mailka 
 - (E) użycie tzw. jądra "soft-tissue"
 - (F) jądro "soft-tissue" oraz grubszego przekroju
 - (G) efekt działania tzw. "Contrast Agent", który modyfikuje wartości HU w poszczególnych punktach, co może wadzić w kolejnych krokach preprocessingu, jednak uwypukla naczynia mózgu.
