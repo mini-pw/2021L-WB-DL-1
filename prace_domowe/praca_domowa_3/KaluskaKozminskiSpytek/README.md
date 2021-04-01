@@ -1,7 +1,7 @@
 # Praca domowa nr 3 - preprocessing
 ## Część pierwsza
 Fragment opisujący preprocessing zawarty w artykule.
->A lung segmentation dataset is introduced in the LungNodule Analysis (LUNA) competition at the Kaggle DataScience Bowl in 2017.  This dataset consists of 2D and 3DCT images with respective label images for lung segmen-tation [1].  We use70%of the data as the train set and theremaining30%as the test set.  The size of each image is512×512. Since the lung region in CT images have almostthe same Hausdorff value with non-object of interests suchas bone and air, it is worth to learn lung region by learningits surrounding tissues.  To do that first we extract the sur-rounding region by applying algorithm 1 and then make anew mask for the training sets. We train the model on thesenew masks and on the testing phase,and estimate the lungregion as a region inside the estimated surrounding tissues.
+>A lung segmentation dataset is introduced in the Lung Nodule Analysis (LUNA) competition at the Kaggle Data Science Bowl in 2017.  This dataset consists of 2D and 3D CT images with respective label images for lung segmen-tation [1].  We use 70% of the data as the train set and the remaining 30% as the test set.  The size of each image is 512×512. Since the lung region in CT images have almost the same Hausdorff value with non-object of interests such as bone and air, it is worth to learn lung region by learning its surrounding tissues.  To do that first we extract the surrounding region by applying algorithm 1 and then make anew mask for the training sets. We train the model on thesenew masks and on the testing phase,and estimate the lung region as a region inside the estimated surrounding tissues.
 >
 ![./data/preprocessing_article.png](./data/preprocessing_article.png)
 
@@ -29,7 +29,10 @@ Metoda polega na zastosowaniu interpolacji na skumulowanych sumach wartości z h
 
 ![./data/hist_eq.png](./data/hist_eq.png)
 
+Na trzecią modyfikację wybraliśmy przekształcenie nieliniowe tanh(x + 0.8). Tak zastosowane przekstałcenie rozjaśnia piksele o wartości większej od zera.
+Aby wartości przyjmowane przez piksele mieściły się w przedziale [0; 1], zostały one znormalizowane metodą min-max.  Następnie w celu wyświetlenia obrazów przemnożyliśmy wszystkie piksele przez 255, by były z zakresu [0; 255].
 
+![./data/nonlinear_transform.png](./data/nonlinear_transform.png)
 
 ## Część czwarta
 
