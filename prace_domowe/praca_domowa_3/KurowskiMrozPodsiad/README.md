@@ -76,10 +76,12 @@ Proces ten polega na rozpoznaniu symboli literowych (zależnie od języka niekon
 <p align="center">
 <img src="https://iq.opengenus.org/content/images/2020/05/download-3.png" width="500px">
 </p>
+
 - Oparta na kantach: Opiera się na wyszukiwaniu kantów charakterystycznych dla bloków tekstowych. W szczególności, znajdowane są wierzchołki bloku tekstowego.
 <p align="center">
 <img src="https://i.imgur.com/LUjDqVK.png">
 </p>
+
 - Oparta na DCT: DCT (discrete cosine transform) jest metodą podobną do discrete fourier transform, ale rezultatem są tylko liczby rzeczywiste. 
 <p align="center">
 <img src="https://i.imgur.com/HNNETtl.png">
