@@ -68,7 +68,7 @@ Podsumowując, cały proponowany proces wstępnego przetworzenia i obróbki skan
 
 Następnie, w zależności od potrzeb: 
 - zastosuj metody uzyskania kontrastu ze zdjęć, zgodnie z potrzebami,
-- dokonaj wyekstrahowania obszaru dotyczącego mózgu,
+- dokonaj wyekstrahowania obszaru dotyczącego mózgu oraz opcjonalnie segmentacji tkanek, defacingu,
 - wykonaj "registration" obrazu (Umiejscowienie obrazu w odpowiedniej skali i współrzędnych. Proces ten nie był wcześniej omawiany, jest istotny w przypadku gdy dane pochodzą z różnych źródeł. Więcej informacji znajduje się w artykule źródłowym.)
 
 
