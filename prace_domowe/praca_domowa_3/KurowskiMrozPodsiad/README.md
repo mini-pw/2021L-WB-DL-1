@@ -13,6 +13,8 @@ Pierwsza z metod polega na rozciągnięciu wartości pikseli będących reprezen
 
 Natomiast usunięcie adnotacji to wykorzystanie biblioteki OpenCV do usunięcia najbardziej odstających od reszty obrazu artefaktów (takich jak litery L, R oznaczające strony klatki piersiowej widoczne na zdjęciu). Jest to wykonywane dla każdego obrazu dwa razy (sprawdzanie prawej i lewej strony), po uprzednim usunięciu szumu z wykorzystaniem funkcji anisotropic_diffusion z biblioteki medpy.
 
+Niestety kod autorów w surowej formie był niemożliwy do uruchomienia. Brakowało importów potrzebnych bibliotek oraz sam główny kod nie został dokończony. Dlatego zmodyfikowaliśmy kod autorów dodając swoje własne fragmenty tam gdzie było to potrzebne.
+
 Przykładowy preprocessing obrazu zamieszczamy w notebooku *image_preprocessing.ipynb*.
 
 
