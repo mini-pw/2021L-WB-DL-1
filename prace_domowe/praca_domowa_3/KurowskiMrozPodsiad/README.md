@@ -16,6 +16,7 @@ Natomiast usunięcie adnotacji to wykorzystanie biblioteki OpenCV do usunięcia 
 Niestety kod autorów w surowej formie był niemożliwy do uruchomienia. Brakowało importów potrzebnych bibliotek oraz sam główny kod nie został dokończony. Dlatego zmodyfikowaliśmy kod autorów dodając swoje własne fragmenty tam gdzie było to potrzebne.
 
 Przykładowy preprocessing obrazu zamieszczamy w notebooku *image_preprocessing.ipynb*.
+Oryginalny kod autorów znajduje się w pliku **CXR_preprocessing.py**.
 
 
 ### 2. Nasze ulepszenia
