@@ -20,11 +20,24 @@ Przykładowy preprocessing obrazu zamieszczamy w notebooku *image_preprocessing.
 
 ### 2. Nasze ulepszenia
 
-TODO
+Pierwszą z metod preprocessingu, którą sprawdziliśmy jest Szybka Transformata Fouriera (FFT). Przetransofrmowane zostały zdjęcia wybrane podczas undersamplingu a następnie wytrenowaliśmy sieć VGG na ich podstawie. Plik transformujący zdjęcia to RUS_with_fft.ipynb. Uzyskana macierz pomyłek:
+
+<p align="center">
+<img src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg">
+</p>
+
+Drugą metodą było przepuszczenie zdjęć przez filtr SHARPEN dostępny z paczki PILLOW. Ułatwia on odróżnianie różnych części obrazu od siebie. Zwiększa on również jasność jaśniejszych pikseli. Plik transformujący zdjęcia to RUS_with_sh.ipynb.
+Uzyskana macierz pomyłek:
+
+<p align="center">
+<img src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg">
+</p>
+
+
 
 ### 3. Preprocessing w OCR
 
-Preprocessing w OCR (optycznym rozpoznywaniu znaków) jest często stosowany żeby poprawić precyzję. Chcemy żeby obrazy, na których wykonywany jest OCR miały jak najbardziej czytelne znaki (wysoką ostrość, duży kontrast, dobre wypoziomowanie, małe szumy). Poniżej techniki które wykorzystywane są do polepszenia tak zdefiniowanej jakości zdjęć:
+Preprocessing w OCR (optycznym rozpoznawaniu znaków) jest często stosowany żeby poprawić precyzję. Chcemy żeby obrazy, na których wykonywany jest OCR miały jak najbardziej czytelne znaki (wysoką ostrość, duży kontrast, dobre wypoziomowanie, małe szumy). Poniżej techniki które wykorzystywane są do polepszenia tak zdefiniowanej jakości zdjęć:
 
 * **Binaryzacja**, czyli konwersja kolorowego zdjęcia na takie, które zawiera tylko białe i czarne piksele. Określony musi być odpowiedni *threshold*, według którego odpowiednio klasyfikowane są piksele. *Threshold* może być ustalony jeden dla całego obrazu albo może mieć różne wartości dla różnych części zdjęcia (*adaptive thresholding*).
 <p align="center">
@@ -55,13 +68,16 @@ Jak można się domyślić, problem pozbywania się liter z obrazków sprowadza 
 
 **Wykrywanie liter na obrazkach**: 
 
-TODO
+Proces ten polega na rozpoznaniu symboli literowych (zależnie od języka niekoniecznie to są litery). Przeważnie symbole te cechują się zwiększoną gęstością kantów i/lub większym kontrastem okolicznego miejsca na obrazie.
 
 **Wykrywanie artefaktów na zdjęciach**:
 
-TODO
+Proces ten polega na wykrywaniu obiektów na zdjęciach, które są niepożądane - przykładowo, elementy ubioru, czy fałdy skórne na zdjęciu rentgenowskim mogłyby być mylnie odczytane jako choroba. Innym przykładem są nieodwracalne zmiany powstałe podczas dekonwolucji. W niektórych przypadkach regiony te cechują się np. Większym kontrastem, czy jasnością pikseli.
+Jedną z metod wykrywania artefaktów jest wpierw zastosowanie filtrów Gabor. Filtr ten uzyskuje lokalną informację przestrzenną i częstotliwościową, zaś później odpowiednia sieć na podstawie tej informacji usuwa artefakty.
 
-**Image inpainting** to proces rekonstrukcji brakujących części obrazu w taki sposób, że obserwatorzy nie są w stanie stwierdzić, że te regiony zostały poddane rekonstrukcji. Technika ta jest często używana do usuwania niepożądanych obiektów z obrazu lub do przywracania uszkodzonych fragmentów starych zdjęć.
+**Image inpainting** 
+
+Jest to proces rekonstrukcji brakujących części obrazu w taki sposób, że obserwatorzy nie są w stanie stwierdzić, że te regiony zostały poddane rekonstrukcji. Technika ta jest często używana do usuwania niepożądanych obiektów z obrazu lub do przywracania uszkodzonych fragmentów starych zdjęć.
 
 Początkowo wymagała ona ręcznego wykonania pracy przez człowieka. Obecnie jednak istnieje wiele metod automatycznego wypełniania. Oprócz obrazu, większość z tych metod wymaga również jako danych wejściowych maski pokazującej regiony wymagających wypełnienia. Regiony te mogą być podane przez człowieka lub automatycznie wykryte.
 
