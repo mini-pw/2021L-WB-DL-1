@@ -1,6 +1,11 @@
 # Praca domowa nr 3 - preprocessing
+## Część pierwsza
+Fragment opisujący preprocessing zawarty w artykule.
+>A lung segmentation dataset is introduced in the LungNodule Analysis (LUNA) competition at the Kaggle DataScience Bowl in 2017.  This dataset consists of 2D and 3DCT images with respective label images for lung segmen-tation [1].  We use70%of the data as the train set and theremaining30%as the test set.  The size of each image is512×512. Since the lung region in CT images have almostthe same Hausdorff value with non-object of interests suchas bone and air, it is worth to learn lung region by learningits surrounding tissues.  To do that first we extract the sur-rounding region by applying algorithm 1 and then make anew mask for the training sets. We train the model on thesenew masks and on the testing phase,and estimate the lungregion as a region inside the estimated surrounding tissues.
+>
+![./data/preprocessing_article.png](./data/preprocessing_article.png)
 
-
+Dokładna analiza preprocessingu dokonanego przez twórców artykułu, znajduje się Jupyter Notebook'u w folderze code.
 ## Część druga
 
 
