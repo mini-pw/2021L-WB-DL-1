@@ -59,12 +59,13 @@ Kolejnym krokiem jest wyekstrahowanie obszaru wskazującego na mózg. Obcięcie 
 
 Często polecanym następnym zabiegiem jest segmentacja rodzajów tkanek. Ten temat jest jednak jedynie napomniany w artykule, szerzej opisano go w [Cauley et al., 2008](https://www.frontiersin.org/articles/10.3389/fninf.2019.00061/full#B8).
 
-Defacing (szpecenie? odtwarzowienie?) jest etapem silnie związanym z aspektem, który wspomniałem na początku: anonimizacją danych. Polega na usuwaniu fragmentu skanu, z którego można odtworzyć wizerunek osoby badanej. W przyszłości bardzo możliwym jest, by identyfikować tożsamości na podstawie uszu oraz stanu uzębienia, tych fragmentów również powinno się pozbywać. Może to być sporym problemem gdy obiektem naszych badań są powyższe części. Poza wspomnianym już wcześniej wyekstrahowaniem mózgu na podstawie wartości HU, innym znanym i proponowanym sposobem jest funkcja `mri_deface` z pakietu `freesurfer` w R.
+Defacing (szpecenie? odtwarzowienie?) jest etapem silnie związanym z aspektem, który wspomniałem na początku: anonimizacją danych. Polega na usuwaniu fragmentu skanu, z którego można odtworzyć wizerunek osoby badanej. W przyszłości bardzo możliwym jest, by identyfikować tożsamości na podstawie uszu oraz stanu uzębienia, tych fragmentów również powinno się pozbywać. Może to być sporym problemem gdy obiektem naszych badań są powyższe części. Poza wspomnianym już wcześniej wyekstrahowaniem mózgu na podstawie wartości HU, innym znanym i proponowanym sposobem jest funkcja `mri_deface` z pakietu `freesurfer` w R (choć odnosi się do zdjęć pochodzących z rezonansu magnetycznego).
 
 Podsumowując, cały proponowany proces wstępnego przetworzenia i obróbki skanów tomografii komputerowej głowy prezentuje się następująco:
 - uporządkuj oraz zanonimizuj dane,
 - jeśli potrzebujesz, wyłuskaj metadane z pliku w formacie DICOM i je zachowaj. Możesz skorzystać z rozwiązania `dcmdump`,
-- skonwertuj pliki z rozmiaru DICOM do NIfTI,
+- skonwertuj pliki z rozmiaru DICOM do NIfTI
+
 Następnie, w zależności od potrzeb: 
 - zastosuj metody uzyskania kontrastu ze zdjęć, zgodnie z potrzebami,
 - dokonaj wyekstrahowania obszaru dotyczącego mózgu,
