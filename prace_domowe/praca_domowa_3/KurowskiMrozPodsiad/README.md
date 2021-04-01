@@ -44,12 +44,12 @@ Trzecią metodą będzie nasza własna modyfikacja kodu autorów. Jako, że nie 
 
 Przed: 
 <p align="center">
-<img src="https://i.imgur.com/QBRZ3yR.png">
+<img src="https://i.imgur.com/QBRZ3yR.png" height="400px">
 </p>
 
 Po: 
 <p align="center">
-<img src="https://i.imgur.com/XM80exd.png">
+<img src="https://i.imgur.com/XM80exd.png" height="400px">
 </p>
 
 ### 3. Preprocessing w OCR
