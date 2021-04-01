@@ -66,6 +66,7 @@ Podsumowując, cały proponowany proces wstępnego przetworzenia i obróbki skan
 - jeśli potrzebujesz, wyłuskaj metadane z pliku w formacie DICOM i je zachowaj. Możesz skorzystać z rozwiązania `dcmdump`,
 - skonwertuj pliki z rozmiaru DICOM do NIfTI,
 Następnie, w zależności od potrzeb: 
+- zastosuj metody uzyskania kontrastu ze zdjęć, zgodnie z potrzebami,
 - dokonaj wyekstrahowania obszaru dotyczącego mózgu,
 - wykonaj "registration" obrazu (Umiejscowienie obrazu w odpowiedniej skali i współrzędnych. Proces ten nie był wcześniej omawiany, jest istotny w przypadku gdy dane pochodzą z różnych źródeł. Więcej informacji znajduje się w artykule źródłowym.)
 
