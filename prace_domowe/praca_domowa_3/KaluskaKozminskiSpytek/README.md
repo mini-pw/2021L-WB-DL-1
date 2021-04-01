@@ -29,7 +29,46 @@ Metoda polega na zastosowaniu interpolacji na skumulowanych sumach wartości z h
 
 ![./data/hist_eq.png](./data/hist_eq.png)
 
+Na trzecią modyfikację wybraliśmy przekształcenie nieliniowe tanh(x + 0.8). Tak zastosowane przekstałcenie rozjaśnia piksele o wartości większej od zera.
+Aby wartości przyjmowane przez piksele mieściły się w przedziale [0; 1], zostały one znormalizowane metodą min-max.  Następnie w celu wyświetlenia obrazów przemnożyliśmy wszystkie piksele przez 255, by były z zakresu [0; 255].
+
+
 ![./data/nonlinear_transform.png](./data/nonlinear_transform.png)
+
+## Część trzecia - Preprocessing stosowany do obrazów tomografii komputerowej głowy (z kontrastem i bez)
+
+Dział analizy danych zajmujący się przetwarzaniem obrazów medycznych, między innymi ze względu na wysoką przydatność społeczną, jest jednym z najszybciej rozwijających się gałęzi tej nauki. Jednak każdy badacz statystyczny doskonale jest świadomy, że nim przejdzie się do dziedzinowej pracy z danymi, należy wcześniej dokonać wstępnej obróbki danych, tzw. preprocessingu, tak aby ich reprezentacja umożliwiła dalsze badania. Nie inaczej jesst w przypadku badań nad obrazami tomografii komputerowej. W kilku podpunktach opiszę artykuł _Recommendations for Processing Head CT Data_ ([Muschelli J., 2019](https://www.frontiersin.org/articles/10.3389/fninf.2019.00061/full)) traktujący o wstępnym przetworzeniu powyższych obrazów.
+
+
+John Muschelli z Uniwersytetu Johna Hopkinsa w Baltimore w swojej pracy koncentruje się na procesie wstępnej obróbki danych zebranych i udostępnionych w formacie DICOM. Wynikiem jego działań jest proponowany pipeline porządkujący początki pracy nad przetwarzaniem zdjęć tomografii. Autor nie pomija kwestii, które zazwyczaj w naukowych badaniach są pomijane, zwraca uwagę na konieczność anonimizacji danych oraz sposobu konwersji plików z formatu DICOM do NIfTI. Po co to robić? To dokładniej zostało opisane w pracy [Xiangrui et al., 2016](https://www.sciencedirect.com/science/article/abs/pii/S0165027016300073) - format NIfTI jest szeroko używany w gronie specjalistów w dziedzinie neuroobrazowania, jest ponadto mniej skomplikowany niż DICOM oraz dedykowany do przechowywania obrazów 3D. Warto w tym miejscu dodać, że dane źródłowe, na bazie których stworzono badania, które opracowujemy, przechowywane są właśnie w formacie NIfTI. Muschelli rekomenduje by w celu konwersji plików korzystać z pakietu `dcm2niix`. Dodaje także, że po konwersji należy zweryfikować obraz upewniając się, że parametry posiadają właściwe wartości, na przykład czy wartość jednostek Housfielda wszędzie mieści się w zakresie [-1024, 3071]. Punkty, których wartość wykracza poza ten przedział najprawdopodobniej są otoczeniem skanowanego fragmentu ciała.
+
+W zależności od różnych parametrów skanowania i rekonstrukcji obrazów tomografii, kontrast występujący na grafikach może być różny. Muschelli prezentuje różnice wobec zastosowanych parametrów na porównującej grafice:
+![Porównanie kontrastów](./data/fninf.png)
+I tak, poszczególne zdjęcia to:
+- (A) medium kernel - koncentracja na jasnych obszarach czaszki
+- (B) okno [0HU, 100HU] - koncentracja na tkankach mózgowych
+- (C) wygładzanie gaussowskie 3D - 
+- (D) wygładzenie Perona-Mailka -
+- (E) użycie tzw. jądra "soft-tissue"
+- (F) jądro "soft-tissue" oraz grubszego przekroju
+- (G) efekt działania tzw. "Contrast Agent", który modyfikuje wartości HU w poszczególnych punktach, co może wadzić w kolejnych krokach preprocessingu, jednak uwypukla naczynia mózgu.
+
+Przechodząc do właściwego preprocessingu autor artykułu wskazuje kilka możliwych procedur do wykonania celem poprawy jakości danych. Pierwszym z nich jest poprawa niespójności oraz naprawa obszarów, które mogły zostać zeskanowane niepoprawnie. Taki błąd może wystąpić na przykład w wyniku przegrzania się cewek w tomografie. N4 to jedna z najbardziej popularnych metod takiej korekcji, została przedstawiona w badaniach [Tustison et al., 2018](https://doi.org/10.1109/42.668698).
+
+Kolejnym krokiem jest wyekstrahowanie obszaru wskazującego na mózg. Obcięcie obrazu do zakresu [-100HU, 1000HU] zazwyczaj usuwa z grafiki tło oraz podkładkę pod głowę w tomografie. Obcięcie do zakresu [-100HU, 300HU] usuwa ponadto czaszkę, zwapnienia oraz inne kości. Ze względu na specyfikę tych obrazów należy mieć się na baczności przy usuwaniu obszarów nieinteresujących badaczy - nie można im przypisywać wartości 0. Rekomendowana jest np. wartość NaN. Istnieją ponadto inne, bardziej złożone metody usuwania ze skanu fragmentów innych niż mózg.
+
+Często polecanym następnym zabiegiem jest segmentacja rodzajów tkanek. Ten temat jest jednak jedynie napomniany w artykule, szerzej opisano go w [Cauley et al., 2008](https://www.frontiersin.org/articles/10.3389/fninf.2019.00061/full#B8).
+
+Defacing (szpecenie? odtwarzowienie?) jest etapem silnie związanym z aspektem, który wspomniałem na początku: anonimizacją danych. Polega na usuwaniu fragmentu skanu, z którego można odtworzyć wizerunek osoby badanej. W przyszłości bardzo możliwym jest, by identyfikować tożsamości na podstawie uszu oraz stanu uzębienia, tych fragmentów również powinno się pozbywać. Może to być sporym problemem gdy obiektem naszych badań są powyższe części. Poza wspomnianym już wcześniej wyekstrahowaniem mózgu na podstawie wartości HU, innym znanym i proponowanym sposobem jest funkcja `mri_deface` z pakietu `freesurfer` w R.
+
+Podsumowując, cały proponowany proces wstępnego przetworzenia i obróbki skanów tomografii komputerowej głowy prezentuje się następująco:
+- uporządkuj oraz zanonimizuj dane,
+- jeśli potrzebujesz, wyłuskaj metadane z pliku w formacie DICOM i je zachowaj. Możesz skorzystać z rozwiązania `dcmdump`,
+- skonwertuj pliki z rozmiaru DICOM do NIfTI,
+Następnie, w zależności od potrzeb: 
+- dokonaj wyekstrahowania obszaru dotyczącego mózgu,
+- wykonaj "registration" obrazu (Umiejscowienie obrazu w odpowiedniej skali i współrzędnych. Proces ten nie był wcześniej omawiany, jest istotny w przypadku gdy dane pochodzą z różnych źródeł. Więcej informacji znajduje się w artykule źródłowym.)
+
 
 ## Część czwarta
 
