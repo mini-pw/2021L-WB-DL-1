@@ -49,7 +49,7 @@ Przed:
 
 Po: 
 <p align="center">
-<img src="https://i.imgur.com/XM80exd.png" height="400px">
+<img src="https://i.imgur.com/h6Psomm.png" height="400px">
 </p>
 
 ### 3. Preprocessing w OCR
