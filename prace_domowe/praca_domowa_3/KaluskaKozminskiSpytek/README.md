@@ -45,12 +45,12 @@ John Muschelli z Uniwersytetu Johna Hopkinsa w Baltimore w swojej pracy koncentr
 W zależności od różnych parametrów skanowania i rekonstrukcji obrazów tomografii, kontrast występujący na grafikach może być różny. Muschelli prezentuje różnice wobec zastosowanych parametrów na porównującej grafice:
 ![Porównanie kontrastów](./data/fninf.jpg)
 I tak, poszczególne zdjęcia to:
-- (A) medium kernel - koncentracja na jasnych obszarach czaszki
+- (A) średnie (medium) jądro konwolucyjne - koncentracja na jasnych obszarach czaszki
 - (B) okno [0HU, 100HU] - koncentracja na tkankach mózgowych
 - (C) wygładzanie gaussowskie 3D 
 - (D) wygładzenie Perona-Mailka 
 - (E) użycie tzw. jądra "soft-tissue"
-- (F) jądro "soft-tissue" oraz grubszego przekroju
+- (F) jądro "soft-tissue" oraz znacznie cieńszego przekroju
 - (G) efekt działania tzw. "Contrast Agent", który modyfikuje wartości HU w poszczególnych punktach, co może wadzić w kolejnych krokach preprocessingu, jednak uwypukla naczynia mózgu.
 
 Przechodząc do właściwego preprocessingu autor artykułu wskazuje kilka możliwych procedur do wykonania celem poprawy jakości danych. Pierwszym z nich jest poprawa niespójności oraz naprawa obszarów, które mogły zostać zeskanowane niepoprawnie. Taki błąd może wystąpić na przykład w wyniku przegrzania się cewek w tomografie. N4 to jedna z najbardziej popularnych metod takiej korekcji, została przedstawiona w badaniach [Tustison et al., 2018](https://doi.org/10.1109/42.668698).
