@@ -23,14 +23,14 @@ Przykładowy preprocessing obrazu zamieszczamy w notebooku *image_preprocessing.
 Pierwszą z metod preprocessingu, którą sprawdziliśmy jest Szybka Transformata Fouriera (FFT). Przetransofrmowane zostały zdjęcia wybrane podczas undersamplingu a następnie wytrenowaliśmy sieć VGG na ich podstawie. Plik transformujący zdjęcia to RUS_with_fft.ipynb. Uzyskana macierz pomyłek:
 
 <p align="center">
-<img src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg">
+<img src="https://i.imgur.com/HdiSBUR.png">
 </p>
 
 Drugą metodą było przepuszczenie zdjęć przez filtr SHARPEN dostępny z paczki PILLOW. Ułatwia on odróżnianie różnych części obrazu od siebie. Zwiększa on również jasność jaśniejszych pikseli. Plik transformujący zdjęcia to RUS_with_sh.ipynb.
 Uzyskana macierz pomyłek:
 
 <p align="center">
-<img src="https://miro.medium.com/max/2400/1*KTMCWiv4WZRlIpZSs5kupw.jpeg">
+<img src="https://i.imgur.com/LIfShEf.png">
 </p>
 
 
