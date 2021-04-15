@@ -41,13 +41,13 @@ Krzywa ROC oraz pole pod nią AUC:
 Współczynnik Giniego to stosunek pola powierzchni pomiędzy krzywą ROC a linią diagnozy do pola trójkąta nad tą linią.
 
 <p align="center">
-<img src="https://i.imgur.com/Ve557c8.png" width="300">
+<img src="https://i.imgur.com/Ve557c8.png" width="600">
 </p>
 
 Kappa Cohena to miara względnej rzetelności pomiarów. W naszym przypadku jeśli jest ona <0 to wyniki nie są lepsze niż losowe.
 
 <p align="center">
-<img src="https://i.imgur.com/2PbfGt4.png" width="300">
+<img src="https://i.imgur.com/2PbfGt4.png" width="600">
 </p>
 
 ### 2. Regularyzacja L1 i L2
