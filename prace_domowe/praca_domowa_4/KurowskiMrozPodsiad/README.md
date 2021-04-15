@@ -23,7 +23,7 @@ Wyliczanie metryk:
 Najważniejsze z tych metryk zostały zawarte w funkcji *sklearn.metrics.classification_report* zwracającej następujące wyniki dla naszego starego modelu z poprzedniej pracy domowej:
 
 <p align="center">
-<img src="https://i.imgur.com/FoJUOb4.png" height="300">
+<img src="https://i.imgur.com/FoJUOb4.png" width="600">
 </p>
 
 Precision, czyli precyzja przewidywania to stosunek True Positives do True Positives i False Positives. Pozwala określić jak dobrze model rozpoznaje daną klasę. W naszym przypadku dla klasy normal precyzja wynosi 0.84 tzn. że model bardzo dobrze rozpoznaje normalne płuca i ma małe prawdopodobieństwo zaklasyfikowania zdrowych płuc jako zapalenie płuc lub covid. Kolejna miara, czyli recall pokazuje, że wśród wszystkich zdjęć zaklasyfikowanych jako covid 86% z nich jest rzeczywiście chora na covid. 
