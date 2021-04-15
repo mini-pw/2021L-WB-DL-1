@@ -16,7 +16,7 @@ Regularyzacja została wprowadzona przy pomocy regularyzatorów dostępnych od k
 
 L1:
 <p align="center">
-<img src="https://i.imgur.com/bGXOqBG.png" height="300">
+<img src="https://i.imgur.com/fmzHRsa.png" height="300">
 </p>
 
 L2:
