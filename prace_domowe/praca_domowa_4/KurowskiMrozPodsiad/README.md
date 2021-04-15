@@ -4,7 +4,45 @@
 
 ### 1. Miary jakości
 
-TODO
+Confusion matrix:
+
+<p align="center">
+<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+</p>
+
+Macierz pomyłek (ang. “Confusion matrix”) jest tablicą kontyngencji z dwoma wymiarami:
+Prawdziwe (actual label)
+Przewidziane przez model (predicted label)
+Dodając podział na klasy dostajemy ogólną strukturę przewidywania modelu. Na podstawie macierzy pomyłek można wyliczyć wiele metryk jakości przewidywania modelu i ustalić jego trafność oraz charakterystykę.
+Wyliczanie metryk:
+
+<p align="center">
+<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+</p>
+
+Najważniejsze z tych metryk zostały zawarte w funkcji *sklearn.metrics.classification_report* zwracającej następujące wyniki dla naszego starego modelu z poprzedniej pracy domowej:
+
+<p align="center">
+<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+</p>
+
+Precision, czyli precyzja przewidywania to stosunek True Positives do True Positives i False Positives. Pozwala określić jak dobrze model rozpoznaje daną klasę. W naszym przypadku dla klasy COVID-19 precyzja wynosi 0.91 tzn. że model bardzo dobrze rozpoznaje występowanie covida i ma małe prawdopodobieństwo zaklasyfikowania covida jako zapalenie płuc lub normalne płuca. Niestety kolejna miara, czyli recall pokazuje, że jako covid klasyfikowane jest około 80% płuc nie mających covida.
+
+F-1 score jest połączeniem precision i recall, czyli ich uśrednioną wartością. Ta metryka pokazuje, że najlepiej przewidywaną klasą jest pneumonia.
+
+Accuracy dla całego modelu jest na poziomie 52%.
+
+Krzywa ROC oraz pole pod nią AUC:
+
+<p align="center">
+<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+</p>
+
+Współczynnik Giniego to stosunek pola powierzchni pomiędzy krzywą ROC a linią diagnozy do pola trójkąta nad tą linią.
+
+<p align="center">
+<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+</p>
 
 ### 2. Regularyzacja L1 i L2
 
