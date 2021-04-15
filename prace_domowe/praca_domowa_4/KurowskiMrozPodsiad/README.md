@@ -7,7 +7,7 @@
 Confusion matrix:
 
 <p align="center">
-<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+<img src="https://i.imgur.com/saQkvyx.png" height="300">
 </p>
 
 Macierz pomyłek (ang. “Confusion matrix”) jest tablicą kontyngencji z dwoma wymiarami:
@@ -17,31 +17,37 @@ Dodając podział na klasy dostajemy ogólną strukturę przewidywania modelu. N
 Wyliczanie metryk:
 
 <p align="center">
-<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+<img src="https://imgur.com/a/Iz4UcFO" height="300">
 </p>
 
 Najważniejsze z tych metryk zostały zawarte w funkcji *sklearn.metrics.classification_report* zwracającej następujące wyniki dla naszego starego modelu z poprzedniej pracy domowej:
 
 <p align="center">
-<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+<img src="https://i.imgur.com/FoJUOb4.png" height="300">
 </p>
 
-Precision, czyli precyzja przewidywania to stosunek True Positives do True Positives i False Positives. Pozwala określić jak dobrze model rozpoznaje daną klasę. W naszym przypadku dla klasy COVID-19 precyzja wynosi 0.91 tzn. że model bardzo dobrze rozpoznaje występowanie covida i ma małe prawdopodobieństwo zaklasyfikowania covida jako zapalenie płuc lub normalne płuca. Niestety kolejna miara, czyli recall pokazuje, że jako covid klasyfikowane jest około 80% płuc nie mających covida.
+Precision, czyli precyzja przewidywania to stosunek True Positives do True Positives i False Positives. Pozwala określić jak dobrze model rozpoznaje daną klasę. W naszym przypadku dla klasy normal precyzja wynosi 0.84 tzn. że model bardzo dobrze rozpoznaje normalne płuca i ma małe prawdopodobieństwo zaklasyfikowania zdrowych płuc jako zapalenie płuc lub covid. Kolejna miara, czyli recall pokazuje, że wśród wszystkich zdjęć zaklasyfikowanych jako covid 86% z nich jest rzeczywiście chora na covid. 
 
 F-1 score jest połączeniem precision i recall, czyli ich uśrednioną wartością. Ta metryka pokazuje, że najlepiej przewidywaną klasą jest pneumonia.
 
-Accuracy dla całego modelu jest na poziomie 52%.
+Accuracy dla całego modelu jest na poziomie 74%.
 
 Krzywa ROC oraz pole pod nią AUC:
 
 <p align="center">
-<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+<img src="https://i.imgur.com/5QSKCTH.png" height="300">
 </p>
 
 Współczynnik Giniego to stosunek pola powierzchni pomiędzy krzywą ROC a linią diagnozy do pola trójkąta nad tą linią.
 
 <p align="center">
-<img src="https://i.imgur.com/fmzHRsa.png" height="300">
+<img src="https://i.imgur.com/Ve557c8.png" height="300">
+</p>
+
+Kappa Cohena to miara względnej rzetelności pomiarów. W naszym przypadku jeśli jest ona <0 to wyniki nie są lepsze niż losowe.
+
+<p align="center">
+<img src="https://i.imgur.com/2PbfGt4.png" height="300">
 </p>
 
 ### 2. Regularyzacja L1 i L2
