@@ -17,7 +17,7 @@ Dodając podział na klasy dostajemy ogólną strukturę przewidywania modelu. N
 Wyliczanie metryk:
 
 <p align="center">
-<img src="https://imgur.com/a/Iz4UcFO" height="300">
+<img src="https://i.imgur.com/uRC2env.png" width="300">
 </p>
 
 Najważniejsze z tych metryk zostały zawarte w funkcji *sklearn.metrics.classification_report* zwracającej następujące wyniki dla naszego starego modelu z poprzedniej pracy domowej:
