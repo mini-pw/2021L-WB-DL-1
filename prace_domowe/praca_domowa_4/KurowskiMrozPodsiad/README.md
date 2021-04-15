@@ -8,9 +8,7 @@ TODO
 
 ### 2. Regularyzacja L1 i L2
 
-Pierwszą z metod preprocessingu, którą sprawdziliśmy jest Szybka Transformata Fouriera (FFT). Przetransofrmowane zostały zdjęcia wybrane podczas undersamplingu a następnie wytrenowaliśmy sieć VGG na ich podstawie. Plik transformujący zdjęcia to RUS_with_fft.ipynb. Uzyskana macierz pomyłek:
-
-Regularyzacja została wprowadzona przy pomocy regularyzatorów dostępnych od kerasa. Zmodyfikowaliśmy przy ich pomocy sieć VGG19 tworząc wersje z regularyzacją l1, l2 oraz obiema.
+Regularyzacja została wprowadzona przy pomocy regularyzatorów dostępnych od kerasa. Zmodyfikowaliśmy przy ich pomocy sieć VGG19 tworząc wersje z regularyzacją L1, L2 oraz obiema.
 
 *Uzyskane rezultaty:*
 
@@ -29,7 +27,7 @@ L1 i L2:
 <img src="https://i.imgur.com/hqiP2x5.png" height="300">
 </p>
 
-Okazuje się, że najgorsze rezultaty otrzymujemy przy stosowaniu tylko regularyzacji l2.  Możemy zauważyć, że regularyzacja l1 i l2 daje najlepsze ocenianie zapalenia płuc, natomiast samo l1 daje dobre wyniki rozpoznawania normalnych płuc. Jedynym pozytywem w wynikach dla regularyzacji l2 jest to, że daje lepsze poprawne wychwytywanie płuc covidowych, ale regularyzacja l1 jest jedynie niewiele od niej gorsza.
+Okazuje się, że najgorsze rezultaty otrzymujemy przy stosowaniu tylko regularyzacji L2.  Możemy zauważyć, że regularyzacja L1 i L2 daje najlepsze ocenianie zapalenia płuc, natomiast samo L1 daje dobre wyniki rozpoznawania normalnych płuc. Jedynym pozytywem w wynikach dla regularyzacji L2 jest to, że daje lepsze poprawne wychwytywanie płuc covidowych, ale regularyzacja L1 jest jedynie niewiele od niej gorsza.
 
 Jednakże, dodawanie regularyzacji nie poprawia wyników:
 
@@ -38,7 +36,7 @@ Oryginalne VGG19:
 <img src="https://i.imgur.com/h0N7Uj7.png" height="300">
 </p>
 
-Jak widzimy, wersja oryginalna osiągnęła lepsze rezultaty zarówno w rozpoznawaniu płuc normalnych, jak i covidowych. Jedynym zadaniem, w którym sprawdziła się lepiej regularyzacja (tu l1 i l2) jest rozpoznawanie zapalenia płuc.
+Jak widzimy, wersja oryginalna osiągnęła lepsze rezultaty zarówno w rozpoznawaniu płuc normalnych, jak i covidowych. Jedynym zadaniem, w którym sprawdziła się lepiej regularyzacja (tu L1 i L2) jest rozpoznawanie zapalenia płuc.
 
 ### 3. Mechanizm porzucania
 
