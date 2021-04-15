@@ -1,0 +1,17 @@
+Area under the ROC curve: 0.9829052266296316
+Area under Precision-Recall curve: 0.9445744145863713
+Jaccard similarity score(IoU): 0.8892006824835417
+F1 score (F-measure): 0.9413512187753384
+Dice coefficient:0.9413512187753386
+Gini coefficient:0.9658104532592633
+
+Confusion matrix:[[63251713.  1810634.]
+ [   98050. 15317812.]]
+ACCURACY(pixel accuracy): 0.9762832197222481
+SENSITIVITY: 0.9936396680250511
+SPECIFICITY: 0.9721707856619436
+PRECISION: 0.8942908189102502
+Mean of Hausdorff distances: 0.0
+Mean of Average Surface Distances: 4.263843648208469
+Max of Hausdorff distances: 0
+Max of Average Surface Distances: 51
