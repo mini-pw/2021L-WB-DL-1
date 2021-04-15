@@ -44,11 +44,17 @@ Jak widzimy, wersja oryginalna osiągnęła lepsze rezultaty zarówno w rozpozna
 
 W modelu VGG19 był już zaimplementowany dropout. Dla przypomnienia model ten składa się z pięciu bloków konwolucyjnych, po których występują 2 warstwy gęste (512 i 128 neuronów) z funkcją aktywacji *ReLU* i ostateczną warstwą *softmax*. *Dropout* 0.5 zaimplementowany jest pomiędzy wcześniej wspomnianymi warstwami *ReLU*. Jak widać było powyżej, tak zaprojektowana sieć działa dosyć dobrze. Po usunięciu mechanizmu *dropout* osiągamy już sporo gorsze wyniki:
 
+Oryginalne VGG19:
+<p align="center">
+<img src="https://i.imgur.com/h0N7Uj7.png" height="300">
+</p>
+
+VGG19 bez Dropout 0.5:
 <p align="center">
 <img src="https://i.imgur.com/8rkPMMo.png" height="300">
 </p>
 
-Jest to spowodowane za pewne tym, że bez regularyzacji zapewnianej przez *dropout* dostajemy overfitting. 
+Jest to zapewne spowodowane za pewne tym, że bez regularyzacji zapewnianej przez *dropout* dostajemy overfitting. 
 
 Nie wyciągaliśmy już dokładnych wag po wykonaniu *dropouta*, bo przy takich ilościach neuronów są to naprawdę ogromne macierze które merytorycznie dużo nam nie dają (poza tym okazuje się, że wyciągnięcie samej maski dropoutowej - albo wag po jej zastosowaniu - to trochę czarna magia). Poniżej zamieściliśmy za to bardziej przejrzystą wizualizację tego mechanizmu. Nie jest on skomplikowany - przypadku *dropout* 0.5 losowo wyzerowuje on dokładnie połowę neuronów, co pomaga nam uniknąć overfittingu.
 
