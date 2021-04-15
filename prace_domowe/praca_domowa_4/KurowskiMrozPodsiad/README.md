@@ -11,8 +11,8 @@ Confusion matrix:
 </p>
 
 Macierz pomyłek (ang. “Confusion matrix”) jest tablicą kontyngencji z dwoma wymiarami:
-Prawdziwe (actual label)
-Przewidziane przez model (predicted label)
+ * Prawdziwe (actual label)
+ * Przewidziane przez model (predicted label)
 Dodając podział na klasy dostajemy ogólną strukturę przewidywania modelu. Na podstawie macierzy pomyłek można wyliczyć wiele metryk jakości przewidywania modelu i ustalić jego trafność oraz charakterystykę.
 Wyliczanie metryk:
 
