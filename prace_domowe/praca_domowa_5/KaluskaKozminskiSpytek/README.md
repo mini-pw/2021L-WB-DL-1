@@ -24,7 +24,7 @@ Narzędziem które zamierzam użyć do augmentacji zbioru zdjęć będzie CycleG
 _Wymyśl dodatkowe zadanie (auxiliary task), które będzie dobrze nadawało się do Twojego problemu. Wykonaj uczenie wstępne za pomocą dodatkowego zadania._
 
 ### 2.1 Przegląd literatury
-W ramach przygotowań do zaaplikowania dodatkowego zadania do modelu sieci neuronowej rozwiązującej zadanie segmentacji obrazów tomografii komputerowej płuc, dokonałem przeglądu istniejącej literatury naukowej, w celu poszukiwania wiedzy i inspiracji w jaki sposób najlepiej podejść do zagadnienia. Poniżej znajduje się kilka pozycji, które mogą się okazać pomocne w tym prrzypadku.
+W ramach przygotowań do zaaplikowania dodatkowego zadania do modelu sieci neuronowej rozwiązującej zadanie segmentacji obrazów tomografii komputerowej płuc, dokonałem przeglądu istniejącej literatury naukowej, w celu poszukiwania wiedzy i inspiracji w jaki sposób najlepiej podejść do zagadnienia. Poniżej znajduje się kilka pozycji, które mogą się okazać pomocne w tym przypadku.
 
 #### 2.1.1 [Multitask learning: teach your AI more to make it better](https://towardsdatascience.com/multitask-learning-teach-your-ai-more-to-make-it-better-dde116c2cd40) (Honchar A., 2018)
 
@@ -56,6 +56,9 @@ _Przeprowadź nienadzorowane uczenie wstępne modelu (unsupervised pretraining).
 
 #### 3.1.1 https://link.springer.com/chapter/10.1007%2F978-3-030-58580-8_34
 
-#### 3.1.2 https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8
+#### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung
+Tissue Classification Thomas Schlegl, Joachim Ofner, and Georg Langs](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8)
+
+Autorzy tej publikacji zastosowali unsupervised pretraining do polepszenia wyników sieci neuronowej. Przykład opisany w artykule dotyczy modelku klasyfikacyjnego, nie segmentacyjnego, jak w naszym przypadku, jednak użyta CNN ma architekturę bardzo zbliżoną do tej z naszego artykułu. Mamy nadzieję że w naszym przypadku zastosowanie tej metody również podniesie wyniki. Twórcy artykułu proponują użycie Convolutional Restricted Boltzmann Machine jako metody inicjalizacji wag modelu.
 
 #### 3.1.3 https://ieeexplore.ieee.org/abstract/document/7813160
