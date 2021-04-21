@@ -39,3 +39,10 @@ Autorzy powyższego artykułu zmierzyli się z tematyką podobną do pola dział
 _Przeprowadź nienadzorowane uczenie wstępne modelu (unsupervised pretraining)._
 
 ### 3.1. Przegląd literatury
+
+
+#### 3.1.1 https://link.springer.com/chapter/10.1007%2F978-3-030-58580-8_34
+
+#### 3.1.2 https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8
+
+#### 3.1.3 https://ieeexplore.ieee.org/abstract/document/7813160
