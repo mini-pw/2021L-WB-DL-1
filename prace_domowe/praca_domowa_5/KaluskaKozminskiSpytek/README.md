@@ -5,6 +5,19 @@
 _Zaugmentuj dane przy pomocy Generative Adversarial Network (GAN). Podejścia dowolne. Można zaimplementować samemu. Można poszukać, czy jest może jakaś odpowiednia w Internecie._
 
 ### 1.1 Przegląd literatury
+#### 1.1.1 [Data augmentation using generative adversarial networks (CycleGAN) to improve generalizability in CT segmentation tasks](https://www.nature.com/articles/s41598-019-52737-x) (V. Sandfort, K. Yan, P. Pickhardt & R. Summers, 2019)
+
+Autorzy artykułu badają jak sztucznie wygenerowane dane przy pomocy CycleGAN wpływają na wyniki segmentacji trenowanej sieci. Transformacja przeprowadzana przez CycleGAN polegała na obniżeniu kontrastu zdjęcia CT. Trenowanie sieci zostało przeprowadzone na zbiorze oryginalnym, a także na zbiorze będącym połączeniem zbioru oryginalnego ze zbiorem syntetycznym składającym się ze zdjęć o obniżonym kontraście. Wyniki sieci zostały również porównane z wynikami sieci trenowanej na powiększanych zbiorach danych z użyciem takich metod jak standard augmentation oraz histogram equalization augmentation. Okzało się, że CycleGAN w wielu przypadkach w zależności od organu wewnętrznego sprawuje się najlepiej.
+
+#### 1.1.2 [Unpaired Image-to-Image Translationusing Cycle-Consistent Adversarial Networks](https://arxiv.org/pdf/1703.10593.pdf) (J. Zhu, T. Park, P. Isola, A. Efros, 2017) 
+
+Powyższy artykuł opublikowany w 2017 r. prezentuje rozwiązanie CycleGAN. Jest w nim zawarte wyjaśnienie jak działa CycleGAN. Kod napisany przez autorów został napisany pod bibliotekę PyTorch, jednak jest dużo powszechnie dostępnych implementacji CycleGAN dostosowanych do biblioteki Tensorflow.
+Na oficjalnej stronie Tensorflow dostępny jest tutorial wprowadzający do korzystania z CycleGAN w ramach dogłębnego zrozumienia jego działania strona odsyła nas do wyżej wymienionego artykułu. (https://www.tensorflow.org/tutorials/generative/cyclegan)
+
+### 1.1.3 Podsumowanie
+
+Augmentacja zdjęć CT klatki piersiowej została już częściowo zgłębiona. W pierwszej z przytoczonych przeze mnie prac autorzy wykorzystują powiększony zbiór danych do segmentacji nerek, wątroby oraz śledziony. Moim celem będzie sprawdzenie czy zastosowana metoda obniżania kontrastu zdjęć i mieszania ich ze zdjęciami oryginalnymi pomoże osiągnąć dokładniejsze wyniki dla segmentacji płuc w sieci BCDU. 
+Narzędziem które zamierzam użyć do augmentacji zbioru zdjęć będzie CycleGAN.
 
 ## 2. Transfer learning - auxiliary task
 
