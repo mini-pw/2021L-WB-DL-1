@@ -51,5 +51,5 @@ W naszym przypadku pracujemy na wykorzystywanym przez autorów modelu VGG19. Ucz
 
 Do trenowania użyte przez nas zostaną oryginalne dane COVIDx (z wyodrębnieniem małego zbioru do uczenia nadzorowanego), które w zależności od tego czy uda nam się zaimplementować GAN z pomyślnymi wynikami czy nie, mogą zostać uzupełnione wygenerowanymi danymi.
 <p align="center">
-<img src="https://i.imgur.com/L06GVDv.png " height="400">
+<img src="https://i.imgur.com/L06GVDv.png " width="700">
 </p>
