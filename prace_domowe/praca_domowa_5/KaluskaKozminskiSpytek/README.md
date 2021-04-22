@@ -17,7 +17,7 @@ Na oficjalnej stronie Tensorflow dostępny jest tutorial wprowadzający do korzy
 #### 1.1.3 Podsumowanie
 
 Augmentacja zdjęć CT klatki piersiowej została już częściowo zgłębiona. W pierwszej z przytoczonych przeze mnie prac autorzy wykorzystują powiększony zbiór danych do segmentacji nerek, wątroby oraz śledziony. Moim celem będzie sprawdzenie czy zastosowana metoda obniżania kontrastu zdjęć i mieszania ich ze zdjęciami oryginalnymi pomoże osiągnąć dokładniejsze wyniki dla segmentacji płuc w sieci BCDU. 
-Narzędziem które zamierzam użyć do augmentacji zbioru zdjęć będzie CycleGAN.
+Narzędziem którego zamierzam użyć do augmentacji zbioru zdjęć będzie CycleGAN.
 
 ## 2. Transfer learning - auxiliary task
 
@@ -54,10 +54,16 @@ _Przeprowadź nienadzorowane uczenie wstępne modelu (unsupervised pretraining).
 ### 3.1. Przegląd literatury
 
 
-#### 3.1.1 https://link.springer.com/chapter/10.1007%2F978-3-030-58580-8_34
+#### 3.1.1 [Pre-Training CNNs Using Convolutional Autoencoders](https://www.ni.tu-berlin.de/fileadmin/fg215/teaching/nnproject/cnn_pre_trainin_paper.pdf) (Maximilian Kohlbrenner et al.)
 
-  #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) Thomas Schlegl et al. 2014)
+W tej publikacji opisane jest zastosowanie autoenkoderów do inicjalizacji wag modelu. Autorzy twierdzą, że dzięki tej metodzie accuracy ich modelu podniosło się z poziomu 0.7 do 0.736 tylko dzięki zastosowaniu uczenia wstępnego, co stanowi znaczną poprawę. W artykule tym bardzo dokładnie opisana jest architektura CAE (Convolutional Auto Encoders), które to stosowane są do wstępnego uczenia, a następnie ich wagi przepisywane są do warstw głównego modelu. Dzięki opisowi konkretnych parametrów warstw, będziemy mogli spróbować zastosować dokładnie tę samą architekturę w naszym projekcie i sprawdzić, czy również pozwoli na poprawę wyników.
 
-Autorzy tej publikacji zastosowali unsupervised pretraining do polepszenia wyników sieci neuronowej. Przykład opisany w artykule dotyczy modelku klasyfikacyjnego, nie segmentacyjnego, jak w naszym przypadku, jednak użyta CNN ma architekturę bardzo zbliżoną do tej z naszego artykułu. Mamy nadzieję że w naszym przypadku zastosowanie tej metody również podniesie wyniki. Twórcy artykułu proponują użycie Convolutional Restricted Boltzmann Machine jako metody inicjalizacji wag modelu.
+  #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) (Thomas Schlegl et al. 2014)
 
-#### 3.1.3 https://ieeexplore.ieee.org/abstract/document/7813160
+Autorzy tej publikacji zastosowali Unsupervised pretraining jako sposób na poradzenie sobie z małą ilością danych treningowych. Tylko część obserwacji ze zbioru testowego była opisana etykietą, a co za tym idzie tylko ta część mogła być użyta do uczenia nadzorowanego. Naukowcy mieli jednak dużo więcej rekordów nieoznakowanych i za ich pomocą przeprowadzili trenowanie wstępne. Użyli oni CRBM (Convolutional Restricted Boltzmann Machine) jako model, który zainicjalizuje wagi poszczególnych warstw. Mamy nadzieję przetestować również to podejście w zastosowaniu do naszego projektu.
+
+
+### 3.1.3 Podsumowanie
+
+Unsupervised pretraining jest używany razem z modelami konwolucyjnymi dość często. Pozwala na użycie nieopisanych danych jako początek uczenia modelu, co jest bardzo przydatne, ponieważ opisane dane medyczne są zazwyczaj trudno dostępne. Mamy nadzieję, że opisane prace pozwolą nam zaimplementować tę funkcjonalność do naszego modelu.
+
