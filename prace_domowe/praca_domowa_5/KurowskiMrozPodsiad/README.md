@@ -42,7 +42,7 @@ Pomysł polega zatem na wytrenowaniu modelu z klasyfikacją jak z RSNA i dodanie
 Nienadzorowane uczenie wstępne modelu zwykle wykorzystuje się jeśli nie mamy dużej ilości danych treningowych z etykietami i nie możemy znaleźć modelu wytrenowanego dla podobnego zadania. Jeśli mamy dostęp do dużej ilości danych bez etykiet możemy spróbować wytrenować warstwy po kolei, zaczynając od najniższej i idąc w górę, używając nienadzorowanego algorytmu wykrywania cech (np. autoenkoder). Wszystkie warstwy oprócz trenowanej są zamrożone. Po wytrenowaniu wszystkich warstw w ten sposób można dodać warstwę wyjściową i dostroić sieć używając uczenia nadzorowanego (można odmrozić wszystkie wstępnie wytrenowane warstwy albo tylko niektóre z górnych).
 
 <p align="center">
-<img src="https://i.imgur.com/zHg4GzI.png " height="340">
+<img src="https://i.imgur.com/zHg4GzI.png " height="350">
 </p>
 
 Zamierzamy zaimplementować nienadzoworane uczenie wstępne modelu zgodnie z procesem opisanym wyżej i przy użyciu autoenkoderów (enkoder-dekoder). Ich działanie polega na uczeniu się odtwarzania danego wejścia przy odpowiednich ograniczeniach (np. zmniejszanie rozmiaru, dodanie szumu). Dzięki nałożonych ograniczeniach uczymy odpowiednie warstwy efektywnych sposobów reprezentacji danych wejściowych z wykluczeniem prostego kopiowania inputu. 
@@ -51,5 +51,5 @@ W naszym przypadku pracujemy na wykorzystywanym przez autorów modelu VGG19. Ucz
 
 Do trenowania użyte przez nas zostaną oryginalne dane COVIDx (z wyodrębnieniem małego zbioru do uczenia nadzorowanego), które w zależności od tego czy uda nam się zaimplementować GAN z pomyślnymi wynikami czy nie, mogą zostać uzupełnione wygenerowanymi danymi.
 <p align="center">
-<img src="https://i.imgur.com/L06GVDv.png " height="380">
+<img src="https://i.imgur.com/L06GVDv.png " height="390">
 </p>
