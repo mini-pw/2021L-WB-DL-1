@@ -26,7 +26,7 @@ Głównymi  zaletami są:
 - oszczędzanie  czasu treningu,
 - sieć neuronowa działa lepiej w większości przypadków i nie potrzebuje dużej ilości danych.
 
-Zazwyczaj się go stosuje gdy jest zbyt mało oznakowanych danych treningowych, aby szkolić swoją sieć od początku i / lub istnieje już sieć, która jest wcześniej przeszkolona w podobnym zadaniu, na ogromnej ilości danych. Innym przypadkiem, w którym jego zastosowanie byłoby odpowiednie, jest sytuacja, w której zadania A i zadanie B mają takie same dane wejściowe.
+Zazwyczaj się go stosuje gdy jest zbyt mało oznakowanych danych treningowych, aby szkolić swoją sieć od początku i / lub istnieje już sieć, która jest wcześniej przeszkolona w podobnym zadaniu, na ogromnej ilości danych. Innym przypadkiem, w którym jego zastosowanie byłoby odpowiednie, jest sytuacja, w której zadania A i B mają takie same dane wejściowe.
 
 Jedną z form Tranfer Learningu jest auxiliary task, polegający na tym, że zadajemy modelowi dodatkowe zadanie, którego najważniejszym celem jest poprawienie rezultatu modelu na pierwotnym zadaniu. Wyszkolony w ten sposób model może posłużyć jako “zaczyn” do szkolenia modelu przede wszystkim starającego się rozwiązać zadanie pierwotne.
 <p align="center">
