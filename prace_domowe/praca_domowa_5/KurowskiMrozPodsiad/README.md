@@ -15,7 +15,7 @@ Struktury te nazywane są generatywnymi sieciami przeciwstawnymi (Generative Adv
 W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasie oraz trenować go na naszym zbiorze danych. Uzyskany w ten sposób model będzie w stanie wygenerować dużą liczbę zdjęć płuc gotowych do dalszego wstępnego trenowania nienadzorowanego (Transfer Learning). Chcemy, żeby generator po dostaniu losowego szumu na wejściu tworzył wiarygodne zdjęcia płuc o rozmiarze 224x224.
 
 <p align="center">
-<img src="https://i2.wp.com/www.kdnuggets.com/wp-content/uploads/generative-adversarial-network.png?zoom=2" height="500">
+<img src="https://i2.wp.com/www.kdnuggets.com/wp-content/uploads/generative-adversarial-network.png?zoom=2" height="400">
 </p>
 
 ### 2. Transfer learning (auxiliary task)
@@ -42,7 +42,7 @@ Pomysł polega zatem na wytrenowaniu modelu z klasyfikacją jak z RSNA i dodanie
 Nienadzorowane uczenie wstępne modelu zwykle wykorzystuje się jeśli nie mamy dużej ilości danych treningowych z etykietami i nie możemy znaleźć modelu wytrenowanego dla podobnego zadania. Jeśli mamy dostęp do dużej ilości danych bez etykiet możemy spróbować wytrenować warstwy po kolei, zaczynając od najniższej i idąc w górę, używając nienadzorowanego algorytmu wykrywania cech (np. autoenkoder). Wszystkie warstwy oprócz trenowanej są zamrożone. Po wytrenowaniu wszystkich warstw w ten sposób można dodać warstwę wyjściową i dostroić sieć używając uczenia nadzorowanego (można odmrozić wszystkie wstępnie wytrenowane warstwy albo tylko niektóre z górnych).
 
 <p align="center">
-<img src="https://i.imgur.com/zHg4GzI.png " height="300">
+<img src="https://i.imgur.com/zHg4GzI.png " height="400">
 </p>
 
 Zamierzamy zaimplementować nienadzoworane uczenie wstępne modelu zgodnie z procesem opisanym wyżej i przy użyciu autoenkoderów (enkoder-dekoder). Ich działanie polega na uczeniu się odtwarzania danego wejścia przy odpowiednich ograniczeniach (np. zmniejszanie rozmiaru, dodanie szumu). Dzięki nałożonych ograniczeniach uczymy odpowiednie warstwy efektywnych sposobów reprezentacji danych wejściowych z wykluczeniem prostego kopiowania inputu. 
@@ -51,5 +51,5 @@ W naszym przypadku pracujemy na wykorzystywanym przez autorów modelu VGG19. Ucz
 
 Do trenowania użyte przez nas zostaną oryginalne dane COVIDx (z wyodrębnieniem małego zbioru do uczenia nadzorowanego), które w zależności od tego czy uda nam się zaimplementować GAN z pomyślnymi wynikami czy nie, mogą zostać uzupełnione wygenerowanymi danymi.
 <p align="center">
-<img src="https://i.imgur.com/L06GVDv.png " height="300">
+<img src="https://i.imgur.com/L06GVDv.png " height="400">
 </p>
