@@ -30,7 +30,7 @@ Zazwyczaj się go stosuje gdy jest zbyt mało oznakowanych danych treningowych, 
 
 Jedną z form Tranfer Learningu jest auxiliary task, polegający na tym, że zadajemy modelowi dodatkowe zadanie, którego najważniejszym celem jest poprawienie rezultatu modelu na pierwotnym zadaniu. Wyszkolony w ten sposób model może posłużyć jako “zaczyn” do szkolenia modelu przede wszystkim starającego się rozwiązać zadanie pierwotne.
 <p align="center">
-<img src="https://i.imgur.com/SxPgqNg.png " height="300">
+<img src="https://i.imgur.com/SxPgqNg.png " height="280">
 </p>
 
 W naszym przypadku zamierzamy wykorzystać dodatkowe informacje pojawiające się w części naszego zbioru zdjęć pochodzącego od RSNA - zbiór ten pozwala podzielić zdjęcia płuc na te z pneumonia i normalne. Oprócz tego celem jest również określenie miejsca w płucach, w którym znajduje się pneumonia - i to tę informację wykorzystamy do auxiliary task. Znaczny rozmiar zbioru RSNA powinien zapobiec przeuczeniu się modelu na tych zdjęciach.
