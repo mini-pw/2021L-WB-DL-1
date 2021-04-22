@@ -56,7 +56,7 @@ _Przeprowadź nienadzorowane uczenie wstępne modelu (unsupervised pretraining).
 
 #### 3.1.1 https://link.springer.com/chapter/10.1007%2F978-3-030-58580-8_34
 
-  #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) Thomas Schlegl, Joachim Ofner, and Georg Langs
+  #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) Thomas Schlegl et al. 2014)
 
 Autorzy tej publikacji zastosowali unsupervised pretraining do polepszenia wyników sieci neuronowej. Przykład opisany w artykule dotyczy modelku klasyfikacyjnego, nie segmentacyjnego, jak w naszym przypadku, jednak użyta CNN ma architekturę bardzo zbliżoną do tej z naszego artykułu. Mamy nadzieję że w naszym przypadku zastosowanie tej metody również podniesie wyniki. Twórcy artykułu proponują użycie Convolutional Restricted Boltzmann Machine jako metody inicjalizacji wag modelu.
 
