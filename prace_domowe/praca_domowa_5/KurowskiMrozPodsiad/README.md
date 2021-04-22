@@ -20,7 +20,7 @@ W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasi
 
 ### 2. Transfer learning (auxiliary task)
 
-Metoda Transfer Learningu polega na wykorzystywaniu wiedzy z już wyszkolonym modelu uczenia maszynowego do innego, ale pokrewnego problemu. Dzięki temu próbujemy wykorzystać to, czego nauczyliśmy się w jednym zadaniu, aby poprawić generalizację w innym..
+Metoda Transfer Learningu polega na wykorzystywaniu wiedzy o już wyszkolonym modelu uczenia maszynowego do innego, ale pokrewnego problemu. Dzięki temu próbujemy wykorzystać to, czego nauczyliśmy się w jednym zadaniu, aby poprawić generalizację w innym..
  
 Głównymi  zaletami są:
 - oszczędzanie  czasu treningu,
