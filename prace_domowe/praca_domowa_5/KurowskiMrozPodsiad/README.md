@@ -15,7 +15,7 @@ Struktury te nazywane są generatywnymi sieciami przeciwstawnymi (Generative Adv
 W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasie oraz trenować go na naszym zbiorze danych. Uzyskany w ten sposób model będzie w stanie wygenerować dużą liczbę zdjęć płuc gotowych do dalszego wstępnego trenowania nienadzorowanego (Transfer Learning). Chcemy, żeby generator po dostaniu losowego szumu na wejściu tworzył wiarygodne zdjęcia płuc o rozmiarze 224x224.
 
 <p align="center">
-<img src="https://i2.wp.com/www.kdnuggets.com/wp-content/uploads/generative-adversarial-network.png?zoom=2" height="300">
+<img src="https://i2.wp.com/www.kdnuggets.com/wp-content/uploads/generative-adversarial-network.png?zoom=2" height="500">
 </p>
 
 ### 2. Transfer learning (auxiliary task)
@@ -51,5 +51,5 @@ W naszym przypadku pracujemy na wykorzystywanym przez autorów modelu VGG19. Ucz
 
 Do trenowania użyte przez nas zostaną oryginalne dane COVIDx (z wyodrębnieniem małego zbioru do uczenia nadzorowanego), które w zależności od tego czy uda nam się zaimplementować GAN z pomyślnymi wynikami czy nie, mogą zostać uzupełnione wygenerowanymi danymi.
 <p align="center">
-<img src="https://miro.medium.com/max/638/1*cufAO77aeSWdShs3ba5ndg.jpeg " height="300">
+<img src="https://i.imgur.com/L06GVDv.png " height="300">
 </p>
