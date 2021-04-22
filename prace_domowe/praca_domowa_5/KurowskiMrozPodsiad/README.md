@@ -12,11 +12,11 @@ Dyskryminator z kolei jest trenowany do szacowania prawdopodobieństwa, że dana
 
 Struktury te nazywane są generatywnymi sieciami przeciwstawnymi (Generative Adversarial Network), ponieważ generator i dyskryminator są trenowane tak, aby konkurować ze sobą: generator stara się coraz lepiej oszukiwać dyskryminator, podczas gdy dyskryminator stara się coraz lepiej identyfikować wygenerowane próbki.
 
-W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasie oraz trenować go na naszym zbiorze danych. Uzyskany w ten sposób model będzie w stanie wygenerować dużą liczbę zdjęć płuc gotowych do dalszego wstępnego trenowania nienadzorowanego (Transfer Learning). Chcemy, żeby generator po dostaniu losowego szumu na wejściu tworzył wiarygodne zdjęcia płuc o rozmiarze 224x224.
-
 <p align="center">
 <img src="https://i2.wp.com/www.kdnuggets.com/wp-content/uploads/generative-adversarial-network.png?zoom=2" height="400">
 </p>
+
+W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasie oraz trenować go na naszym zbiorze danych. Uzyskany w ten sposób model będzie w stanie wygenerować dużą liczbę zdjęć płuc gotowych do dalszego wstępnego trenowania nienadzorowanego (Transfer Learning). Chcemy, żeby generator po dostaniu losowego szumu na wejściu tworzył wiarygodne zdjęcia płuc o rozmiarze 224x224.
 
 ### 2. Transfer learning (auxiliary task)
 
