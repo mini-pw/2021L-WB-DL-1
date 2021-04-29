@@ -6,7 +6,7 @@ Tematem zajęć jest uczenie głębokie (deep learning). Podczas laboratoriów z
 Na zajęciach każda grupa dostanie artykuł naukowy z dołączonym do niego kodem do analizy i pracy na nim. Będziemy pracować z językiem Python i biblioteką Keras do tworzenia oraz trenowania sieci neuronowych. Artykuł będzie skupiał się na zagadnieniu segmentacji lub kategoryzacji medycznych zdjęć płuc. Temat został wybrany ze względu na wciąż aktualny temat pandemii COVID-19.<br/>
 Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learning. Praca z językiem Python i biblioteką Keras".
 
-### Terminy i tematy zajęć 
+### Terminy i tematy zajęć
 
 <table>
 <thead>
@@ -58,31 +58,31 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
     <td>Podział danych na zbiory. Preprocessing danych (rozdz. 4.1-4.3, 4.5.3, 4.5.4)</td>
     <td>Jakie są typowe podziały na zbiór treningowy, walidacyjny i testowy. W jaki sposób i po co obrabiamy zdjęcia przed treningiem.</td>
     <td>Podział na zbiór treningowy, walidacyjny, testowowy. Preprocessing danych.</td>
-    <td>5 pkt.</td>
+    <td>6 pkt.</td>
   </tr>
   <tr>
     <td>6</td>
     <td>2021-04-01</td>
-    <td>Jak długo trenować sieć (rozdz. 4.4-4.5)</td>
+    <td>Omówienie prac domowych</td>
+    <td>Prezentacja przeprowadzonego researchu literaturowego.</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>2021-04-08</td>
+    <td>Jak długo trenować sieć (rozdz. 4.4-4.5) </td>
     <td>Jak uniknąć nadmiernego dopasowania się sieci do zbioru treningowego. Jakie mamy miary oceny jakości modelu.</td>
     <td>Ocena dopasowania modelu - co zrobili, aby ograniczyć nadmierne dopasowanie. Obliczyć pole pod ROC + inne metryki.</td>
     <td>5 pkt.</td>
   </tr>
   <tr>
-    <td>7</td>
-    <td>2021-04-08</td>
-    <td>Gdy danych do trenowania jest mało (rozdz. 5.1-5.2)</td>
-    <td>Techniki augmentacji danych.</td>
-    <td>Wypisanie jakie techniki augmentacji są stosowane + dodać nowe/zmodyfikować obecne</td>
-    <td>5 pkt.</td>
-  </tr>
-  <tr>
     <td>8</td>
     <td>2021-04-15</td>
-    <td>Transfer learning (rozdz. 5.3-5.4)</td>
-    <td>Jak korzystać z sieci neuronowych wytrenowanych na ogromnych zbiorach danych.</td>
-    <td>Załadować wagi z innego modelu.</td>
-    <td>5 pkt.</td>
+    <td>Gdy danych do trenowania jest mało (rozdz. 5.1-5.2) Transfer learning (rozdz. 5.3-5.4)</td>
+    <td>Techniki augmentacji danych. Jak korzystać z sieci neuronowych wytrenowanych na ogromnych zbiorach danych.</td>
+    <td>Wypisanie jakie techniki augmentacji są stosowane + dodać nowe/zmodyfikować obecne. Załadować wagi z innego modelu.</td>
+    <td>9 pkt.</td>
   </tr>
   <tr>
     <td>9</td>
@@ -125,18 +125,10 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
     <td></td>
   </tr>
   <tr>
-    <td></td>
-    <td>2021-05-27 </td>
-    <td colspan="3"> Prezentacja projektu.  </td>
-    <td>20 pkt.</td>
-  </tr>
-  <tr>
     <td>14</td>
-    <td>2021-05-27</td>
-    <td>Konsultacje raportu</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>2021-05-27 </td>
+    <td colspan="3"> Prezentacja projektu (max. 15 min na grupę)  </td>
+    <td>20 pkt.</td>
   </tr>
   <tr>
     <td></td>
@@ -169,8 +161,24 @@ Zajęcia będą prowadzone na podstawie książki Francois Cholleta "Deep Learni
 -   praca na laboratoriach - 40 pkt.
 
 
+### Krótka instrukcja uzupełniania rozdziałów książki
+
+Link do [książki](https://github.com/mini-pw/2021L-WB-Book)
+
+Dodając pliki, obrazki, pozycje w bibliografii i pull requesty proszę oznaczać je według następującego schematu: `numeru grupy_numeru zespołu_dalsza nazwa`.
+
+Obrazki wrzucamy do folderu *images*.
+
+* [PiatyszekMarciniakFrej] - zespół nr **1**, czyli `3_1_...`
+* [KaluskaKozminskiSpytek] - zespół nr **2**, czyli `3_2_...`
+* [KurowskiMrozPodsiad] - zespół nr **3**, czyli `3_3_...`
+* [eljasiak_krupinski_pawlak] - zespół nr **4**, czyli `3_4_...`
+* [KoziełNocońStaroń] - zespół nr **5**, czyli `3_5_...`
+
+
 ### Niezbędna literatura:
 - Francois Chollet "Deep Learning. Praca z językiem Python i biblioteką Keras" (pol)
 - [François Chollet "Deep Learning with Python" (ang)](http://faculty.neu.edu.cn/yury/AAI/Textbook/Deep%20Learning%20with%20Python.pdf)
 - [Jupyter notebooks do książki wspomnianej wyżej (pol)](https://ftp.helion.pl/przyklady/delepy.zip)
 - [Jupyter notebooks for the book mentioned above (ang)](https://github.com/fchollet/deep-learning-with-python-notebooks)
+
