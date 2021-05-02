@@ -15,3 +15,14 @@ Czytaliśmy o tym problemie w internecie, niestety nie znaleźliśmy na razie ż
 Na razie przedstawiamy wyniki na błędnych modelach.  
 
 Porównanie dla modeli przedstawia trzy metody: LRP, GradCAM oraz GradCAM+. W modelu ResNet bez względu na poprawność wag nie da się uruchomić metody LRP, ponieważ nie toleruje on warstw softmax, które są w tym modelu.
+
+Dla ResNet:
+
+<p align="center">
+<img src="https://i.imgur.com/z8pbgtr.png" height="400">
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/7qh708h.png" height="400">
+</p>
+
