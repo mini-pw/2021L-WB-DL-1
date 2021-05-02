@@ -45,3 +45,15 @@ Dla VGG:
 <p align="center">
 <img src="https://i.imgur.com/qkg4clw.png" width="800">
 </p>
+
+#### 2. Znaleźć dwa inne frameworki i uruchomić na swojej sieci
+
+##### 2.1. tf-explain
+
+Użyliśmy biblioteki *tf-explain* ( https://github.com/sicara/tf-explain ) głównie ze względu na to, że jest tam zaimplementowane Occlussion Sensitivity, którego nie mamy w iNNvestigate. 
+
+Metoda ta polega na wizualizacji wpływu części obrazu na pewność sieci neuronowej poprzez iteracyjne zasłanianie części obrazu. W praktyce dostajemy heatmapę dla wybranej etykiety która pokazuje nam, które obszary dają nam większą pewność tej etykiety, a które mniejszą. Z powodu losowości wag przy ładowaniu modelu możemy tylko pokazać że faktycznie się odpala:
+
+<p align="center">
+<img src="https://i.imgur.com/8LtO2Fo.png " width="800">
+</p>
