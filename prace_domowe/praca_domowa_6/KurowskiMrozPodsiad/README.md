@@ -19,23 +19,23 @@ Porównanie dla modeli przedstawia trzy metody: LRP, GradCAM oraz GradCAM+. W mo
 Dla ResNet:
 
 <p align="center">
-<img src="https://i.imgur.com/z8pbgtr.png" height="200">
+<img src="https://i.imgur.com/z8pbgtr.png" width="800">
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/7qh708h.png" height="200">
+<img src="https://i.imgur.com/7qh708h.png" width="800">
 </p>
 
 Dla VGG:
 
 <p align="center">
-<img src="https://i.imgur.com/8hx1hyt.png" height="200">
+<img src="https://i.imgur.com/8hx1hyt.png" width="800">
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/dNFcgef.png" height="200">
+<img src="https://i.imgur.com/dNFcgef.png" width="800">
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/qkg4clw.png" height="200">
+<img src="https://i.imgur.com/qkg4clw.png" width="800">
 </p>
