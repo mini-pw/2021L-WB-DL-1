@@ -66,7 +66,7 @@ Nieco ciekawy może być jednak fakt, że po sprawdzeniu kodu źródłowego okaz
 Z tego powodu szukaliśmy innego frameworku xaiowego, który by mógł zastąpić explAIner. Niestety, podobnie jak przy explAInerze, większość próbowanych powodowała różne problemy lub zwyczajnie nie była przystosowana do wyjaśniania zdjęć. Paczką, która w pewien sposób działała jest  https://pypi.org/project/keras-explain/ keras explain. Niestety, nie jest jasne, jak należy przetworzyć uzyskiwane wytłumaczenia.  W szczególności staraliśmy się nie używać wytłumaczeń dostępnych od innvestigate. Poniżej znajduje się explainer uzyskany po użyciu Basic graying out, który raczej ciężko nazwać wytłumaczeniem. 
 
 <p align="center">
-<img src="https://i.imgur.com/PAy1vtq.png " width="600">
+<img src="https://i.imgur.com/PAy1vtq.png " width="400">
 </p>
 
 
