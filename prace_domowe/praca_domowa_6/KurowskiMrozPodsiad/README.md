@@ -26,3 +26,16 @@ Dla ResNet:
 <img src="https://i.imgur.com/7qh708h.png" height="200">
 </p>
 
+Dla VGG:
+
+<p align="center">
+<img src="https://i.imgur.com/8hx1hyt.png" height="200">
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/dNFcgef.png" height="200">
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/qkg4clw.png" height="200">
+</p>
