@@ -61,6 +61,7 @@ bazowej aplikacji TensorBoard z badanym przez nas modelem.
 
 ![TensorBoard](./img/Screenshot_2021-05-02_TensorBoard.png)
 
+
 ### 2.3 Pozostałe metody XAI
 
 Jako że próby skorzystania z ExplAInera zakończyły się fiaskiem, dokonaliśmy również szeregu prób uruchomienia innych istniejących pakietów do XAI. Niestety wiele z nich miało problemy
