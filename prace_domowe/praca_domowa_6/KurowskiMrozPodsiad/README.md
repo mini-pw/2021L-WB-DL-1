@@ -5,7 +5,7 @@
 #### 1. Użyć biblioteki iNNvestigate
 
 Poprawiliśmy implementację wykorzystania iNNvestigate zaproponowaną przez autorów. 
-Sama wizualizacja działa, ale nie byliśmy w stanie zweryfikować, jak poprawnie.
+Sama wizualizacja działa, ale nie mogliśmy zweryfikować, jak poprawnie.
 
 
 Niestety natrafiliśmy na poważny problem, którego na razie nie udało nam się rozwiązać.
