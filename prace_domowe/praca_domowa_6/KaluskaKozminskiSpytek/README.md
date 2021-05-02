@@ -59,7 +59,7 @@ edycję pliku konfiguracyjnego aplikacji celem modyfikacji dostępnych modeli, j
 Bez powodzenia zakończyły się również próby korzystania z wbudowanych funkcji wyjaśniających proces uczenia poza aplikacją. Jedynym sukcesem tych prób okazała się możliwość uruchomienia
 bazowej aplikacji TensorBoard z badanym przez nas modelem.
 
-![TensorBoard](./img/Screenshot_2021-05-02 TensorBoard.png)
+!["TensorBoard"](./img/Screenshot_2021-05-02 TensorBoard.png)
 
 ### 2.3 Pozostałe metody XAI
 
