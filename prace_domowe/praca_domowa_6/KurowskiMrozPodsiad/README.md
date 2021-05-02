@@ -16,6 +16,12 @@ Na razie przedstawiamy wyniki na błędnych modelach.
 
 Porównanie dla modeli przedstawia trzy metody: LRP, GradCAM oraz GradCAM+. W modelu ResNet bez względu na poprawność wag nie da się uruchomić metody LRP, ponieważ nie toleruje on warstw softmax, które są w tym modelu.
 
+Opis metod:
+
+- Layer-wise Relevance Propagation (LRP) to ogólne podejście do wyjaśnienia przewidywań AI. Jego interpretacja matematyczna to Głęboka Dekompozycja Taylora sieci neuronowej.
+- Gradient-weighted Class Activation Mapping (Grad-CAM), wykorzystuje gradienty dowolnego konceptu docelowego, przepływając do końcowej warstwy konwolucyjnej w celu wytworzenia zgrubnej mapy lokalizacyjnej, podkreślającej ważne regiony w obrazie dla przewidywania konceptu.
+- Grad-CAM+, uogólniona technika wizualizacji do wyjaśniania decyzji CNN, która poprawia wyżej wymienioną metodę i zapewnia bardziej ogólne podejście.
+
 Dla ResNet:
 
 <p align="center">
