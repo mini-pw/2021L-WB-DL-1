@@ -19,10 +19,10 @@ Porównanie dla modeli przedstawia trzy metody: LRP, GradCAM oraz GradCAM+. W mo
 Dla ResNet:
 
 <p align="center">
-<img src="https://i.imgur.com/z8pbgtr.png" height="400">
+<img src="https://i.imgur.com/z8pbgtr.png" height="200">
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/7qh708h.png" height="400">
+<img src="https://i.imgur.com/7qh708h.png" height="200">
 </p>
 
