@@ -30,26 +30,48 @@ Przygotować się na pytania.
 Jeśli na końcu linii pojawia się gwiazdka (*) to proszę o przedstawienie, jak wyliczać liczbę parametrów, rozmiar następnej warstwy i [głębokość sieci](https://keras.io/api/applications/).<br /> 
 Jeśli jedna architektura sieci ma kilka odmian np. VGG-16 lub VGG-19 to powiedz czym się one różnią, tak samo jeśli sieć ma kilka wersji np. Inception v1, Inception v2.
 
+**13 maja**<br />
+[Mikołaj Spytek] komórka LSTM<br /> 
+[Tomasz Nocoń] komórka GRU<br />
+[Bartłomiej Eljasiak] R-CNN<br />
+[Zuzanna Mróz] Restricted Boltzmann machine<br />
 
-**Konwolucyjne sieci neuronowe**<br /> 
-LeNet, AlexNet, VGG * <br /> 
-ResNet, DenseNet *<br /> 
+**20 maja**<br />
+[Kacper Kurowski] LeNet, AlexNet, VGG * <br />
+[Paweł Koźmiński] self organizing maps, można na przykładzie sieci Kohonena<br />
+[Dominik Pawlak] Siamese Network<br />
+[Aleksander Podsiad] Attention Module<br />
+
+**10 czerwca**<br />
+[Piotr Marciniak] ResNet, DenseNet *<br />
+[Piotr Piątyszek] Inception<br /> 
+[Jakub Kozieł] Xception, MobileNet<br />
+[Adam Frej] Fully Convolutional Network, DeconvNet<br />
+[Maria Kałuska] bidirectional RNN<br />
+[Tomasz Krupiński] autoenkoder wariacyjny VAE<br />
+[Kacper Staroń] Mask R-CNN<br />
+
+----
+
+**Konwolucyjne sieci neuronowe**<br />
+LeNet, AlexNet, VGG * <br />
+ResNet, DenseNet *<br />
 Inception<br /> 
-Xception, MobileNet<br /> 
+Xception, MobileNet<br />
 Fully Convolutional Network, DeconvNet
 
 **Rekurencyjne sieci neuronowe**<br /> 
 komórka LSTM<br /> 
-komórka GRU<br /> 
+komórka GRU<br />
 bidirectional RNN
 
 **Uczenie nienadzorowane**<br /> 
-self organizing maps, można na przykładzie sieci Kohonena<br /> 
+self organizing maps, można na przykładzie sieci Kohonena<br />
 Restricted Boltzmann machine<br /> 
 autoenkoder wariacyjny VAE
 
 **Różności**<br /> 
-Siamese Network<br /> 
-R-CNN<br /> 
-Mask R-CNN<br /> 
+Siamese Network<br />
+R-CNN<br />
+Mask R-CNN<br />
 Attention Module
