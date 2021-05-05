@@ -34,11 +34,11 @@ Jeśli jedna architektura sieci ma kilka odmian np. VGG-16 lub VGG-19 to powiedz
 [Mikołaj Spytek] komórka LSTM<br /> 
 [Tomasz Nocoń] komórka GRU<br />
 [Bartłomiej Eljasiak] R-CNN<br />
+[Paweł Koźmiński] self organizing maps, można na przykładzie sieci Kohonena<br />
 [Zuzanna Mróz] Restricted Boltzmann machine<br />
 
 **20 maja**<br />
 [Kacper Kurowski] LeNet, AlexNet, VGG * <br />
-[Paweł Koźmiński] self organizing maps, można na przykładzie sieci Kohonena<br />
 [Dominik Pawlak] Siamese Network<br />
 [Aleksander Podsiad] Attention Module<br />
 
