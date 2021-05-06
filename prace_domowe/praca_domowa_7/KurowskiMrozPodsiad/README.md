@@ -24,6 +24,8 @@ Porównanie histogramów dla warstwy predykcji (bias) dwóch modeli uczonych na 
  - na górze model VGG po 12 epokach
  - na dole model VGG po 60 epokach
 
+![](https://i.imgur.com/YnTHO4T.png" width="300) ![](https://i.imgur.com/YnTHO4T.png" width="300)
+
 <p align="center">
 <img src="https://i.imgur.com/YnTHO4T.png" width="300">
 </p>
