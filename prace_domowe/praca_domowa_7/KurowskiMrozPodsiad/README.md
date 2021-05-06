@@ -24,7 +24,8 @@ Porównanie histogramów dla warstwy predykcji (bias) dwóch modeli uczonych na 
  - na górze model VGG po 12 epokach
  - na dole model VGG po 60 epokach
 
-Solarized dark             |  Solarized Ocean
+
+Bias                       |  Kernel
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/YnTHO4T.png)  |  ![](https://i.imgur.com/2azc1vC.png)
 
