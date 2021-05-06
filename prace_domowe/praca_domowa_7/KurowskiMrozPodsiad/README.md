@@ -11,13 +11,13 @@ Do sieci VGG podłączyliśmy tensorboard wraz z callbackami:
 Wykres accuracy dla VGG:
 
 <p align="center">
-<img src="https://i.imgur.com/85XRp3Z.png" width="600">
+<img src="https://i.imgur.com/85XRp3Z.png" width="500">
 </p>
 
 Wykres funkcji straty dla VGG:
 
 <p align="center">
-<img src="https://i.imgur.com/nRfrMAE.png" width="600">
+<img src="https://i.imgur.com/nRfrMAE.png" width="500">
 </p>
 
 Porównanie histogramów dla warstwy predykcji (bias i kernel) dwóch modeli uczonych na różnych liczbach epok:
@@ -25,8 +25,8 @@ Porównanie histogramów dla warstwy predykcji (bias i kernel) dwóch modeli ucz
  - na dole model VGG po 60 epokach
 
 <p align="center">
-<img src="https://i.imgur.com/YnTHO4T.png" height="500">
-<img src="https://i.imgur.com/2azc1vC.png" height="500">
+<img src="https://i.imgur.com/YnTHO4T.png" height="400">
+<img src="https://i.imgur.com/2azc1vC.png" height="400">
 </p>
 
 Porównanie histogramów dla warstwy konwolucyjnej nr 5 (bias i kernel) dwóch modeli uczonych na różnych liczbach epok:
@@ -34,8 +34,8 @@ Porównanie histogramów dla warstwy konwolucyjnej nr 5 (bias i kernel) dwóch m
  - na dole model VGG po 60 epokach
 
 <p align="center">
-<img src="https://i.imgur.com/0Dt7X5m.png" height="500">
-<img src="https://i.imgur.com/e3O73wX.png" height="500">
+<img src="https://i.imgur.com/0Dt7X5m.png" height="400">
+<img src="https://i.imgur.com/e3O73wX.png" height="400">
 </p>
 
 Callback early stopping nie zatrzymał wcześniej uczenia, ale dzięki jego wykorzystaniu możemy odzyskać wagi modelu z najwyższą jakością predykcji z całego procesu uczenia.
