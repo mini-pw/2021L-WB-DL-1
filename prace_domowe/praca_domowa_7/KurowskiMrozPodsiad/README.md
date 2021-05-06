@@ -14,7 +14,7 @@ Wykres accuracy dla VGG:
 <img src="https://i.imgur.com/85XRp3Z.png" width="600">
 </p>
 
-Wykres funkcji straty dla VGG;
+Wykres funkcji straty dla VGG:
 
 <p align="center">
 <img src="https://i.imgur.com/nRfrMAE.png" width="600">
@@ -36,6 +36,10 @@ Porównanie histogramów dla warstwy predykcji (kernel) dwóch modeli uczonych n
 <img src="https://i.imgur.com/2azc1vC.png" width="300">
 </p>
 
+Callback early stopping nie zatrzymał wcześniej uczenia, ale dzięki jego wykorzystaniu możemy odzyskać wagi modelu z najwyższą jakością predykcji z całego procesu uczenia.
+
+Posłużyliśmy się nowym callbackiem nazwanym CustomLearningRateScheduler(), który odpowiadał za zmniejszanie szybkości uczenia modelu wraz ze zwiększającą się liczbą epok.
+W środku została wykorzystana dodatkowa funkcja ustalająca wartości szybkości uczenia (learning rate) dla wybranych wcześniej epok. Podczas uczenia callback wypisywał także wartości tego parametru w każdej epoce.
 
 #### 2. Wiele wejść / wiele wyjść
 
