@@ -25,7 +25,7 @@ Porównanie histogramów dla warstwy predykcji (bias) dwóch modeli uczonych na 
  - na dole model VGG po 60 epokach
 
 <p align="center">
-<img src="https://i.imgur.com/YnTHO4T.png" width="600">
+<img src="https://i.imgur.com/YnTHO4T.png" width="300">
 </p>
 
 Porównanie histogramów dla warstwy predykcji (kernel) dwóch modeli uczonych na różnych liczbach epok:
@@ -33,7 +33,7 @@ Porównanie histogramów dla warstwy predykcji (kernel) dwóch modeli uczonych n
  - na dole model VGG po 60 epokach
 
 <p align="center">
-<img src="https://i.imgur.com/2azc1vC.png" width="600">
+<img src="https://i.imgur.com/2azc1vC.png" width="300">
 </p>
 
 
