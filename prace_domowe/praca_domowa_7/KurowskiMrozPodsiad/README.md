@@ -20,25 +20,14 @@ Wykres funkcji straty dla VGG:
 <img src="https://i.imgur.com/nRfrMAE.png" width="600">
 </p>
 
-Porównanie histogramów dla warstwy predykcji (bias) dwóch modeli uczonych na różnych liczbach epok:
+Porównanie histogramów dla warstwy predykcji (bias i kernel) dwóch modeli uczonych na różnych liczbach epok:
  - na górze model VGG po 12 epokach
  - na dole model VGG po 60 epokach
 
-
+<p align="center">
 Bias                       |  Kernel
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/YnTHO4T.png)  |  ![](https://i.imgur.com/2azc1vC.png)
-
-<p align="center">
-<img src="https://i.imgur.com/YnTHO4T.png" width="300">
-</p>
-
-Porównanie histogramów dla warstwy predykcji (kernel) dwóch modeli uczonych na różnych liczbach epok:
- - na górze model VGG po 12 epokach
- - na dole model VGG po 60 epokach
-
-<p align="center">
-<img src="https://i.imgur.com/2azc1vC.png" width="300">
 </p>
 
 Callback early stopping nie zatrzymał wcześniej uczenia, ale dzięki jego wykorzystaniu możemy odzyskać wagi modelu z najwyższą jakością predykcji z całego procesu uczenia.
