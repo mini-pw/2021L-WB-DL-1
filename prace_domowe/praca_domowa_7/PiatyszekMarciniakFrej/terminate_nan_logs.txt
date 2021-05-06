@@ -1,0 +1,925 @@
+(base) root@a0f39779f10c:/opt/notebooks/LungNetNew# python train-lidc.py 
+2021-05-06 10:40:01.942820: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-05-06 10:40:02.441964: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: Quadro K2200 computeCapability: 5.0
+coreClock: 1.124GHz coreCount: 5 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 74.65GiB/s
+2021-05-06 10:40:02.442375: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-05-06 10:40:02.445390: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-05-06 10:40:02.447841: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-05-06 10:40:02.448325: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-05-06 10:40:02.451754: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-05-06 10:40:02.453534: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-05-06 10:40:02.460233: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-05-06 10:40:02.461505: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2021-05-06 10:40:02.461908: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2021-05-06 10:40:02.475495: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2194540000 Hz
+2021-05-06 10:40:02.479690: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555a0cf5ae40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-05-06 10:40:02.479767: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-05-06 10:40:02.480716: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: Quadro K2200 computeCapability: 5.0
+coreClock: 1.124GHz coreCount: 5 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 74.65GiB/s
+2021-05-06 10:40:02.480807: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-05-06 10:40:02.480850: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-05-06 10:40:02.480886: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-05-06 10:40:02.480925: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-05-06 10:40:02.480961: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-05-06 10:40:02.480996: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-05-06 10:40:02.481032: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-05-06 10:40:02.482130: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2021-05-06 10:40:02.482195: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-05-06 10:40:02.598200: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-06 10:40:02.598276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
+2021-05-06 10:40:02.598294: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2021-05-06 10:40:02.600630: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3714 MB memory) -> physical GPU (device: 0, name: Quadro K2200, pci bus id: 0000:08:00.0, compute capability: 5.0)
+2021-05-06 10:40:02.605297: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555a10e811c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-05-06 10:40:02.605337: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Quadro K2200, Compute Capability 5.0
+[<tf.Tensor 'conv2d_8/Identity:0' shape=(None, None, None, 2) dtype=float32>]
+model-587f211a-415a-4228-955f-c6a6d99e9f28
+tensorboard/20210506-104300
+Failed to import pydot. You must install pydot and graphviz for `pydotprint` to work.
+2021-05-06 10:43:00.159482: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2021-05-06 10:43:00.159562: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1363] Profiler found 1 GPUs
+2021-05-06 10:43:00.180230: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcupti.so.10.1
+2021-05-06 10:43:00.280802: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2021-05-06 10:43:00.281877: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2021-05-06 10:43:00.282056: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+WARNING:tensorflow:From train-lidc.py:70: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+Epoch 1/1000
+2021-05-06 10:45:32.918746: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-05-06 10:45:36.497671: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-05-06 10:45:38.727092: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.39GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-06 10:45:40.492574: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.50GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-06 10:45:42.704374: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2021-05-06 10:45:42.704556: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_NOT_INITIALIZED
+2021-05-06 10:45:42.704701: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_NOT_INITIALIZED
+Batch 0: Invalid loss, terminating training
+  1/800 [..............................] - ETA: 0s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.47912021-05-06 10:45:43.245771: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+2021-05-06 10:45:43.246894: I tensorflow/core/profiler/internal/gpu/device_tracer.cc:216]  GpuTracer has collected 0 callback api events and 0 activity events.
+2021-05-06 10:45:43.250760: I tensorflow/core/profiler/rpc/client/save_profile.cc:168] Creating directory: tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43
+2021-05-06 10:45:43.252085: I tensorflow/core/profiler/rpc/client/save_profile.cc:174] Dumped gzipped tool data for trace.json.gz to tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43/a0f39779f10c.trace.json.gz
+2021-05-06 10:45:43.252844: I tensorflow/core/profiler/utils/event_span.cc:288] Generation of step-events took 0.002 ms
+
+2021-05-06 10:45:43.254496: I tensorflow/python/profiler/internal/profiler_wrapper.cc:87] Creating directory: tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43Dumped tool data for overview_page.pb to tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43/a0f39779f10c.overview_page.pb
+Dumped tool data for input_pipeline.pb to tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43/a0f39779f10c.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43/a0f39779f10c.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to tensorboard/20210506-104300/train/plugins/profile/2021_05_06_10_45_43/a0f39779f10c.kernel_stats.pb
+
+Batch 1: Invalid loss, terminating training
+  2/800 [..............................] - ETA: 3:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2843Batch 2: Invalid loss, terminating training
+  3/800 [..............................] - ETA: 4:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2078Batch 3: Invalid loss, terminating training
+  4/800 [..............................] - ETA: 5:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.1758Batch 4: Invalid loss, terminating training
+  5/800 [..............................] - ETA: 5:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.1429Batch 5: Invalid loss, terminating training
+  6/800 [..............................] - ETA: 5:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2198Batch 6: Invalid loss, terminating training
+  7/800 [..............................] - ETA: 6:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2147Batch 7: Invalid loss, terminating training
+  8/800 [..............................] - ETA: 6:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2765Batch 8: Invalid loss, terminating training
+  9/800 [..............................] - ETA: 6:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2552Batch 9: Invalid loss, terminating training
+ 10/800 [..............................] - ETA: 6:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2716Batch 10: Invalid loss, terminating training
+ 11/800 [..............................] - ETA: 6:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2712Batch 11: Invalid loss, terminating training
+ 12/800 [..............................] - ETA: 6:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2716Batch 12: Invalid loss, terminating training
+ 13/800 [..............................] - ETA: 6:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2980Batch 13: Invalid loss, terminating training
+ 14/800 [..............................] - ETA: 6:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2937Batch 14: Invalid loss, terminating training
+ 15/800 [..............................] - ETA: 6:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2825Batch 15: Invalid loss, terminating training
+ 16/800 [..............................] - ETA: 6:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2725Batch 16: Invalid loss, terminating training
+ 17/800 [..............................] - ETA: 6:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2631Batch 17: Invalid loss, terminating training
+ 18/800 [..............................] - ETA: 6:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2850Batch 18: Invalid loss, terminating training
+ 19/800 [..............................] - ETA: 6:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3070Batch 19: Invalid loss, terminating training
+ 20/800 [..............................] - ETA: 6:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2987Batch 20: Invalid loss, terminating training
+ 21/800 [..............................] - ETA: 6:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2909Batch 21: Invalid loss, terminating training
+ 22/800 [..............................] - ETA: 6:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2834Batch 22: Invalid loss, terminating training
+ 23/800 [..............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2782Batch 23: Invalid loss, terminating training
+ 24/800 [..............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2841Batch 24: Invalid loss, terminating training
+ 25/800 [..............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2774Batch 25: Invalid loss, terminating training
+ 26/800 [..............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2809Batch 26: Invalid loss, terminating training
+ 27/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2842Batch 27: Invalid loss, terminating training
+ 28/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2760Batch 28: Invalid loss, terminating training
+ 29/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2897Batch 29: Invalid loss, terminating training
+ 30/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3010Batch 30: Invalid loss, terminating training
+ 31/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3077Batch 31: Invalid loss, terminating training
+ 32/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3183Batch 32: Invalid loss, terminating training
+ 33/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3212Batch 33: Invalid loss, terminating training
+ 34/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3264Batch 34: Invalid loss, terminating training
+ 35/800 [>.............................] - ETA: 6:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3195Batch 35: Invalid loss, terminating training
+ 36/800 [>.............................] - ETA: 6:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3148Batch 36: Invalid loss, terminating training
+ 37/800 [>.............................] - ETA: 6:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3140Batch 37: Invalid loss, terminating training
+ 38/800 [>.............................] - ETA: 6:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3091Batch 38: Invalid loss, terminating training
+ 39/800 [>.............................] - ETA: 6:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3172Batch 39: Invalid loss, terminating training
+ 40/800 [>.............................] - ETA: 6:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3173Batch 40: Invalid loss, terminating training
+ 41/800 [>.............................] - ETA: 6:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3133Batch 41: Invalid loss, terminating training
+ 42/800 [>.............................] - ETA: 6:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3116Batch 42: Invalid loss, terminating training
+ 43/800 [>.............................] - ETA: 6:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3046Batch 43: Invalid loss, terminating training
+ 44/800 [>.............................] - ETA: 6:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3005Batch 44: Invalid loss, terminating training
+ 45/800 [>.............................] - ETA: 6:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3116Batch 45: Invalid loss, terminating training
+ 46/800 [>.............................] - ETA: 6:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3151Batch 46: Invalid loss, terminating training
+ 47/800 [>.............................] - ETA: 6:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3107Batch 47: Invalid loss, terminating training
+ 48/800 [>.............................] - ETA: 6:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3054Batch 48: Invalid loss, terminating training
+ 49/800 [>.............................] - ETA: 6:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3117Batch 49: Invalid loss, terminating training
+ 50/800 [>.............................] - ETA: 6:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3096Batch 50: Invalid loss, terminating training
+ 51/800 [>.............................] - ETA: 6:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3109Batch 51: Invalid loss, terminating training
+ 52/800 [>.............................] - ETA: 6:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3127Batch 52: Invalid loss, terminating training
+ 53/800 [>.............................] - ETA: 6:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3091Batch 53: Invalid loss, terminating training
+ 54/800 [=>............................] - ETA: 6:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3070Batch 54: Invalid loss, terminating training
+ 55/800 [=>............................] - ETA: 6:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3031Batch 55: Invalid loss, terminating training
+ 56/800 [=>............................] - ETA: 6:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3021Batch 56: Invalid loss, terminating training
+ 57/800 [=>............................] - ETA: 6:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3006Batch 57: Invalid loss, terminating training
+ 58/800 [=>............................] - ETA: 6:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.2994Batch 58: Invalid loss, terminating training
+ 59/800 [=>............................] - ETA: 6:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3066Batch 59: Invalid loss, terminating training
+ 60/800 [=>............................] - ETA: 6:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3030Batch 60: Invalid loss, terminating training
+ 61/800 [=>............................] - ETA: 6:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3091Batch 61: Invalid loss, terminating training
+ 62/800 [=>............................] - ETA: 6:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3087Batch 62: Invalid loss, terminating training
+ 63/800 [=>............................] - ETA: 6:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3111Batch 63: Invalid loss, terminating training
+ 64/800 [=>............................] - ETA: 6:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3107Batch 64: Invalid loss, terminating training
+ 65/800 [=>............................] - ETA: 6:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3097Batch 65: Invalid loss, terminating training
+ 66/800 [=>............................] - ETA: 6:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3174Batch 66: Invalid loss, terminating training
+ 67/800 [=>............................] - ETA: 6:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3146Batch 67: Invalid loss, terminating training
+ 68/800 [=>............................] - ETA: 6:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3221Batch 68: Invalid loss, terminating training
+ 69/800 [=>............................] - ETA: 6:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3191Batch 69: Invalid loss, terminating training
+ 70/800 [=>............................] - ETA: 6:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3223Batch 70: Invalid loss, terminating training
+ 71/800 [=>............................] - ETA: 6:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3220Batch 71: Invalid loss, terminating training
+ 72/800 [=>............................] - ETA: 6:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3258Batch 72: Invalid loss, terminating training
+ 73/800 [=>............................] - ETA: 6:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3327Batch 73: Invalid loss, terminating training
+ 74/800 [=>............................] - ETA: 6:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3342Batch 74: Invalid loss, terminating training
+ 75/800 [=>............................] - ETA: 6:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3315Batch 75: Invalid loss, terminating training
+ 76/800 [=>............................] - ETA: 6:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3285Batch 76: Invalid loss, terminating training
+ 77/800 [=>............................] - ETA: 6:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3332Batch 77: Invalid loss, terminating training
+ 78/800 [=>............................] - ETA: 6:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3338Batch 78: Invalid loss, terminating training
+ 79/800 [=>............................] - ETA: 6:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3319Batch 79: Invalid loss, terminating training
+ 80/800 [==>...........................] - ETA: 6:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3309Batch 80: Invalid loss, terminating training
+ 81/800 [==>...........................] - ETA: 6:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3372Batch 81: Invalid loss, terminating training
+ 82/800 [==>...........................] - ETA: 6:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3402Batch 82: Invalid loss, terminating training
+ 83/800 [==>...........................] - ETA: 6:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3394Batch 83: Invalid loss, terminating training
+ 84/800 [==>...........................] - ETA: 6:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3380Batch 84: Invalid loss, terminating training
+ 85/800 [==>...........................] - ETA: 6:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3369Batch 85: Invalid loss, terminating training
+ 86/800 [==>...........................] - ETA: 6:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3344Batch 86: Invalid loss, terminating training
+ 87/800 [==>...........................] - ETA: 6:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3376Batch 87: Invalid loss, terminating training
+ 88/800 [==>...........................] - ETA: 6:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3409Batch 88: Invalid loss, terminating training
+ 89/800 [==>...........................] - ETA: 6:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3401Batch 89: Invalid loss, terminating training
+ 90/800 [==>...........................] - ETA: 6:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3368Batch 90: Invalid loss, terminating training
+ 91/800 [==>...........................] - ETA: 6:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3348Batch 91: Invalid loss, terminating training
+ 92/800 [==>...........................] - ETA: 6:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3347Batch 92: Invalid loss, terminating training
+ 93/800 [==>...........................] - ETA: 6:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3326Batch 93: Invalid loss, terminating training
+ 94/800 [==>...........................] - ETA: 6:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3318Batch 94: Invalid loss, terminating training
+ 95/800 [==>...........................] - ETA: 6:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3348Batch 95: Invalid loss, terminating training
+ 96/800 [==>...........................] - ETA: 6:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3387Batch 96: Invalid loss, terminating training
+ 97/800 [==>...........................] - ETA: 6:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 97: Invalid loss, terminating training
+ 98/800 [==>...........................] - ETA: 6:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 98: Invalid loss, terminating training
+ 99/800 [==>...........................] - ETA: 6:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3417Batch 99: Invalid loss, terminating training
+100/800 [==>...........................] - ETA: 6:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3413Batch 100: Invalid loss, terminating training
+101/800 [==>...........................] - ETA: 6:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3397Batch 101: Invalid loss, terminating training
+102/800 [==>...........................] - ETA: 6:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3373Batch 102: Invalid loss, terminating training
+103/800 [==>...........................] - ETA: 6:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3363Batch 103: Invalid loss, terminating training
+104/800 [==>...........................] - ETA: 6:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3356Batch 104: Invalid loss, terminating training
+105/800 [==>...........................] - ETA: 6:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3406Batch 105: Invalid loss, terminating training
+106/800 [==>...........................] - ETA: 6:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428Batch 106: Invalid loss, terminating training
+107/800 [===>..........................] - ETA: 6:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3413Batch 107: Invalid loss, terminating training
+108/800 [===>..........................] - ETA: 6:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3407Batch 108: Invalid loss, terminating training
+109/800 [===>..........................] - ETA: 6:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3388Batch 109: Invalid loss, terminating training
+110/800 [===>..........................] - ETA: 6:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3410Batch 110: Invalid loss, terminating training
+111/800 [===>..........................] - ETA: 6:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3392Batch 111: Invalid loss, terminating training
+112/800 [===>..........................] - ETA: 6:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3383Batch 112: Invalid loss, terminating training
+113/800 [===>..........................] - ETA: 6:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3359Batch 113: Invalid loss, terminating training
+114/800 [===>..........................] - ETA: 6:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3384Batch 114: Invalid loss, terminating training
+115/800 [===>..........................] - ETA: 6:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3360Batch 115: Invalid loss, terminating training
+116/800 [===>..........................] - ETA: 6:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3341Batch 116: Invalid loss, terminating training
+117/800 [===>..........................] - ETA: 6:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3323Batch 117: Invalid loss, terminating training
+118/800 [===>..........................] - ETA: 6:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3344Batch 118: Invalid loss, terminating training
+119/800 [===>..........................] - ETA: 6:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3318Batch 119: Invalid loss, terminating training
+120/800 [===>..........................] - ETA: 6:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3341Batch 120: Invalid loss, terminating training
+121/800 [===>..........................] - ETA: 6:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3330Batch 121: Invalid loss, terminating training
+122/800 [===>..........................] - ETA: 6:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3351Batch 122: Invalid loss, terminating training
+123/800 [===>..........................] - ETA: 6:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3382Batch 123: Invalid loss, terminating training
+124/800 [===>..........................] - ETA: 6:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3373Batch 124: Invalid loss, terminating training
+125/800 [===>..........................] - ETA: 6:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3370Batch 125: Invalid loss, terminating training
+126/800 [===>..........................] - ETA: 6:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3395Batch 126: Invalid loss, terminating training
+127/800 [===>..........................] - ETA: 6:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3379Batch 127: Invalid loss, terminating training
+128/800 [===>..........................] - ETA: 6:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3376Batch 128: Invalid loss, terminating training
+129/800 [===>..........................] - ETA: 5:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3367Batch 129: Invalid loss, terminating training
+130/800 [===>..........................] - ETA: 5:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3352Batch 130: Invalid loss, terminating training
+131/800 [===>..........................] - ETA: 5:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3352Batch 131: Invalid loss, terminating training
+132/800 [===>..........................] - ETA: 5:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3386Batch 132: Invalid loss, terminating training
+133/800 [===>..........................] - ETA: 5:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3389Batch 133: Invalid loss, terminating training
+134/800 [====>.........................] - ETA: 5:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3413Batch 134: Invalid loss, terminating training
+135/800 [====>.........................] - ETA: 5:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3397Batch 135: Invalid loss, terminating training
+136/800 [====>.........................] - ETA: 5:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3404Batch 136: Invalid loss, terminating training
+137/800 [====>.........................] - ETA: 5:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3403Batch 137: Invalid loss, terminating training
+138/800 [====>.........................] - ETA: 5:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3417Batch 138: Invalid loss, terminating training
+139/800 [====>.........................] - ETA: 5:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3427Batch 139: Invalid loss, terminating training
+140/800 [====>.........................] - ETA: 5:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 140: Invalid loss, terminating training
+141/800 [====>.........................] - ETA: 5:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 141: Invalid loss, terminating training
+142/800 [====>.........................] - ETA: 5:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3476Batch 142: Invalid loss, terminating training
+143/800 [====>.........................] - ETA: 5:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 143: Invalid loss, terminating training
+144/800 [====>.........................] - ETA: 5:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 144: Invalid loss, terminating training
+145/800 [====>.........................] - ETA: 5:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 145: Invalid loss, terminating training
+146/800 [====>.........................] - ETA: 5:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 146: Invalid loss, terminating training
+147/800 [====>.........................] - ETA: 5:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 147: Invalid loss, terminating training
+148/800 [====>.........................] - ETA: 5:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3443Batch 148: Invalid loss, terminating training
+149/800 [====>.........................] - ETA: 5:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428Batch 149: Invalid loss, terminating training
+150/800 [====>.........................] - ETA: 5:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3409Batch 150: Invalid loss, terminating training
+151/800 [====>.........................] - ETA: 5:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3416Batch 151: Invalid loss, terminating training
+152/800 [====>.........................] - ETA: 5:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3415Batch 152: Invalid loss, terminating training
+153/800 [====>.........................] - ETA: 5:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3405Batch 153: Invalid loss, terminating training
+154/800 [====>.........................] - ETA: 5:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428Batch 154: Invalid loss, terminating training
+155/800 [====>.........................] - ETA: 5:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 155: Invalid loss, terminating training
+156/800 [====>.........................] - ETA: 5:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3429Batch 156: Invalid loss, terminating training
+157/800 [====>.........................] - ETA: 5:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3408Batch 157: Invalid loss, terminating training
+158/800 [====>.........................] - ETA: 5:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3414Batch 158: Invalid loss, terminating training
+159/800 [====>.........................] - ETA: 5:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3399Batch 159: Invalid loss, terminating training
+160/800 [=====>........................] - ETA: 5:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3429Batch 160: Invalid loss, terminating training
+161/800 [=====>........................] - ETA: 5:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3418Batch 161: Invalid loss, terminating training
+162/800 [=====>........................] - ETA: 5:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3415Batch 162: Invalid loss, terminating training
+163/800 [=====>........................] - ETA: 5:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3423Batch 163: Invalid loss, terminating training
+164/800 [=====>........................] - ETA: 5:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 164: Invalid loss, terminating training
+165/800 [=====>........................] - ETA: 5:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3486Batch 165: Invalid loss, terminating training
+166/800 [=====>........................] - ETA: 5:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 166: Invalid loss, terminating training
+167/800 [=====>........................] - ETA: 5:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3505Batch 167: Invalid loss, terminating training
+168/800 [=====>........................] - ETA: 5:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3488Batch 168: Invalid loss, terminating training
+169/800 [=====>........................] - ETA: 5:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 169: Invalid loss, terminating training
+170/800 [=====>........................] - ETA: 5:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 170: Invalid loss, terminating training
+171/800 [=====>........................] - ETA: 5:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 171: Invalid loss, terminating training
+172/800 [=====>........................] - ETA: 5:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3481Batch 172: Invalid loss, terminating training
+173/800 [=====>........................] - ETA: 5:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 173: Invalid loss, terminating training
+174/800 [=====>........................] - ETA: 5:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3459Batch 174: Invalid loss, terminating training
+175/800 [=====>........................] - ETA: 5:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 175: Invalid loss, terminating training
+176/800 [=====>........................] - ETA: 5:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 176: Invalid loss, terminating training
+177/800 [=====>........................] - ETA: 5:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 177: Invalid loss, terminating training
+178/800 [=====>........................] - ETA: 5:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 178: Invalid loss, terminating training
+179/800 [=====>........................] - ETA: 5:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 179: Invalid loss, terminating training
+180/800 [=====>........................] - ETA: 5:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 180: Invalid loss, terminating training
+181/800 [=====>........................] - ETA: 5:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3484Batch 181: Invalid loss, terminating training
+182/800 [=====>........................] - ETA: 5:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 182: Invalid loss, terminating training
+183/800 [=====>........................] - ETA: 5:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 183: Invalid loss, terminating training
+184/800 [=====>........................] - ETA: 5:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 184: Invalid loss, terminating training
+185/800 [=====>........................] - ETA: 5:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3504Batch 185: Invalid loss, terminating training
+186/800 [=====>........................] - ETA: 5:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3499Batch 186: Invalid loss, terminating training
+187/800 [======>.......................] - ETA: 5:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 187: Invalid loss, terminating training
+188/800 [======>.......................] - ETA: 5:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3510Batch 188: Invalid loss, terminating training
+189/800 [======>.......................] - ETA: 5:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3503Batch 189: Invalid loss, terminating training
+190/800 [======>.......................] - ETA: 5:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3491Batch 190: Invalid loss, terminating training
+191/800 [======>.......................] - ETA: 5:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3489Batch 191: Invalid loss, terminating training
+192/800 [======>.......................] - ETA: 5:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3492Batch 192: Invalid loss, terminating training
+193/800 [======>.......................] - ETA: 5:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 193: Invalid loss, terminating training
+194/800 [======>.......................] - ETA: 5:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3512Batch 194: Invalid loss, terminating training
+195/800 [======>.......................] - ETA: 5:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3499Batch 195: Invalid loss, terminating training
+196/800 [======>.......................] - ETA: 5:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3500Batch 196: Invalid loss, terminating training
+197/800 [======>.......................] - ETA: 5:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3490Batch 197: Invalid loss, terminating training
+198/800 [======>.......................] - ETA: 5:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3513Batch 198: Invalid loss, terminating training
+199/800 [======>.......................] - ETA: 5:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3506Batch 199: Invalid loss, terminating training
+200/800 [======>.......................] - ETA: 5:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3531Batch 200: Invalid loss, terminating training
+201/800 [======>.......................] - ETA: 5:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3517Batch 201: Invalid loss, terminating training
+202/800 [======>.......................] - ETA: 5:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3540Batch 202: Invalid loss, terminating training
+203/800 [======>.......................] - ETA: 5:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3542Batch 203: Invalid loss, terminating training
+204/800 [======>.......................] - ETA: 5:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 204: Invalid loss, terminating training
+205/800 [======>.......................] - ETA: 5:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3537Batch 205: Invalid loss, terminating training
+206/800 [======>.......................] - ETA: 5:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3522Batch 206: Invalid loss, terminating training
+207/800 [======>.......................] - ETA: 5:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 207: Invalid loss, terminating training
+208/800 [======>.......................] - ETA: 5:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3531Batch 208: Invalid loss, terminating training
+209/800 [======>.......................] - ETA: 5:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3525Batch 209: Invalid loss, terminating training
+210/800 [======>.......................] - ETA: 5:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3519Batch 210: Invalid loss, terminating training
+211/800 [======>.......................] - ETA: 5:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3507Batch 211: Invalid loss, terminating training
+212/800 [======>.......................] - ETA: 5:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3519Batch 212: Invalid loss, terminating training
+213/800 [======>.......................] - ETA: 5:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3532Batch 213: Invalid loss, terminating training
+214/800 [=======>......................] - ETA: 5:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3545Batch 214: Invalid loss, terminating training
+215/800 [=======>......................] - ETA: 5:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3541Batch 215: Invalid loss, terminating training
+216/800 [=======>......................] - ETA: 5:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3564Batch 216: Invalid loss, terminating training
+217/800 [=======>......................] - ETA: 5:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3565Batch 217: Invalid loss, terminating training
+218/800 [=======>......................] - ETA: 5:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3552Batch 218: Invalid loss, terminating training
+219/800 [=======>......................] - ETA: 5:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3555Batch 219: Invalid loss, terminating training
+220/800 [=======>......................] - ETA: 5:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3551Batch 220: Invalid loss, terminating training
+221/800 [=======>......................] - ETA: 5:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3552Batch 221: Invalid loss, terminating training
+222/800 [=======>......................] - ETA: 5:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3559Batch 222: Invalid loss, terminating training
+223/800 [=======>......................] - ETA: 5:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3551Batch 223: Invalid loss, terminating training
+224/800 [=======>......................] - ETA: 5:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3540Batch 224: Invalid loss, terminating training
+225/800 [=======>......................] - ETA: 5:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3539Batch 225: Invalid loss, terminating training
+226/800 [=======>......................] - ETA: 5:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3548Batch 226: Invalid loss, terminating training
+227/800 [=======>......................] - ETA: 5:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3535Batch 227: Invalid loss, terminating training
+228/800 [=======>......................] - ETA: 5:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 228: Invalid loss, terminating training
+229/800 [=======>......................] - ETA: 5:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3535Batch 229: Invalid loss, terminating training
+230/800 [=======>......................] - ETA: 5:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3524Batch 230: Invalid loss, terminating training
+231/800 [=======>......................] - ETA: 5:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 231: Invalid loss, terminating training
+232/800 [=======>......................] - ETA: 5:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3545Batch 232: Invalid loss, terminating training
+233/800 [=======>......................] - ETA: 5:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3539Batch 233: Invalid loss, terminating training
+234/800 [=======>......................] - ETA: 5:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3524Batch 234: Invalid loss, terminating training
+235/800 [=======>......................] - ETA: 5:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3515Batch 235: Invalid loss, terminating training
+236/800 [=======>......................] - ETA: 5:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3517Batch 236: Invalid loss, terminating training
+237/800 [=======>......................] - ETA: 5:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 237: Invalid loss, terminating training
+238/800 [=======>......................] - ETA: 5:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3526Batch 238: Invalid loss, terminating training
+239/800 [=======>......................] - ETA: 5:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3541Batch 239: Invalid loss, terminating training
+240/800 [========>.....................] - ETA: 5:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3542Batch 240: Invalid loss, terminating training
+241/800 [========>.....................] - ETA: 5:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3541Batch 241: Invalid loss, terminating training
+242/800 [========>.....................] - ETA: 5:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3539Batch 242: Invalid loss, terminating training
+243/800 [========>.....................] - ETA: 4:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3536Batch 243: Invalid loss, terminating training
+244/800 [========>.....................] - ETA: 4:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3525Batch 244: Invalid loss, terminating training
+245/800 [========>.....................] - ETA: 4:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 245: Invalid loss, terminating training
+246/800 [========>.....................] - ETA: 4:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 246: Invalid loss, terminating training
+247/800 [========>.....................] - ETA: 4:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 247: Invalid loss, terminating training
+248/800 [========>.....................] - ETA: 4:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3536Batch 248: Invalid loss, terminating training
+249/800 [========>.....................] - ETA: 4:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 249: Invalid loss, terminating training
+250/800 [========>.....................] - ETA: 4:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3526Batch 250: Invalid loss, terminating training
+251/800 [========>.....................] - ETA: 4:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3524Batch 251: Invalid loss, terminating training
+252/800 [========>.....................] - ETA: 4:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3527Batch 252: Invalid loss, terminating training
+253/800 [========>.....................] - ETA: 4:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3522Batch 253: Invalid loss, terminating training
+254/800 [========>.....................] - ETA: 4:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3537Batch 254: Invalid loss, terminating training
+255/800 [========>.....................] - ETA: 4:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3535Batch 255: Invalid loss, terminating training
+256/800 [========>.....................] - ETA: 4:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3537Batch 256: Invalid loss, terminating training
+257/800 [========>.....................] - ETA: 4:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3526Batch 257: Invalid loss, terminating training
+258/800 [========>.....................] - ETA: 4:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3544Batch 258: Invalid loss, terminating training
+259/800 [========>.....................] - ETA: 4:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3548Batch 259: Invalid loss, terminating training
+260/800 [========>.....................] - ETA: 4:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3537Batch 260: Invalid loss, terminating training
+261/800 [========>.....................] - ETA: 4:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3527Batch 261: Invalid loss, terminating training
+262/800 [========>.....................] - ETA: 4:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3522Batch 262: Invalid loss, terminating training
+263/800 [========>.....................] - ETA: 4:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 263: Invalid loss, terminating training
+264/800 [========>.....................] - ETA: 4:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3527Batch 264: Invalid loss, terminating training
+265/800 [========>.....................] - ETA: 4:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 265: Invalid loss, terminating training
+266/800 [========>.....................] - ETA: 4:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3509Batch 266: Invalid loss, terminating training
+267/800 [=========>....................] - ETA: 4:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3521Batch 267: Invalid loss, terminating training
+268/800 [=========>....................] - ETA: 4:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3516Batch 268: Invalid loss, terminating training
+269/800 [=========>....................] - ETA: 4:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3505Batch 269: Invalid loss, terminating training
+270/800 [=========>....................] - ETA: 4:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3504Batch 270: Invalid loss, terminating training
+271/800 [=========>....................] - ETA: 4:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3493Batch 271: Invalid loss, terminating training
+272/800 [=========>....................] - ETA: 4:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 272: Invalid loss, terminating training
+273/800 [=========>....................] - ETA: 4:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3488Batch 273: Invalid loss, terminating training
+274/800 [=========>....................] - ETA: 4:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3488Batch 274: Invalid loss, terminating training
+275/800 [=========>....................] - ETA: 4:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 275: Invalid loss, terminating training
+276/800 [=========>....................] - ETA: 4:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3491Batch 276: Invalid loss, terminating training
+277/800 [=========>....................] - ETA: 4:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3489Batch 277: Invalid loss, terminating training
+278/800 [=========>....................] - ETA: 4:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3496Batch 278: Invalid loss, terminating training
+279/800 [=========>....................] - ETA: 4:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3484Batch 279: Invalid loss, terminating training
+280/800 [=========>....................] - ETA: 4:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 280: Invalid loss, terminating training
+281/800 [=========>....................] - ETA: 4:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3496Batch 281: Invalid loss, terminating training
+282/800 [=========>....................] - ETA: 4:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3510Batch 282: Invalid loss, terminating training
+283/800 [=========>....................] - ETA: 4:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3503Batch 283: Invalid loss, terminating training
+284/800 [=========>....................] - ETA: 4:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3510Batch 284: Invalid loss, terminating training
+285/800 [=========>....................] - ETA: 4:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3505Batch 285: Invalid loss, terminating training
+286/800 [=========>....................] - ETA: 4:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 286: Invalid loss, terminating training
+287/800 [=========>....................] - ETA: 4:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3509Batch 287: Invalid loss, terminating training
+288/800 [=========>....................] - ETA: 4:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3515Batch 288: Invalid loss, terminating training
+289/800 [=========>....................] - ETA: 4:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3531Batch 289: Invalid loss, terminating training
+290/800 [=========>....................] - ETA: 4:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 290: Invalid loss, terminating training
+291/800 [=========>....................] - ETA: 4:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3527Batch 291: Invalid loss, terminating training
+292/800 [=========>....................] - ETA: 4:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3519Batch 292: Invalid loss, terminating training
+293/800 [=========>....................] - ETA: 4:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 293: Invalid loss, terminating training
+294/800 [==========>...................] - ETA: 4:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 294: Invalid loss, terminating training
+295/800 [==========>...................] - ETA: 4:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3538Batch 295: Invalid loss, terminating training
+296/800 [==========>...................] - ETA: 4:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3529Batch 296: Invalid loss, terminating training
+297/800 [==========>...................] - ETA: 4:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3524Batch 297: Invalid loss, terminating training
+298/800 [==========>...................] - ETA: 4:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 298: Invalid loss, terminating training
+299/800 [==========>...................] - ETA: 4:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3537Batch 299: Invalid loss, terminating training
+300/800 [==========>...................] - ETA: 4:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3533Batch 300: Invalid loss, terminating training
+301/800 [==========>...................] - ETA: 4:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3528Batch 301: Invalid loss, terminating training
+302/800 [==========>...................] - ETA: 4:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 302: Invalid loss, terminating training
+303/800 [==========>...................] - ETA: 4:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3522Batch 303: Invalid loss, terminating training
+304/800 [==========>...................] - ETA: 4:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3515Batch 304: Invalid loss, terminating training
+305/800 [==========>...................] - ETA: 4:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3512Batch 305: Invalid loss, terminating training
+306/800 [==========>...................] - ETA: 4:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3517Batch 306: Invalid loss, terminating training
+307/800 [==========>...................] - ETA: 4:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3510Batch 307: Invalid loss, terminating training
+308/800 [==========>...................] - ETA: 4:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3507Batch 308: Invalid loss, terminating training
+309/800 [==========>...................] - ETA: 4:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3508Batch 309: Invalid loss, terminating training
+310/800 [==========>...................] - ETA: 4:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3505Batch 310: Invalid loss, terminating training
+311/800 [==========>...................] - ETA: 4:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 311: Invalid loss, terminating training
+312/800 [==========>...................] - ETA: 4:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3525Batch 312: Invalid loss, terminating training
+313/800 [==========>...................] - ETA: 4:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3535Batch 313: Invalid loss, terminating training
+314/800 [==========>...................] - ETA: 4:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3525Batch 314: Invalid loss, terminating training
+315/800 [==========>...................] - ETA: 4:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3515Batch 315: Invalid loss, terminating training
+316/800 [==========>...................] - ETA: 4:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3506Batch 316: Invalid loss, terminating training
+317/800 [==========>...................] - ETA: 4:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3498Batch 317: Invalid loss, terminating training
+318/800 [==========>...................] - ETA: 4:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3504Batch 318: Invalid loss, terminating training
+319/800 [==========>...................] - ETA: 4:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3506Batch 319: Invalid loss, terminating training
+320/800 [===========>..................] - ETA: 4:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3499Batch 320: Invalid loss, terminating training
+321/800 [===========>..................] - ETA: 4:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3506Batch 321: Invalid loss, terminating training
+322/800 [===========>..................] - ETA: 4:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3520Batch 322: Invalid loss, terminating training
+323/800 [===========>..................] - ETA: 4:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3514Batch 323: Invalid loss, terminating training
+324/800 [===========>..................] - ETA: 4:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3511Batch 324: Invalid loss, terminating training
+325/800 [===========>..................] - ETA: 4:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3508Batch 325: Invalid loss, terminating training
+326/800 [===========>..................] - ETA: 4:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3524Batch 326: Invalid loss, terminating training
+327/800 [===========>..................] - ETA: 4:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3527Batch 327: Invalid loss, terminating training
+328/800 [===========>..................] - ETA: 4:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3521Batch 328: Invalid loss, terminating training
+329/800 [===========>..................] - ETA: 4:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3522Batch 329: Invalid loss, terminating training
+330/800 [===========>..................] - ETA: 4:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3513Batch 330: Invalid loss, terminating training
+331/800 [===========>..................] - ETA: 4:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3526Batch 331: Invalid loss, terminating training
+332/800 [===========>..................] - ETA: 4:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3533Batch 332: Invalid loss, terminating training
+333/800 [===========>..................] - ETA: 4:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3539Batch 333: Invalid loss, terminating training
+334/800 [===========>..................] - ETA: 4:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3538Batch 334: Invalid loss, terminating training
+335/800 [===========>..................] - ETA: 4:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3531Batch 335: Invalid loss, terminating training
+336/800 [===========>..................] - ETA: 4:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3530Batch 336: Invalid loss, terminating training
+337/800 [===========>..................] - ETA: 4:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3525Batch 337: Invalid loss, terminating training
+338/800 [===========>..................] - ETA: 4:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3519Batch 338: Invalid loss, terminating training
+339/800 [===========>..................] - ETA: 4:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3527Batch 339: Invalid loss, terminating training
+340/800 [===========>..................] - ETA: 4:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3518Batch 340: Invalid loss, terminating training
+341/800 [===========>..................] - ETA: 4:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3508Batch 341: Invalid loss, terminating training
+342/800 [===========>..................] - ETA: 4:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3499Batch 342: Invalid loss, terminating training
+343/800 [===========>..................] - ETA: 4:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3495Batch 343: Invalid loss, terminating training
+344/800 [===========>..................] - ETA: 4:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3486Batch 344: Invalid loss, terminating training
+345/800 [===========>..................] - ETA: 4:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 345: Invalid loss, terminating training
+346/800 [===========>..................] - ETA: 4:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 346: Invalid loss, terminating training
+347/800 [============>.................] - ETA: 4:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 347: Invalid loss, terminating training
+348/800 [============>.................] - ETA: 4:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 348: Invalid loss, terminating training
+349/800 [============>.................] - ETA: 4:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 349: Invalid loss, terminating training
+350/800 [============>.................] - ETA: 4:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 350: Invalid loss, terminating training
+351/800 [============>.................] - ETA: 4:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 351: Invalid loss, terminating training
+352/800 [============>.................] - ETA: 4:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 352: Invalid loss, terminating training
+353/800 [============>.................] - ETA: 4:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 353: Invalid loss, terminating training
+354/800 [============>.................] - ETA: 4:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 354: Invalid loss, terminating training
+355/800 [============>.................] - ETA: 4:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3470Batch 355: Invalid loss, terminating training
+356/800 [============>.................] - ETA: 3:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 356: Invalid loss, terminating training
+357/800 [============>.................] - ETA: 3:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 357: Invalid loss, terminating training
+358/800 [============>.................] - ETA: 3:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 358: Invalid loss, terminating training
+359/800 [============>.................] - ETA: 3:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 359: Invalid loss, terminating training
+360/800 [============>.................] - ETA: 3:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 360: Invalid loss, terminating training
+361/800 [============>.................] - ETA: 3:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3461Batch 361: Invalid loss, terminating training
+362/800 [============>.................] - ETA: 3:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 362: Invalid loss, terminating training
+363/800 [============>.................] - ETA: 3:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3481Batch 363: Invalid loss, terminating training
+364/800 [============>.................] - ETA: 3:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 364: Invalid loss, terminating training
+365/800 [============>.................] - ETA: 3:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 365: Invalid loss, terminating training
+366/800 [============>.................] - ETA: 3:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3486Batch 366: Invalid loss, terminating training
+367/800 [============>.................] - ETA: 3:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3486Batch 367: Invalid loss, terminating training
+368/800 [============>.................] - ETA: 3:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3491Batch 368: Invalid loss, terminating training
+369/800 [============>.................] - ETA: 3:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3501Batch 369: Invalid loss, terminating training
+370/800 [============>.................] - ETA: 3:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3492Batch 370: Invalid loss, terminating training
+371/800 [============>.................] - ETA: 3:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3504Batch 371: Invalid loss, terminating training
+372/800 [============>.................] - ETA: 3:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3496Batch 372: Invalid loss, terminating training
+373/800 [============>.................] - ETA: 3:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3495Batch 373: Invalid loss, terminating training
+374/800 [=============>................] - ETA: 3:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3488Batch 374: Invalid loss, terminating training
+375/800 [=============>................] - ETA: 3:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3488Batch 375: Invalid loss, terminating training
+376/800 [=============>................] - ETA: 3:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 376: Invalid loss, terminating training
+377/800 [=============>................] - ETA: 3:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 377: Invalid loss, terminating training
+378/800 [=============>................] - ETA: 3:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 378: Invalid loss, terminating training
+379/800 [=============>................] - ETA: 3:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3474Batch 379: Invalid loss, terminating training
+380/800 [=============>................] - ETA: 3:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3469Batch 380: Invalid loss, terminating training
+381/800 [=============>................] - ETA: 3:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 381: Invalid loss, terminating training
+382/800 [=============>................] - ETA: 3:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3477Batch 382: Invalid loss, terminating training
+383/800 [=============>................] - ETA: 3:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3477Batch 383: Invalid loss, terminating training
+384/800 [=============>................] - ETA: 3:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 384: Invalid loss, terminating training
+385/800 [=============>................] - ETA: 3:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 385: Invalid loss, terminating training
+386/800 [=============>................] - ETA: 3:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3470Batch 386: Invalid loss, terminating training
+387/800 [=============>................] - ETA: 3:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 387: Invalid loss, terminating training
+388/800 [=============>................] - ETA: 3:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 388: Invalid loss, terminating training
+389/800 [=============>................] - ETA: 3:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 389: Invalid loss, terminating training
+390/800 [=============>................] - ETA: 3:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 390: Invalid loss, terminating training
+391/800 [=============>................] - ETA: 3:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 391: Invalid loss, terminating training
+392/800 [=============>................] - ETA: 3:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 392: Invalid loss, terminating training
+393/800 [=============>................] - ETA: 3:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 393: Invalid loss, terminating training
+394/800 [=============>................] - ETA: 3:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3451Batch 394: Invalid loss, terminating training
+395/800 [=============>................] - ETA: 3:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 395: Invalid loss, terminating training
+396/800 [=============>................] - ETA: 3:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3443Batch 396: Invalid loss, terminating training
+397/800 [=============>................] - ETA: 3:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 397: Invalid loss, terminating training
+398/800 [=============>................] - ETA: 3:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428Batch 398: Invalid loss, terminating training
+399/800 [=============>................] - ETA: 3:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 399: Invalid loss, terminating training
+400/800 [==============>...............] - ETA: 3:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 400: Invalid loss, terminating training
+401/800 [==============>...............] - ETA: 3:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 401: Invalid loss, terminating training
+402/800 [==============>...............] - ETA: 3:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 402: Invalid loss, terminating training
+403/800 [==============>...............] - ETA: 3:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3451Batch 403: Invalid loss, terminating training
+404/800 [==============>...............] - ETA: 3:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 404: Invalid loss, terminating training
+405/800 [==============>...............] - ETA: 3:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 405: Invalid loss, terminating training
+406/800 [==============>...............] - ETA: 3:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 406: Invalid loss, terminating training
+407/800 [==============>...............] - ETA: 3:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 407: Invalid loss, terminating training
+408/800 [==============>...............] - ETA: 3:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 408: Invalid loss, terminating training
+409/800 [==============>...............] - ETA: 3:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 409: Invalid loss, terminating training
+410/800 [==============>...............] - ETA: 3:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 410: Invalid loss, terminating training
+411/800 [==============>...............] - ETA: 3:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3446Batch 411: Invalid loss, terminating training
+412/800 [==============>...............] - ETA: 3:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 412: Invalid loss, terminating training
+413/800 [==============>...............] - ETA: 3:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 413: Invalid loss, terminating training
+414/800 [==============>...............] - ETA: 3:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3433Batch 414: Invalid loss, terminating training
+415/800 [==============>...............] - ETA: 3:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3431Batch 415: Invalid loss, terminating training
+416/800 [==============>...............] - ETA: 3:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 416: Invalid loss, terminating training
+417/800 [==============>...............] - ETA: 3:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 417: Invalid loss, terminating training
+418/800 [==============>...............] - ETA: 3:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3434Batch 418: Invalid loss, terminating training
+419/800 [==============>...............] - ETA: 3:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 419: Invalid loss, terminating training
+420/800 [==============>...............] - ETA: 3:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 420: Invalid loss, terminating training
+421/800 [==============>...............] - ETA: 3:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 421: Invalid loss, terminating training
+422/800 [==============>...............] - ETA: 3:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 422: Invalid loss, terminating training
+423/800 [==============>...............] - ETA: 3:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3453Batch 423: Invalid loss, terminating training
+424/800 [==============>...............] - ETA: 3:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 424: Invalid loss, terminating training
+425/800 [==============>...............] - ETA: 3:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3462Batch 425: Invalid loss, terminating training
+426/800 [==============>...............] - ETA: 3:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 426: Invalid loss, terminating training
+427/800 [===============>..............] - ETA: 3:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3461Batch 427: Invalid loss, terminating training
+428/800 [===============>..............] - ETA: 3:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 428: Invalid loss, terminating training
+429/800 [===============>..............] - ETA: 3:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 429: Invalid loss, terminating training
+430/800 [===============>..............] - ETA: 3:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3460Batch 430: Invalid loss, terminating training
+431/800 [===============>..............] - ETA: 3:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 431: Invalid loss, terminating training
+432/800 [===============>..............] - ETA: 3:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3461Batch 432: Invalid loss, terminating training
+433/800 [===============>..............] - ETA: 3:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 433: Invalid loss, terminating training
+434/800 [===============>..............] - ETA: 3:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 434: Invalid loss, terminating training
+435/800 [===============>..............] - ETA: 3:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3460Batch 435: Invalid loss, terminating training
+436/800 [===============>..............] - ETA: 3:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 436: Invalid loss, terminating training
+437/800 [===============>..............] - ETA: 3:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 437: Invalid loss, terminating training
+438/800 [===============>..............] - ETA: 3:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 438: Invalid loss, terminating training
+439/800 [===============>..............] - ETA: 3:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 439: Invalid loss, terminating training
+440/800 [===============>..............] - ETA: 3:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3453Batch 440: Invalid loss, terminating training
+441/800 [===============>..............] - ETA: 3:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 441: Invalid loss, terminating training
+442/800 [===============>..............] - ETA: 3:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3451Batch 442: Invalid loss, terminating training
+443/800 [===============>..............] - ETA: 3:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3453Batch 443: Invalid loss, terminating training
+444/800 [===============>..............] - ETA: 3:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 444: Invalid loss, terminating training
+445/800 [===============>..............] - ETA: 3:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 445: Invalid loss, terminating training
+446/800 [===============>..............] - ETA: 3:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 446: Invalid loss, terminating training
+447/800 [===============>..............] - ETA: 3:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3460Batch 447: Invalid loss, terminating training
+448/800 [===============>..............] - ETA: 3:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 448: Invalid loss, terminating training
+449/800 [===============>..............] - ETA: 3:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3466Batch 449: Invalid loss, terminating training
+450/800 [===============>..............] - ETA: 3:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 450: Invalid loss, terminating training
+451/800 [===============>..............] - ETA: 3:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 451: Invalid loss, terminating training
+452/800 [===============>..............] - ETA: 3:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 452: Invalid loss, terminating training
+453/800 [===============>..............] - ETA: 3:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 453: Invalid loss, terminating training
+454/800 [================>.............] - ETA: 3:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 454: Invalid loss, terminating training
+455/800 [================>.............] - ETA: 3:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 455: Invalid loss, terminating training
+456/800 [================>.............] - ETA: 3:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3460Batch 456: Invalid loss, terminating training
+457/800 [================>.............] - ETA: 3:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 457: Invalid loss, terminating training
+458/800 [================>.............] - ETA: 3:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3454Batch 458: Invalid loss, terminating training
+459/800 [================>.............] - ETA: 3:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3454Batch 459: Invalid loss, terminating training
+460/800 [================>.............] - ETA: 3:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3461Batch 460: Invalid loss, terminating training
+461/800 [================>.............] - ETA: 3:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 461: Invalid loss, terminating training
+462/800 [================>.............] - ETA: 3:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 462: Invalid loss, terminating training
+463/800 [================>.............] - ETA: 3:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3460Batch 463: Invalid loss, terminating training
+464/800 [================>.............] - ETA: 3:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 464: Invalid loss, terminating training
+465/800 [================>.............] - ETA: 3:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3462Batch 465: Invalid loss, terminating training
+466/800 [================>.............] - ETA: 3:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 466: Invalid loss, terminating training
+467/800 [================>.............] - ETA: 2:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3469Batch 467: Invalid loss, terminating training
+468/800 [================>.............] - ETA: 2:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 468: Invalid loss, terminating training
+469/800 [================>.............] - ETA: 2:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 469: Invalid loss, terminating training
+470/800 [================>.............] - ETA: 2:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 470: Invalid loss, terminating training
+471/800 [================>.............] - ETA: 2:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3459Batch 471: Invalid loss, terminating training
+472/800 [================>.............] - ETA: 2:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 472: Invalid loss, terminating training
+473/800 [================>.............] - ETA: 2:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 473: Invalid loss, terminating training
+474/800 [================>.............] - ETA: 2:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 474: Invalid loss, terminating training
+475/800 [================>.............] - ETA: 2:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3459Batch 475: Invalid loss, terminating training
+476/800 [================>.............] - ETA: 2:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3462Batch 476: Invalid loss, terminating training
+477/800 [================>.............] - ETA: 2:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 477: Invalid loss, terminating training
+478/800 [================>.............] - ETA: 2:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 478: Invalid loss, terminating training
+479/800 [================>.............] - ETA: 2:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 479: Invalid loss, terminating training
+480/800 [=================>............] - ETA: 2:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 480: Invalid loss, terminating training
+481/800 [=================>............] - ETA: 2:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 481: Invalid loss, terminating training
+482/800 [=================>............] - ETA: 2:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 482: Invalid loss, terminating training
+483/800 [=================>............] - ETA: 2:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3469Batch 483: Invalid loss, terminating training
+484/800 [=================>............] - ETA: 2:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 484: Invalid loss, terminating training
+485/800 [=================>............] - ETA: 2:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 485: Invalid loss, terminating training
+486/800 [=================>............] - ETA: 2:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 486: Invalid loss, terminating training
+487/800 [=================>............] - ETA: 2:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 487: Invalid loss, terminating training
+488/800 [=================>............] - ETA: 2:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 488: Invalid loss, terminating training
+489/800 [=================>............] - ETA: 2:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3483Batch 489: Invalid loss, terminating training
+490/800 [=================>............] - ETA: 2:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3481Batch 490: Invalid loss, terminating training
+491/800 [=================>............] - ETA: 2:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 491: Invalid loss, terminating training
+492/800 [=================>............] - ETA: 2:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3477Batch 492: Invalid loss, terminating training
+493/800 [=================>............] - ETA: 2:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 493: Invalid loss, terminating training
+494/800 [=================>............] - ETA: 2:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3474Batch 494: Invalid loss, terminating training
+495/800 [=================>............] - ETA: 2:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 495: Invalid loss, terminating training
+496/800 [=================>............] - ETA: 2:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3491Batch 496: Invalid loss, terminating training
+497/800 [=================>............] - ETA: 2:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3487Batch 497: Invalid loss, terminating training
+498/800 [=================>............] - ETA: 2:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3495Batch 498: Invalid loss, terminating training
+499/800 [=================>............] - ETA: 2:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3495Batch 499: Invalid loss, terminating training
+500/800 [=================>............] - ETA: 2:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3492Batch 500: Invalid loss, terminating training
+501/800 [=================>............] - ETA: 2:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3493Batch 501: Invalid loss, terminating training
+502/800 [=================>............] - ETA: 2:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3492Batch 502: Invalid loss, terminating training
+503/800 [=================>............] - ETA: 2:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3490Batch 503: Invalid loss, terminating training
+504/800 [=================>............] - ETA: 2:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3495Batch 504: Invalid loss, terminating training
+505/800 [=================>............] - ETA: 2:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3492Batch 505: Invalid loss, terminating training
+506/800 [=================>............] - ETA: 2:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3501Batch 506: Invalid loss, terminating training
+507/800 [==================>...........] - ETA: 2:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3498Batch 507: Invalid loss, terminating training
+508/800 [==================>...........] - ETA: 2:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3503Batch 508: Invalid loss, terminating training
+509/800 [==================>...........] - ETA: 2:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3503Batch 509: Invalid loss, terminating training
+510/800 [==================>...........] - ETA: 2:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3513Batch 510: Invalid loss, terminating training
+511/800 [==================>...........] - ETA: 2:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3510Batch 511: Invalid loss, terminating training
+512/800 [==================>...........] - ETA: 2:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3506Batch 512: Invalid loss, terminating training
+513/800 [==================>...........] - ETA: 2:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3500Batch 513: Invalid loss, terminating training
+514/800 [==================>...........] - ETA: 2:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3496Batch 514: Invalid loss, terminating training
+515/800 [==================>...........] - ETA: 2:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3502Batch 515: Invalid loss, terminating training
+516/800 [==================>...........] - ETA: 2:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3507Batch 516: Invalid loss, terminating training
+517/800 [==================>...........] - ETA: 2:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3503Batch 517: Invalid loss, terminating training
+518/800 [==================>...........] - ETA: 2:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3504Batch 518: Invalid loss, terminating training
+519/800 [==================>...........] - ETA: 2:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3501Batch 519: Invalid loss, terminating training
+520/800 [==================>...........] - ETA: 2:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3499Batch 520: Invalid loss, terminating training
+521/800 [==================>...........] - ETA: 2:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3502Batch 521: Invalid loss, terminating training
+522/800 [==================>...........] - ETA: 2:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3500Batch 522: Invalid loss, terminating training
+523/800 [==================>...........] - ETA: 2:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3509Batch 523: Invalid loss, terminating training
+524/800 [==================>...........] - ETA: 2:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3504Batch 524: Invalid loss, terminating training
+525/800 [==================>...........] - ETA: 2:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3501Batch 525: Invalid loss, terminating training
+526/800 [==================>...........] - ETA: 2:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3500Batch 526: Invalid loss, terminating training
+527/800 [==================>...........] - ETA: 2:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3497Batch 527: Invalid loss, terminating training
+528/800 [==================>...........] - ETA: 2:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3495Batch 528: Invalid loss, terminating training
+529/800 [==================>...........] - ETA: 2:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3489Batch 529: Invalid loss, terminating training
+530/800 [==================>...........] - ETA: 2:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3488Batch 530: Invalid loss, terminating training
+531/800 [==================>...........] - ETA: 2:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3491Batch 531: Invalid loss, terminating training
+532/800 [==================>...........] - ETA: 2:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3486Batch 532: Invalid loss, terminating training
+533/800 [==================>...........] - ETA: 2:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3494Batch 533: Invalid loss, terminating training
+534/800 [===================>..........] - ETA: 2:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3492Batch 534: Invalid loss, terminating training
+535/800 [===================>..........] - ETA: 2:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3489Batch 535: Invalid loss, terminating training
+536/800 [===================>..........] - ETA: 2:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3484Batch 536: Invalid loss, terminating training
+537/800 [===================>..........] - ETA: 2:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 537: Invalid loss, terminating training
+538/800 [===================>..........] - ETA: 2:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 538: Invalid loss, terminating training
+539/800 [===================>..........] - ETA: 2:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 539: Invalid loss, terminating training
+540/800 [===================>..........] - ETA: 2:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 540: Invalid loss, terminating training
+541/800 [===================>..........] - ETA: 2:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 541: Invalid loss, terminating training
+542/800 [===================>..........] - ETA: 2:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 542: Invalid loss, terminating training
+543/800 [===================>..........] - ETA: 2:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 543: Invalid loss, terminating training
+544/800 [===================>..........] - ETA: 2:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3476Batch 544: Invalid loss, terminating training
+545/800 [===================>..........] - ETA: 2:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 545: Invalid loss, terminating training
+546/800 [===================>..........] - ETA: 2:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 546: Invalid loss, terminating training
+547/800 [===================>..........] - ETA: 2:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 547: Invalid loss, terminating training
+548/800 [===================>..........] - ETA: 2:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3469Batch 548: Invalid loss, terminating training
+549/800 [===================>..........] - ETA: 2:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3464Batch 549: Invalid loss, terminating training
+550/800 [===================>..........] - ETA: 2:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 550: Invalid loss, terminating training
+551/800 [===================>..........] - ETA: 2:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 551: Invalid loss, terminating training
+552/800 [===================>..........] - ETA: 2:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 552: Invalid loss, terminating training
+553/800 [===================>..........] - ETA: 2:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 553: Invalid loss, terminating training
+554/800 [===================>..........] - ETA: 2:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 554: Invalid loss, terminating training
+555/800 [===================>..........] - ETA: 2:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3470Batch 555: Invalid loss, terminating training
+556/800 [===================>..........] - ETA: 2:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3466Batch 556: Invalid loss, terminating training
+557/800 [===================>..........] - ETA: 2:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 557: Invalid loss, terminating training
+558/800 [===================>..........] - ETA: 2:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 558: Invalid loss, terminating training
+559/800 [===================>..........] - ETA: 2:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 559: Invalid loss, terminating training
+560/800 [====================>.........] - ETA: 2:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 560: Invalid loss, terminating training
+561/800 [====================>.........] - ETA: 2:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3469Batch 561: Invalid loss, terminating training
+562/800 [====================>.........] - ETA: 2:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 562: Invalid loss, terminating training
+563/800 [====================>.........] - ETA: 2:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3483Batch 563: Invalid loss, terminating training
+564/800 [====================>.........] - ETA: 2:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3478Batch 564: Invalid loss, terminating training
+565/800 [====================>.........] - ETA: 2:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 565: Invalid loss, terminating training
+566/800 [====================>.........] - ETA: 2:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 566: Invalid loss, terminating training
+567/800 [====================>.........] - ETA: 2:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3476Batch 567: Invalid loss, terminating training
+568/800 [====================>.........] - ETA: 2:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 568: Invalid loss, terminating training
+569/800 [====================>.........] - ETA: 2:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3476Batch 569: Invalid loss, terminating training
+570/800 [====================>.........] - ETA: 2:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 570: Invalid loss, terminating training
+571/800 [====================>.........] - ETA: 2:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3469Batch 571: Invalid loss, terminating training
+572/800 [====================>.........] - ETA: 2:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 572: Invalid loss, terminating training
+573/800 [====================>.........] - ETA: 2:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 573: Invalid loss, terminating training
+574/800 [====================>.........] - ETA: 2:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 574: Invalid loss, terminating training
+575/800 [====================>.........] - ETA: 2:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3466Batch 575: Invalid loss, terminating training
+576/800 [====================>.........] - ETA: 2:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 576: Invalid loss, terminating training
+577/800 [====================>.........] - ETA: 2:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 577: Invalid loss, terminating training
+578/800 [====================>.........] - ETA: 1:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 578: Invalid loss, terminating training
+579/800 [====================>.........] - ETA: 1:59 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 579: Invalid loss, terminating training
+580/800 [====================>.........] - ETA: 1:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 580: Invalid loss, terminating training
+581/800 [====================>.........] - ETA: 1:58 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 581: Invalid loss, terminating training
+582/800 [====================>.........] - ETA: 1:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 582: Invalid loss, terminating training
+583/800 [====================>.........] - ETA: 1:57 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3477Batch 583: Invalid loss, terminating training
+584/800 [====================>.........] - ETA: 1:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 584: Invalid loss, terminating training
+585/800 [====================>.........] - ETA: 1:56 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3470Batch 585: Invalid loss, terminating training
+586/800 [====================>.........] - ETA: 1:55 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 586: Invalid loss, terminating training
+587/800 [=====================>........] - ETA: 1:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 587: Invalid loss, terminating training
+588/800 [=====================>........] - ETA: 1:54 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 588: Invalid loss, terminating training
+589/800 [=====================>........] - ETA: 1:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 589: Invalid loss, terminating training
+590/800 [=====================>........] - ETA: 1:53 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3476Batch 590: Invalid loss, terminating training
+591/800 [=====================>........] - ETA: 1:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 591: Invalid loss, terminating training
+592/800 [=====================>........] - ETA: 1:52 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3485Batch 592: Invalid loss, terminating training
+593/800 [=====================>........] - ETA: 1:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 593: Invalid loss, terminating training
+594/800 [=====================>........] - ETA: 1:51 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3477Batch 594: Invalid loss, terminating training
+595/800 [=====================>........] - ETA: 1:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 595: Invalid loss, terminating training
+596/800 [=====================>........] - ETA: 1:50 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3470Batch 596: Invalid loss, terminating training
+597/800 [=====================>........] - ETA: 1:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 597: Invalid loss, terminating training
+598/800 [=====================>........] - ETA: 1:49 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 598: Invalid loss, terminating training
+599/800 [=====================>........] - ETA: 1:48 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3473Batch 599: Invalid loss, terminating training
+600/800 [=====================>........] - ETA: 1:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 600: Invalid loss, terminating training
+601/800 [=====================>........] - ETA: 1:47 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3484Batch 601: Invalid loss, terminating training
+602/800 [=====================>........] - ETA: 1:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3480Batch 602: Invalid loss, terminating training
+603/800 [=====================>........] - ETA: 1:46 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 603: Invalid loss, terminating training
+604/800 [=====================>........] - ETA: 1:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3481Batch 604: Invalid loss, terminating training
+605/800 [=====================>........] - ETA: 1:45 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3482Batch 605: Invalid loss, terminating training
+606/800 [=====================>........] - ETA: 1:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3479Batch 606: Invalid loss, terminating training
+607/800 [=====================>........] - ETA: 1:44 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 607: Invalid loss, terminating training
+608/800 [=====================>........] - ETA: 1:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 608: Invalid loss, terminating training
+609/800 [=====================>........] - ETA: 1:43 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 609: Invalid loss, terminating training
+610/800 [=====================>........] - ETA: 1:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3466Batch 610: Invalid loss, terminating training
+611/800 [=====================>........] - ETA: 1:42 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3471Batch 611: Invalid loss, terminating training
+612/800 [=====================>........] - ETA: 1:41 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3475Batch 612: Invalid loss, terminating training
+613/800 [=====================>........] - ETA: 1:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3477Batch 613: Invalid loss, terminating training
+614/800 [======================>.......] - ETA: 1:40 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3474Batch 614: Invalid loss, terminating training
+615/800 [======================>.......] - ETA: 1:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3472Batch 615: Invalid loss, terminating training
+616/800 [======================>.......] - ETA: 1:39 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3468Batch 616: Invalid loss, terminating training
+617/800 [======================>.......] - ETA: 1:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 617: Invalid loss, terminating training
+618/800 [======================>.......] - ETA: 1:38 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3467Batch 618: Invalid loss, terminating training
+619/800 [======================>.......] - ETA: 1:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3463Batch 619: Invalid loss, terminating training
+620/800 [======================>.......] - ETA: 1:37 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 620: Invalid loss, terminating training
+621/800 [======================>.......] - ETA: 1:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 621: Invalid loss, terminating training
+622/800 [======================>.......] - ETA: 1:36 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3465Batch 622: Invalid loss, terminating training
+623/800 [======================>.......] - ETA: 1:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3461Batch 623: Invalid loss, terminating training
+624/800 [======================>.......] - ETA: 1:35 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3456Batch 624: Invalid loss, terminating training
+625/800 [======================>.......] - ETA: 1:34 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3453Batch 625: Invalid loss, terminating training
+626/800 [======================>.......] - ETA: 1:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 626: Invalid loss, terminating training
+627/800 [======================>.......] - ETA: 1:33 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 627: Invalid loss, terminating training
+628/800 [======================>.......] - ETA: 1:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3454Batch 628: Invalid loss, terminating training
+629/800 [======================>.......] - ETA: 1:32 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 629: Invalid loss, terminating training
+630/800 [======================>.......] - ETA: 1:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3451Batch 630: Invalid loss, terminating training
+631/800 [======================>.......] - ETA: 1:31 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 631: Invalid loss, terminating training
+632/800 [======================>.......] - ETA: 1:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 632: Invalid loss, terminating training
+633/800 [======================>.......] - ETA: 1:30 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 633: Invalid loss, terminating training
+634/800 [======================>.......] - ETA: 1:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 634: Invalid loss, terminating training
+635/800 [======================>.......] - ETA: 1:29 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 635: Invalid loss, terminating training
+636/800 [======================>.......] - ETA: 1:28 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 636: Invalid loss, terminating training
+637/800 [======================>.......] - ETA: 1:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 637: Invalid loss, terminating training
+638/800 [======================>.......] - ETA: 1:27 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 638: Invalid loss, terminating training
+639/800 [======================>.......] - ETA: 1:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3438Batch 639: Invalid loss, terminating training
+640/800 [=======================>......] - ETA: 1:26 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 640: Invalid loss, terminating training
+641/800 [=======================>......] - ETA: 1:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 641: Invalid loss, terminating training
+642/800 [=======================>......] - ETA: 1:25 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3430Batch 642: Invalid loss, terminating training
+643/800 [=======================>......] - ETA: 1:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428Batch 643: Invalid loss, terminating training
+644/800 [=======================>......] - ETA: 1:24 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3424Batch 644: Invalid loss, terminating training
+645/800 [=======================>......] - ETA: 1:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 645: Invalid loss, terminating training
+646/800 [=======================>......] - ETA: 1:23 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3420Batch 646: Invalid loss, terminating training
+647/800 [=======================>......] - ETA: 1:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 647: Invalid loss, terminating training
+648/800 [=======================>......] - ETA: 1:22 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3421Batch 648: Invalid loss, terminating training
+649/800 [=======================>......] - ETA: 1:21 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3420Batch 649: Invalid loss, terminating training
+650/800 [=======================>......] - ETA: 1:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428Batch 650: Invalid loss, terminating training
+651/800 [=======================>......] - ETA: 1:20 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3425Batch 651: Invalid loss, terminating training
+652/800 [=======================>......] - ETA: 1:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3431Batch 652: Invalid loss, terminating training
+653/800 [=======================>......] - ETA: 1:19 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3433Batch 653: Invalid loss, terminating training
+654/800 [=======================>......] - ETA: 1:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3440Batch 654: Invalid loss, terminating training
+655/800 [=======================>......] - ETA: 1:18 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 655: Invalid loss, terminating training
+656/800 [=======================>......] - ETA: 1:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 656: Invalid loss, terminating training
+657/800 [=======================>......] - ETA: 1:17 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 657: Invalid loss, terminating training
+658/800 [=======================>......] - ETA: 1:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 658: Invalid loss, terminating training
+659/800 [=======================>......] - ETA: 1:16 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 659: Invalid loss, terminating training
+660/800 [=======================>......] - ETA: 1:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3451Batch 660: Invalid loss, terminating training
+661/800 [=======================>......] - ETA: 1:15 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 661: Invalid loss, terminating training
+662/800 [=======================>......] - ETA: 1:14 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 662: Invalid loss, terminating training
+663/800 [=======================>......] - ETA: 1:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 663: Invalid loss, terminating training
+664/800 [=======================>......] - ETA: 1:13 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 664: Invalid loss, terminating training
+665/800 [=======================>......] - ETA: 1:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3438Batch 665: Invalid loss, terminating training
+666/800 [=======================>......] - ETA: 1:12 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 666: Invalid loss, terminating training
+667/800 [========================>.....] - ETA: 1:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 667: Invalid loss, terminating training
+668/800 [========================>.....] - ETA: 1:11 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 668: Invalid loss, terminating training
+669/800 [========================>.....] - ETA: 1:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 669: Invalid loss, terminating training
+670/800 [========================>.....] - ETA: 1:10 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3446Batch 670: Invalid loss, terminating training
+671/800 [========================>.....] - ETA: 1:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3443Batch 671: Invalid loss, terminating training
+672/800 [========================>.....] - ETA: 1:09 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 672: Invalid loss, terminating training
+673/800 [========================>.....] - ETA: 1:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 673: Invalid loss, terminating training
+674/800 [========================>.....] - ETA: 1:08 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 674: Invalid loss, terminating training
+675/800 [========================>.....] - ETA: 1:07 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 675: Invalid loss, terminating training
+676/800 [========================>.....] - ETA: 1:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 676: Invalid loss, terminating training
+677/800 [========================>.....] - ETA: 1:06 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 677: Invalid loss, terminating training
+678/800 [========================>.....] - ETA: 1:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3450Batch 678: Invalid loss, terminating training
+679/800 [========================>.....] - ETA: 1:05 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 679: Invalid loss, terminating training
+680/800 [========================>.....] - ETA: 1:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 680: Invalid loss, terminating training
+681/800 [========================>.....] - ETA: 1:04 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 681: Invalid loss, terminating training
+682/800 [========================>.....] - ETA: 1:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 682: Invalid loss, terminating training
+683/800 [========================>.....] - ETA: 1:03 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3440Batch 683: Invalid loss, terminating training
+684/800 [========================>.....] - ETA: 1:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 684: Invalid loss, terminating training
+685/800 [========================>.....] - ETA: 1:02 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3433Batch 685: Invalid loss, terminating training
+686/800 [========================>.....] - ETA: 1:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 686: Invalid loss, terminating training
+687/800 [========================>.....] - ETA: 1:01 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 687: Invalid loss, terminating training
+688/800 [========================>.....] - ETA: 1:00 - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3435Batch 688: Invalid loss, terminating training
+689/800 [========================>.....] - ETA: 59s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3434 Batch 689: Invalid loss, terminating training
+690/800 [========================>.....] - ETA: 59s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3431Batch 690: Invalid loss, terminating training
+691/800 [========================>.....] - ETA: 58s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 691: Invalid loss, terminating training
+692/800 [========================>.....] - ETA: 58s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 692: Invalid loss, terminating training
+693/800 [========================>.....] - ETA: 57s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 693: Invalid loss, terminating training
+694/800 [=========================>....] - ETA: 57s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 694: Invalid loss, terminating training
+695/800 [=========================>....] - ETA: 56s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3429Batch 695: Invalid loss, terminating training
+696/800 [=========================>....] - ETA: 56s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3426Batch 696: Invalid loss, terminating training
+697/800 [=========================>....] - ETA: 55s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3423Batch 697: Invalid loss, terminating training
+698/800 [=========================>....] - ETA: 55s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 698: Invalid loss, terminating training
+699/800 [=========================>....] - ETA: 54s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3416Batch 699: Invalid loss, terminating training
+700/800 [=========================>....] - ETA: 53s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3416Batch 700: Invalid loss, terminating training
+701/800 [=========================>....] - ETA: 53s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 701: Invalid loss, terminating training
+702/800 [=========================>....] - ETA: 52s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3415Batch 702: Invalid loss, terminating training
+703/800 [=========================>....] - ETA: 52s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 703: Invalid loss, terminating training
+704/800 [=========================>....] - ETA: 51s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3426Batch 704: Invalid loss, terminating training
+705/800 [=========================>....] - ETA: 51s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3433Batch 705: Invalid loss, terminating training
+706/800 [=========================>....] - ETA: 50s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 706: Invalid loss, terminating training
+707/800 [=========================>....] - ETA: 50s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3431Batch 707: Invalid loss, terminating training
+708/800 [=========================>....] - ETA: 49s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 708: Invalid loss, terminating training
+709/800 [=========================>....] - ETA: 49s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 709: Invalid loss, terminating training
+710/800 [=========================>....] - ETA: 48s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3440Batch 710: Invalid loss, terminating training
+711/800 [=========================>....] - ETA: 48s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 711: Invalid loss, terminating training
+712/800 [=========================>....] - ETA: 47s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3446Batch 712: Invalid loss, terminating training
+713/800 [=========================>....] - ETA: 46s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 713: Invalid loss, terminating training
+714/800 [=========================>....] - ETA: 46s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 714: Invalid loss, terminating training
+715/800 [=========================>....] - ETA: 45s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3443Batch 715: Invalid loss, terminating training
+716/800 [=========================>....] - ETA: 45s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 716: Invalid loss, terminating training
+717/800 [=========================>....] - ETA: 44s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3440Batch 717: Invalid loss, terminating training
+718/800 [=========================>....] - ETA: 44s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 718: Invalid loss, terminating training
+719/800 [=========================>....] - ETA: 43s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3436Batch 719: Invalid loss, terminating training
+720/800 [==========================>...] - ETA: 43s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3434Batch 720: Invalid loss, terminating training
+721/800 [==========================>...] - ETA: 42s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3431Batch 721: Invalid loss, terminating training
+722/800 [==========================>...] - ETA: 42s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 722: Invalid loss, terminating training
+723/800 [==========================>...] - ETA: 41s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 723: Invalid loss, terminating training
+724/800 [==========================>...] - ETA: 41s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 724: Invalid loss, terminating training
+725/800 [==========================>...] - ETA: 40s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 725: Invalid loss, terminating training
+726/800 [==========================>...] - ETA: 39s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3429Batch 726: Invalid loss, terminating training
+727/800 [==========================>...] - ETA: 39s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3427Batch 727: Invalid loss, terminating training
+728/800 [==========================>...] - ETA: 38s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3426Batch 728: Invalid loss, terminating training
+729/800 [==========================>...] - ETA: 38s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3422Batch 729: Invalid loss, terminating training
+730/800 [==========================>...] - ETA: 37s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3421Batch 730: Invalid loss, terminating training
+731/800 [==========================>...] - ETA: 37s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 731: Invalid loss, terminating training
+732/800 [==========================>...] - ETA: 36s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3416Batch 732: Invalid loss, terminating training
+733/800 [==========================>...] - ETA: 36s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3412Batch 733: Invalid loss, terminating training
+734/800 [==========================>...] - ETA: 35s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3418Batch 734: Invalid loss, terminating training
+735/800 [==========================>...] - ETA: 35s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3415Batch 735: Invalid loss, terminating training
+736/800 [==========================>...] - ETA: 34s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3412Batch 736: Invalid loss, terminating training
+737/800 [==========================>...] - ETA: 34s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3411Batch 737: Invalid loss, terminating training
+738/800 [==========================>...] - ETA: 33s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3417Batch 738: Invalid loss, terminating training
+739/800 [==========================>...] - ETA: 32s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3412Batch 739: Invalid loss, terminating training
+740/800 [==========================>...] - ETA: 32s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3415Batch 740: Invalid loss, terminating training
+741/800 [==========================>...] - ETA: 31s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3418Batch 741: Invalid loss, terminating training
+742/800 [==========================>...] - ETA: 31s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 742: Invalid loss, terminating training
+743/800 [==========================>...] - ETA: 30s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3417Batch 743: Invalid loss, terminating training
+744/800 [==========================>...] - ETA: 30s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3415Batch 744: Invalid loss, terminating training
+745/800 [==========================>...] - ETA: 29s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3419Batch 745: Invalid loss, terminating training
+746/800 [==========================>...] - ETA: 29s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3422Batch 746: Invalid loss, terminating training
+747/800 [===========================>..] - ETA: 28s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3425Batch 747: Invalid loss, terminating training
+748/800 [===========================>..] - ETA: 28s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3429Batch 748: Invalid loss, terminating training
+749/800 [===========================>..] - ETA: 27s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3434Batch 749: Invalid loss, terminating training
+750/800 [===========================>..] - ETA: 26s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 750: Invalid loss, terminating training
+751/800 [===========================>..] - ETA: 26s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 751: Invalid loss, terminating training
+752/800 [===========================>..] - ETA: 25s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 752: Invalid loss, terminating training
+753/800 [===========================>..] - ETA: 25s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3435Batch 753: Invalid loss, terminating training
+754/800 [===========================>..] - ETA: 24s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3440Batch 754: Invalid loss, terminating training
+755/800 [===========================>..] - ETA: 24s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 755: Invalid loss, terminating training
+756/800 [===========================>..] - ETA: 23s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3437Batch 756: Invalid loss, terminating training
+757/800 [===========================>..] - ETA: 23s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3443Batch 757: Invalid loss, terminating training
+758/800 [===========================>..] - ETA: 22s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 758: Invalid loss, terminating training
+759/800 [===========================>..] - ETA: 22s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3453Batch 759: Invalid loss, terminating training
+760/800 [===========================>..] - ETA: 21s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3457Batch 760: Invalid loss, terminating training
+761/800 [===========================>..] - ETA: 21s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 761: Invalid loss, terminating training
+762/800 [===========================>..] - ETA: 20s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3458Batch 762: Invalid loss, terminating training
+763/800 [===========================>..] - ETA: 19s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3455Batch 763: Invalid loss, terminating training
+764/800 [===========================>..] - ETA: 19s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 764: Invalid loss, terminating training
+765/800 [===========================>..] - ETA: 18s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 765: Invalid loss, terminating training
+766/800 [===========================>..] - ETA: 18s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 766: Invalid loss, terminating training
+767/800 [===========================>..] - ETA: 17s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 767: Invalid loss, terminating training
+768/800 [===========================>..] - ETA: 17s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 768: Invalid loss, terminating training
+769/800 [===========================>..] - ETA: 16s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 769: Invalid loss, terminating training
+770/800 [===========================>..] - ETA: 16s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 770: Invalid loss, terminating training
+771/800 [===========================>..] - ETA: 15s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3452Batch 771: Invalid loss, terminating training
+772/800 [===========================>..] - ETA: 15s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 772: Invalid loss, terminating training
+773/800 [===========================>..] - ETA: 14s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 773: Invalid loss, terminating training
+774/800 [============================>.] - ETA: 14s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3446Batch 774: Invalid loss, terminating training
+775/800 [============================>.] - ETA: 13s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 775: Invalid loss, terminating training
+776/800 [============================>.] - ETA: 12s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 776: Invalid loss, terminating training
+777/800 [============================>.] - ETA: 12s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3447Batch 777: Invalid loss, terminating training
+778/800 [============================>.] - ETA: 11s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 778: Invalid loss, terminating training
+779/800 [============================>.] - ETA: 11s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 779: Invalid loss, terminating training
+780/800 [============================>.] - ETA: 10s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 780: Invalid loss, terminating training
+781/800 [============================>.] - ETA: 10s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442Batch 781: Invalid loss, terminating training
+782/800 [============================>.] - ETA: 9s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3442 Batch 782: Invalid loss, terminating training
+783/800 [============================>.] - ETA: 9s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3448Batch 783: Invalid loss, terminating training
+784/800 [============================>.] - ETA: 8s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3449Batch 784: Invalid loss, terminating training
+785/800 [============================>.] - ETA: 8s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3444Batch 785: Invalid loss, terminating training
+786/800 [============================>.] - ETA: 7s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 786: Invalid loss, terminating training
+787/800 [============================>.] - ETA: 7s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 787: Invalid loss, terminating training
+788/800 [============================>.] - ETA: 6s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3440Batch 788: Invalid loss, terminating training
+789/800 [============================>.] - ETA: 5s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 789: Invalid loss, terminating training
+790/800 [============================>.] - ETA: 5s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3445Batch 790: Invalid loss, terminating training
+791/800 [============================>.] - ETA: 4s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3441Batch 791: Invalid loss, terminating training
+792/800 [============================>.] - ETA: 4s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 792: Invalid loss, terminating training
+793/800 [============================>.] - ETA: 3s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3439Batch 793: Invalid loss, terminating training
+794/800 [============================>.] - ETA: 3s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3435Batch 794: Invalid loss, terminating training
+795/800 [============================>.] - ETA: 2s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3435Batch 795: Invalid loss, terminating training
+796/800 [============================>.] - ETA: 2s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3435Batch 796: Invalid loss, terminating training
+797/800 [============================>.] - ETA: 1s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3435Batch 797: Invalid loss, terminating training
+798/800 [============================>.] - ETA: 1s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3432Batch 798: Invalid loss, terminating training
+799/800 [============================>.] - ETA: 0s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3430Batch 799: Invalid loss, terminating training
+800/800 [==============================] - ETA: 0s - loss: nan - wcceOA: nan - entrONA: nan - waccOA: 0.3428
+Epoch 00001: val_waccOA improved from -inf to 0.34359, saving model to model-587f211a-415a-4228-955f-c6a6d99e9f28/weights.01-0.34.hdf5
+2021-05-06 10:54:13.995354: W tensorflow/core/framework/op_kernel.cc:1753] OP_REQUIRES failed at summary_kernels.cc:242 : Invalid argument: Nan in summary histogram for: conv2d/kernel_0
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/gen_summary_ops.py", line 462, in write_histogram_summary
+    _result = pywrap_tfe.TFE_Py_FastPathExecute(
+tensorflow.python.eager.core._FallbackException: This function does not handle the case of the path where all inputs are not already EagerTensors.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train-lidc.py", line 70, in <module>
+    model.fit_generator(train_gen, 800, 1000, validation_data=val_gen, validation_steps=200,
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/util/deprecation.py", line 324, in new_func
+    return func(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/keras/engine/training.py", line 1465, in fit_generator
+    return self.fit(
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/keras/engine/training.py", line 66, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/keras/engine/training.py", line 876, in fit
+    callbacks.on_epoch_end(epoch, epoch_logs)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/keras/callbacks.py", line 365, in on_epoch_end
+    callback.on_epoch_end(epoch, logs)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/keras/callbacks.py", line 2000, in on_epoch_end
+    self._log_weights(epoch)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/keras/callbacks.py", line 2119, in _log_weights
+    summary_ops_v2.histogram(weight_name, weight, step=epoch)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/summary_ops_v2.py", line 830, in histogram
+    return summary_writer_function(name, tensor, function, family=family)
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/summary_ops_v2.py", line 758, in summary_writer_function
+    op = smart_cond.smart_cond(
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/framework/smart_cond.py", line 54, in smart_cond
+    return true_fn()
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/summary_ops_v2.py", line 752, in record
+    with ops.control_dependencies([function(tag, scope)]):
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/summary_ops_v2.py", line 823, in function
+    return gen_summary_ops.write_histogram_summary(
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/gen_summary_ops.py", line 468, in write_histogram_summary
+    return write_histogram_summary_eager_fallback(
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/ops/gen_summary_ops.py", line 489, in write_histogram_summary_eager_fallback
+    _result = _execute.execute(b"WriteHistogramSummary", 0, inputs=_inputs_flat,
+  File "/opt/conda/lib/python3.8/site-packages/tensorflow/python/eager/execute.py", line 59, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Nan in summary histogram for: conv2d/kernel_0 [Op:WriteHistogramSummary]
+
+If you suspect this is an IPython 7.19.0 bug, please report it at:
+    https://github.com/ipython/ipython/issues
+or send an email to the mailing list at ipython-dev@python.org
+
+You can print a more detailed traceback right now with "%tb", or use "%debug"
+to interactively debug it.
+
+Extra-detailed tracebacks for bug-reporting purposes can be enabled via:
+    %config Application.verbose_crash=True
+
+2021-05-06 10:54:14.397594: W tensorflow/core/kernels/data/generator_dataset_op.cc:103] Error occurred when finalizing GeneratorDataset iterator: Failed precondition: Python interpreter state is not initialized. The process may be terminated.
+         [[{{node PyFunc}}]]
+(base) root@a0f39779f10c:/opt/notebooks/LungNetNew#
