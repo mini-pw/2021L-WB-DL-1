@@ -24,6 +24,11 @@ Porównanie histogramów dla warstwy predykcji (bias i kernel) dwóch modeli ucz
  - na górze model VGG po 12 epokach
  - na dole model VGG po 60 epokach
 
+<p align="left">
+<img src="https://i.imgur.com/YnTHO4T.png" width="300">
+<img src="https://i.imgur.com/2azc1vC.png" width="300">
+</p>
+
 Bias                       |  Kernel
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/YnTHO4T.png)  |  ![](https://i.imgur.com/2azc1vC.png)
