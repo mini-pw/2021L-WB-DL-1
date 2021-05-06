@@ -8,6 +8,11 @@ Do sieci VGG podłączyliśmy tensorboard wraz z callbackami:
  - early stopping z ekstrakcją najlepszych wag
  - ustawiany ręcznie learning rate scheduler
 
+Niestety dla wersji 1.14 tensorflowa nie mogliśmy uruchomić poprawnie wywołania funkcji model.fit_generator wraz z callbackami, dlatego zmieniliśmy wersje bibliotek:
+ - tensorflow 2.2.1
+ - tensorflow-gpu 2.2.1
+ - keras 2.3.1
+
 Wykres accuracy dla VGG:
 
 <p align="center">
