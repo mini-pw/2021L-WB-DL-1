@@ -55,7 +55,7 @@ Ważnym czynnikiem przy przygotowaniu dodatkowego zadania dla sieci neuronowej b
 
 #### 2.2.2 Nowa architektura sieci
 
-Na potrzeby zadania sieci nowego zadania nieznacznie została zmodyfikowana architektura sieci. Ostatnia warstwa LSTM w nowej sieci przekazuje sygnał do dwóch obszarów: jednego, odpowiedzialnego za segmentację obrazów oraz drugiego, rozwiązującego zadanie regresji. Obszary te są do siebie podobne strukturą, z tą różnicą, że na koniec nowego fragmentu znajduje się warstwa połączeń gęstych poprzedzona operacją GlobalMaxPooling2D.
+Na potrzeby zadania sieci nowego zadania nieznacznie została zmodyfikowana architektura sieci. Ostatnia warstwa LSTM w nowej sieci przekazuje sygnał do dwóch obszarów: jednego, odpowiedzialnego za segmentację obrazów oraz drugiego, zaznaczonego na czerwono, rozwiązującego zadanie regresji. Obszary te są do siebie podobne strukturą, z tą różnicą, że na koniec nowego fragmentu znajduje się warstwa połączeń gęstych poprzedzona operacją GlobalMaxPooling2D.
 
 !["Nowa architektura"](./images/New_schema.png)
 
