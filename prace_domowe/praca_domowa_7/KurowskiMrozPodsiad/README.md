@@ -24,16 +24,25 @@ Porównanie histogramów dla warstwy predykcji (bias i kernel) dwóch modeli ucz
  - na górze model VGG po 12 epokach
  - na dole model VGG po 60 epokach
 
-
 Bias                       |  Kernel
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/YnTHO4T.png)  |  ![](https://i.imgur.com/2azc1vC.png)
 
 
+Porównanie histogramów dla warstwy konwolucyjnej nr 5 (bias i kernel) dwóch modeli uczonych na różnych liczbach epok:
+ - na górze model VGG po 12 epokach
+ - na dole model VGG po 60 epokach
+
+Bias                       |  Kernel
+:-------------------------:|:-------------------------:
+![](https://i.imgur.com/0Dt7X5m.png)  |  ![](https://i.imgur.com/e3O73wX.png)
+
+
+
 Callback early stopping nie zatrzymał wcześniej uczenia, ale dzięki jego wykorzystaniu możemy odzyskać wagi modelu z najwyższą jakością predykcji z całego procesu uczenia.
 
 Posłużyliśmy się nowym callbackiem nazwanym CustomLearningRateScheduler(), który odpowiadał za zmniejszanie szybkości uczenia modelu wraz ze zwiększającą się liczbą epok.
-W środku została wykorzystana dodatkowa funkcja ustalająca wartości szybkości uczenia (learning rate) dla wybranych wcześniej epok. Podczas uczenia callback wypisywał także wartości tego parametru w każdej epoce.
+W środku została wykorzystana dodatkowa funkcja ustalająca wartości szybkości uczenia (learning rate) dla wybranych wcześniej epok. Podczas uczenia callback wypisywał także wartości tego parametru w każdej epoce. Pomaga to zapobiec przeuczeniu modelu oraz zmniejszeniu jego jakości przewidywania na nowych danych.
 
 #### 2. Wiele wejść / wiele wyjść
 
