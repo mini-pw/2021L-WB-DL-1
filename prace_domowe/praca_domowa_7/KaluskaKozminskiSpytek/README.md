@@ -28,3 +28,8 @@ Dzięki skorzystaniu z wywołania zwrotnego TensorBoard istnieje możliwość mo
 Dzięki śledzeniu wartości funkcji celu można zidentyfikować kiedy model zaczyna się nadmiernie dopasowywać do danych, tracąc możliwość generalizacji. W poniższym przypadku niepokojąco wygląda wartość funkcji straty na zbiorze walidacyjnym po 20 epokach, która zaczyna rosnąć.
 
 !["loss"](./images/loss_values.png)
+
+
+## 3. Ensamble
+
+Ponieważ autorzy artykułu dostarczyli dwa modele (co prawda bardzo podobne do siebie pod względem architektury), to właśnie ich użyliśmy do ensamblingu. Nasze zadanie dotyczy segmentacji, więc jako funkcję je łączącą zastosowaliśmy średnią. Bierzemy prawdopodobieństwo należenia danego piksela do maski w obu modelach, a jako wynik modelu złożonego, zwracamy średnią tych prawdopodobieństw. Funkcja implementująca ten model znajduje się w pliku [./code/models_with_ensamble.py](./code/models_with_ensamble.py). Niestety nie zdążyliśmy nauczyć sieci skonstruowanej w ten sposób, więc nie możemy jeszcze powiedzieć, czy wyniki się poprawiły.
