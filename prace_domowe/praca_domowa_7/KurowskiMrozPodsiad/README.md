@@ -61,8 +61,8 @@ Zaczęliśmy od dosyć naiwnego podejścia, w którym rozgałęzienie zrobiliśm
 Postanowiliśmy więc sprawdzić jak mają się wyniki przy zrobieniu brancha trochę wcześniej - oddzieliliśmy także trzy ostatnie bloki konwolucyjne, a do tego zaimplementowaliśmy mechanizm *class weights*. Niestety nadal nie dało nam to pożądanych efektów - co prawda COVID rozpoznawany jest tutaj lepiej, ale model w przypadku klasyfikacji datasetu wrzucał wszystko do jednego worka.
 
 <p align="center">
-<img src="https://i.imgur.com/LVaVWkK.png" width="300">
- <img src="https://i.imgur.com/Q9g4cYn.png" width="300">
+<img src="https://i.imgur.com/LVaVWkK.png" height="300">
+ <img src="https://i.imgur.com/Q9g4cYn.png" height="300">
 </p>
 
 Zdecydowaliśmy się więc w końcu na rozdzielenie modelu od samego początku, czyli od pierwszego bloku konwolucyjnego oraz zrezygnowaliśmy z *class weights*, bo nawet przy bardzo niewielkich wartościach powtarzał się przypadek z wrzucaniem wszystkiego do jednej klasy.  Niestety nawet po zrezygnowaniu z wag klas nadal działo się to samo. Nie udało nam się więc zrobić trafnej predykcji datasetów, ale też jest to jakaś informacja - widocznie nie jest łatwo rozróżnić to, z jakiego dokładnie źródła pochodzą nasze zdjęcia.
