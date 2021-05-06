@@ -54,8 +54,8 @@ W naszej sieci VGG postanowiliśmy dodać drugie wyjście, będące predykcją d
 Zaczęliśmy od dosyć naiwnego podejścia, w którym rozgałęzienie zrobiliśmy w części z warstwami Dense, czyli FC1, FC2 i softmax. Niestety, jak widać poniżej, w tym przypadku sieć radziła sobie poniżej przeciętnej z wykrywaniem Covida, a z rozróżnianiem pochodzenia zdjęcia bardzo słabo. Pewnym problemem było to, że klasa *rsna* była znacznie większa niż pozostałe klasy.
 
 <p align="center">
-<img src="https://i.imgur.com/b4iPP9Z.png" height="400">
-<img src="https://i.imgur.com/onNAaYf.png" height="400">
+<img src="https://i.imgur.com/b4iPP9Z.png" height="300">
+<img src="https://i.imgur.com/onNAaYf.png" height="300">
 </p>
 
 Postanowiliśmy więc sprawdzić jak mają się wyniki przy zrobieniu brancha trochę wcześniej - oddzieliliśmy także trzy ostatnie bloki konwolucyjne, a do tego zaimplementowaliśmy mechanizm *class weights*. Niestety nadal nie dało nam to pożądanych efektów - co prawda COVID rozpoznawany jest tutaj lepiej, ale model w przypadku klasyfikacji datasetu wrzucał wszystko do jednego worka.
