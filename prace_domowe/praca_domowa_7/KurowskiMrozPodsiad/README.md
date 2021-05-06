@@ -24,11 +24,11 @@ Porównanie histogramów dla warstwy predykcji (bias i kernel) dwóch modeli ucz
  - na górze model VGG po 12 epokach
  - na dole model VGG po 60 epokach
 
-<p align="center">
+
 Bias                       |  Kernel
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/YnTHO4T.png)  |  ![](https://i.imgur.com/2azc1vC.png)
-</p>
+
 
 Callback early stopping nie zatrzymał wcześniej uczenia, ale dzięki jego wykorzystaniu możemy odzyskać wagi modelu z najwyższą jakością predykcji z całego procesu uczenia.
 
