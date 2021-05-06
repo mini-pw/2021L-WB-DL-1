@@ -29,6 +29,33 @@ Dzięki śledzeniu wartości funkcji celu można zidentyfikować kiedy model zac
 
 !["loss"](./images/loss_values.png)
 
+## 2. Model z dwoma wyjściami
+
+W ramach implementacji modelu z dwoma wyjściami postanowiliśmy, że drugie wyjście będzie dotyczyło klasyfikacji zdjęć w zależności od ich lokalizacji w ciele człowieka.
+
+### 2.1 Zadanie klasyfikacji
+
+Zdjęcia są przydzielane do dwóch klas `upper` lub `lower` w zależności od tego na jakiej wysokości w ciele człowieka dany przekrój się znajduje. Taki podział mógłby pomóc w rozpoznawianiu z którego obszaru pochodzi przekrój segmentowanych płuc.
+Poniżej przedstawiamy, obrazek pomocniczy według którego dokonywalismy podziału. Przy podziale pomogła również koleżanka studiująca medycynę.
+![Chest division](https://www.researchgate.net/publication/41452495/figure/fig1/AS:611521122037760@1522809405618/Tumor-site-and-location-were-classified-by-dividing-the-chest-cavity-vertically-along-the.png)
+
+### 2.2 Architektura
+
+Nowo utworzona sieć składa się z dwóch gałęzi. Pierwszą gałęzią jest sieć BCDUNet, z kolei drugą gałęzią odpowiedzialną za klasyfikację zdjęć jest sieć [ResNet](https://github.com/raghakot/keras-resnet). Została ona nieznacznie zmodyfikowana tak aby mogłabyć stosowana w dwuwyjściowym modelu. 
+Tak przygotowany model uczył się około dwa razy dłużej niż model z jednym wyjściem, dlatego ograniczyliśmy się do dwóch epok. 
+
+### 2.3 Wyniki
+
+Pomimo niewielkiej liczby epok=2 wyniki modelu są zadowalające. 
+
+Poniżej widać zdjęcia z maskami oraz z przydzielonymi im etykietami.
+![Examples](./images/examples_multi_output_model.png)
+
+**Wyniki dla klasyfikacji**
+| Accuracy        | Sensitivity           | Precision  | F1 Score |
+| ------------- |-------------| -----|-------------|
+| 0.9221     | 0.6066 | 1 | 0.7551 |
+
 
 ## 3. Ensamble
 
