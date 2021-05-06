@@ -3,8 +3,39 @@
 ## Praca domowa nr 7 - Zaawansowane techniki
 
 #### 1. Monitorowanie uczenia modeli
+Do sieci VGG podłączyliśmy tensorboard wraz z callbackami:
+ - mierzenie accuracy i loss
+ - early stopping z ekstrakcją najlepszych wag
+ - ustawiany ręcznie learning rate scheduler
 
-TODO
+Wykres accuracy dla VGG:
+
+<p align="center">
+<img src="https://i.imgur.com/85XRp3Z.png" width="600">
+</p>
+
+Wykres funkcji straty dla VGG;
+
+<p align="center">
+<img src="https://i.imgur.com/nRfrMAE.png" width="600">
+</p>
+
+Porównanie histogramów dla warstwy predykcji (bias) dwóch modeli uczonych na różnych liczbach epok:
+ - na górze model VGG po 12 epokach
+ - na dole model VGG po 60 epokach
+
+<p align="center">
+<img src="https://i.imgur.com/YnTHO4T.png" width="600">
+</p>
+
+Porównanie histogramów dla warstwy predykcji (kernel) dwóch modeli uczonych na różnych liczbach epok:
+ - na górze model VGG po 12 epokach
+ - na dole model VGG po 60 epokach
+
+<p align="center">
+<img src="https://i.imgur.com/2azc1vC.png" width="600">
+</p>
+
 
 #### 2. Wiele wejść / wiele wyjść
 
