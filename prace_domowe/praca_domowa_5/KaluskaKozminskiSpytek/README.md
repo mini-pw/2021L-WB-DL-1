@@ -47,23 +47,42 @@ Autorzy powyższego artykułu zmierzyli się z tematyką podobną do pola dział
 
 Świat uczenia maszynowego rozwija się z wysoką prędkością. Z pewnością można uzyskać dostęp do większej liczby opracowań na temat wykorzystywania dodatkowych zadań w sieciach neuronowych, jednak powyższe pozycje powinny być wystarczające do implementacji pierwszego takiego rozwiązania. Prezentowane prace zainspirowały do stworzenia zadania identyfikującego poszczególne organy (do czego niezbędne byłoby stworzenie odpowiednich etykiet wykorzystując wiedzę dziedzinową) czy też regresji liczby niezerowych pikseli na podstawie obrazu tomografii.
 
+### 2.2 Pomysł i implementacja
+
+#### 2.2.1 Dodatkowe zadanie - regresja liczby pikseli w kolorze białym maski
+
+Ważnym czynnikiem przy przygotowaniu dodatkowego zadania dla sieci neuronowej była możliwość pozyskania prawdziwych etykiet do zdjęć. Było to znaczne ograniczenie przy chęci stosowania niektórych z proponowanych w literaturze rozwiązań - pozyskanie masek poszczególnych organów, np. tchawicy, byłoby bardzo trudne. Z tego powodu zdecydowaliśmy się na zadanie sieci nieco mniej skomplikowanego zadania - predykcji liczby pikseli w kolorze białym (znakowanych przez 1) maski. Pozyskanie tych wartości na podstawie załączonych do repozytorium masek wymagało jedynie krótkiego przetworzenia obrazów. Regresja została przeprowadzona na znormalizowanych wartościach z przedziału 0-1, uzyskanych po podzieleniu przez maksymalną wartość liczby białych pikseli w zbiorze masek treningowych.
+
+#### 2.2.2 Nowa architektura sieci
+
+Na potrzeby zadania sieci nowego zadania nieznacznie została zmodyfikowana architektura sieci. Ostatnia warstwa LSTM w nowej sieci przekazuje sygnał do dwóch obszarów: jednego, odpowiedzialnego za segmentację obrazów oraz drugiego, zaznaczonego na czerwono, rozwiązującego zadanie regresji. Obszary te są do siebie podobne strukturą, z tą różnicą, że na koniec nowego fragmentu znajduje się warstwa połączeń gęstych poprzedzona operacją GlobalMaxPooling2D.
+
+!["Nowa architektura"](./images/New_schema.png)
+
+#### 2.2.3 Funkcja straty oraz metryka nowego zadania
+
+W trakcie kompilacji nowopowstałego modelu należy zdefiniować nowe funkcję straty oraz metrykę dedykowane zadaniu regresji. Zdecydowaliśmy się na błąd średniokwadratowy w przypadku funkcji straty oraz pierwiastek z błędu średniokwadratowego jako metrykę jakości dopasowania modelu. Ze względu na inny rząd funkcji celu w kolejnych epokach, wagi błędów zostały ustawione jako 1 dla entropii krzyżowej (oryginalne zadanie) oraz 2.5 dla błędu średniokwadratowego (który to czesto był ok. 8 razy niższy niż wartość krosentropii).
+
+### 2.3 Efekty trenowania sieci z dodatkowym zadaniem
+
+Zmodyfikowany model, podobnie do pierwotnego, osiąga wysokie wyniki skuteczności segmentacji. Po procesie trenowania na 20 epokach udało osiągnąć się skuteczność accuracy na poziomie 99.6% na zbiorze walidacyjnym. Bardziej dokładne testy, także na zbiorze testowym, oraz porównania z pierwotną wersją modelu zostaną przeprowadzone w kolejnych tygodniach, ze względu na złożoność obliczeniową operacji trenowania. W folderze `code` znajduje się plik csv z wartościami funkcji celu oraz metryk po poszczególnych epokach.
+
 ## 3. Transfer learning - unsupervised pretraining
 
 _Przeprowadź nienadzorowane uczenie wstępne modelu (unsupervised pretraining)._
 
 ### 3.1. Przegląd literatury
 
-
 #### 3.1.1 [Pre-Training CNNs Using Convolutional Autoencoders](https://www.ni.tu-berlin.de/fileadmin/fg215/teaching/nnproject/cnn_pre_trainin_paper.pdf) (Maximilian Kohlbrenner et al.)
 
 W tej publikacji opisane jest zastosowanie autoenkoderów do inicjalizacji wag modelu. Autorzy twierdzą, że dzięki tej metodzie accuracy ich modelu podniosło się z poziomu 0.7 do 0.736 tylko dzięki zastosowaniu uczenia wstępnego, co stanowi znaczną poprawę. W artykule tym bardzo dokładnie opisana jest architektura CAE (Convolutional Auto Encoders), które to stosowane są do wstępnego uczenia, a następnie ich wagi przepisywane są do warstw głównego modelu. Dzięki opisowi konkretnych parametrów warstw, będziemy mogli spróbować zastosować dokładnie tę samą architekturę w naszym projekcie i sprawdzić, czy również pozwoli na poprawę wyników.
 
-  #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) (Thomas Schlegl et al. 2014)
+#### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) (Thomas Schlegl et al. 2014)
 
 Autorzy tej publikacji zastosowali Unsupervised pretraining jako sposób na poradzenie sobie z małą ilością danych treningowych. Tylko część obserwacji ze zbioru testowego była opisana etykietą, a co za tym idzie tylko ta część mogła być użyta do uczenia nadzorowanego. Naukowcy mieli jednak dużo więcej rekordów nieoznakowanych i za ich pomocą przeprowadzili trenowanie wstępne. Użyli oni CRBM (Convolutional Restricted Boltzmann Machine) jako model, który zainicjalizuje wagi poszczególnych warstw. Mamy nadzieję przetestować również to podejście w zastosowaniu do naszego projektu.
 
 
-### 3.1.3 Podsumowanie
+#### 3.1.3 Podsumowanie
 
 Unsupervised pretraining jest używany razem z modelami konwolucyjnymi dość często. Pozwala na użycie nieopisanych danych jako początek uczenia modelu, co jest bardzo przydatne, ponieważ opisane dane medyczne są zazwyczaj trudno dostępne. Mamy nadzieję, że opisane prace pozwolą nam zaimplementować tę funkcjonalność do naszego modelu.
 
