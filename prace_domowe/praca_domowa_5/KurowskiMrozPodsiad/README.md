@@ -37,7 +37,7 @@ W naszym przypadku zamierzamy wykorzystać dodatkowe informacje pojawiające si�
  
 Pomysł polega zatem na wytrenowaniu modelu z klasyfikacją jak z RSNA i dodanie dodatkowego zadania w postaci znajdywania położenia wspomnianej wyżej pneumonii. Wytworzone w ten sposób wagi modelu będą następnie przełożone do modelu, który ma rozwiązywać zadanie pierwotne - i to one posłużą jako pierwotne wagi do uczenia.  
 
-Po głębszym zbadaniu wspomnianego zbioru danych zdecydowaliśmy się nieco zmienić zadanie pomocnicze - tym razem uznaliśmy, że będzie nim zadanie klasyfikacji polegające na zdecydowaniu, czy dane płuca są płucami mężyczyzny, czy kobiety. W ten sposób utworzyliśmy model klasyfikujący dane na dwie możliwe kategorie. 
+Po głębszym zbadaniu wspomnianego zbioru danych zdecydowaliśmy się nieco zmienić zadanie pomocnicze - tym razem uznaliśmy, że będzie nim zadanie klasyfikacji polegające na zdecydowaniu, czy dane płuca są płucami mężyczyzny, czy kobiety. W ten sposób utworzyliśmy model klasyfikujący dane na dwie możliwe kategorie, którego macierz pomyłek widać poniżej. 
 <p align="center">
 <img src="https://i.imgur.com/5Aykr6B.png " height="400">
 </p>
