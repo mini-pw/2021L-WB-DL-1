@@ -41,7 +41,7 @@ Po głębszym zbadaniu wspomnianego zbioru danych zdecydowaliśmy się nieco zmi
 <p align="center">
 <img src="https://i.imgur.com/5Aykr6B.png " height="400">
 </p>
-Wagi z tego modelu zostału następnie wczytane jako pretrening dla klalsyfikacji oryginalnego zadania. Jak się jednak okazało, metoda ta przyniosła skutki odwrotne do zamierzonych - klasyfikacja trzech okazała się byc niemożliwa na modelu przetrenowanym na klasyfikacji na dwie kategorie, co przedstawia poniższa macież pomyłek:
+Wagi z tego modelu zostału następnie wczytane jako pretrening dla klalsyfikacji oryginalnego zadania. Jak się jednak okazało, metoda ta przyniosła skutki odwrotne do zamierzonych - klasyfikacja trzech kategorii okazała się byc niemożliwa na modelu przetrenowanym na klasyfikacji na dwie kategorie, co przedstawia poniższa macież pomyłek:
 <p align="center">
 <img src="https://i.imgur.com/GHaBIEF.png " height="400">
 </p>
