@@ -39,11 +39,11 @@ Pomysł polega zatem na wytrenowaniu modelu z klasyfikacją jak z RSNA i dodanie
 
 Po głębszym zbadaniu wspomnianego zbioru danych zdecydowaliśmy się nieco zmienić zadanie pomocnicze - tym razem uznaliśmy, że będzie nim zadanie klasyfikacji polegające na zdecydowaniu, czy dane płuca są płucami mężyczyzny, czy kobiety. W ten sposób utworzyliśmy model klasyfikujący dane na dwie możliwe kategorie. 
 <p align="center">
-<img src="https://i.imgur.com/5Aykr6B.png " height="280">
+<img src="https://i.imgur.com/5Aykr6B.png " height="400">
 </p>
 Wagi z tego modelu zostału następnie wczytane jako pretrening dla klalsyfikacji oryginalnego zadania. Jak się jednak okazało, metoda ta nie dała przyniosła skutki odwrotne do zamierzonych - klasyfikacja trzech okazała się byc niemożliwa na modelu przetrenowanym na klasyfikacji na dwie kategorie, co przedstawia poniższa macież pomyłek:
 <p align="center">
-<img src="https://i.imgur.com/GHaBIEF.png " height="280">
+<img src="https://i.imgur.com/GHaBIEF.png " height="400">
 </p>
 
 Prawdopodobną przyczyną takiego rezultatu mógł być problematyczny stosunek danych w auxiliary task do original task. Teoretycznie auxiliary task miałby pozwalać osiągnąć dobre rezultaty na mniejszym zbiorze danych, ale po tym jak model został wyszkolony na dzielenie na 2 grupy ok. 4000 zdjęć, to następne, oryginalne zadanie klasyfikacji na 3 grupy zdjeć z undersamplingu (dla przetestowania czy stosunek danych może mieć znaczenie), wagi nie mogły wyjść z takich, które klasyfikowałyby na dwie pierwsze grupy. 
