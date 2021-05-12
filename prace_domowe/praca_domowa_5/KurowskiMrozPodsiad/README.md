@@ -37,6 +37,17 @@ W naszym przypadku zamierzamy wykorzystać dodatkowe informacje pojawiające si�
  
 Pomysł polega zatem na wytrenowaniu modelu z klasyfikacją jak z RSNA i dodanie dodatkowego zadania w postaci znajdywania położenia wspomnianej wyżej pneumonii. Wytworzone w ten sposób wagi modelu będą następnie przełożone do modelu, który ma rozwiązywać zadanie pierwotne - i to one posłużą jako pierwotne wagi do uczenia.  
 
+Po głębszym zbadaniu wspomnianego zbioru danych zdecydowaliśmy się nieco zmienić zadanie pomocnicze - tym razem uznaliśmy, że będzie nim zadanie klasyfikacji polegające na zdecydowaniu, czy dane płuca są płucami mężyczyzny, czy kobiety. W ten sposób utworzyliśmy model klasyfikujący dane na dwie możliwe kategorie. 
+<p align="center">
+<img src="https://i.imgur.com/5Aykr6B.png " height="280">
+</p>
+Wagi z tego modelu zostału następnie wczytane jako pretrening dla klalsyfikacji oryginalnego zadania. Jak się jednak okazało, metoda ta nie dała przyniosła skutki odwrotne do zamierzonych - klasyfikacja trzech okazała się byc niemożliwa na modelu przetrenowanym na klasyfikacji na dwie kategorie, co przedstawia poniższa macież pomyłek:
+<p align="center">
+<img src="https://i.imgur.com/GHaBIEF.png " height="280">
+</p>
+
+Prawdopodobną przyczyną takiego rezultatu mógł być problematyczny stosunek danych w auxiliary task do original task. Teoretycznie auxiliary task miałby pozwalać osiągnąć dobre rezultaty na mniejszym zbiorze danych, ale po tym jak model został wyszkolony na dzielenie na 2 grupy ok. 4000 zdjęć, to następne, oryginalne zadanie klasyfikacji na 3 grupy zdjeć z undersamplingu (dla przetestowania czy stosunek danych może mieć znaczenie), wagi nie mogły wyjść z takich, które klasyfikowałyby na dwie pierwsze grupy. 
+
 ### 3. Transfer learning (unsupervised pretraining)
 
 Nienadzorowane uczenie wstępne modelu zwykle wykorzystuje się jeśli nie mamy dużej ilości danych treningowych z etykietami i nie możemy znaleźć modelu wytrenowanego dla podobnego zadania. Jeśli mamy dostęp do dużej ilości danych bez etykiet możemy spróbować wytrenować warstwy po kolei, zaczynając od najniższej i idąc w górę, używając nienadzorowanego algorytmu wykrywania cech (np. autoenkoder). Wszystkie warstwy oprócz trenowanej są zamrożone. Po wytrenowaniu wszystkich warstw w ten sposób można dodać warstwę wyjściową i dostroić sieć używając uczenia nadzorowanego (można odmrozić wszystkie wstępnie wytrenowane warstwy albo tylko niektóre z górnych).
