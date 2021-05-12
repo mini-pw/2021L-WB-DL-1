@@ -57,6 +57,6 @@ Do trenowania użyte przez nas zostaną oryginalne dane COVIDx (z wyodrębnienie
 Wyniki uczenia wstępnego zamieszczamy w folderze *unsupervised_pretreining*. Działanie samych autoenkoderów wydaje się zadowalające - osiągamy ponad 99.9% *Accuracy*. Niestety po tym przy uczeniu nadzorowanym nie osiągamy już tak dobrych wyników, a wręcz są one słabsze niż w przypadku normalnego uczenia. Wykonaliśmy ten proces dwa razy - przy pierwszej próbie zaciął się dosyć długo komputer i chcieliśmy sprawdzić czy może przez to nie pogorszyły się wyniki. Jak widać poniżej zostały jednak uzyskane bardzo podobne rezultaty. Sieć kładzie zdecydowanie za duży nacisk na predykcję pneumonii i zdecydowanie za mały na predykcję płuc normalnych. 
 
 <p align="center">
-<img src="https://i.imgur.com/hQdDc1N.png">
+<img src="https://i.imgur.com/NpO3Ngz.png">
 <img src="https://i.imgur.com/CeLOhLh.png">
 </p>
