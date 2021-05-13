@@ -81,6 +81,10 @@ W tej publikacji opisane jest zastosowanie autoenkoderów do inicjalizacji wag m
 
 Autorzy tej publikacji zastosowali Unsupervised pretraining jako sposób na poradzenie sobie z małą ilością danych treningowych. Tylko część obserwacji ze zbioru testowego była opisana etykietą, a co za tym idzie tylko ta część mogła być użyta do uczenia nadzorowanego. Naukowcy mieli jednak dużo więcej rekordów nieoznakowanych i za ich pomocą przeprowadzili trenowanie wstępne. Użyli oni CRBM (Convolutional Restricted Boltzmann Machine) jako model, który zainicjalizuje wagi poszczególnych warstw. Mamy nadzieję przetestować również to podejście w zastosowaniu do naszego projektu.
 
+### 3.2 Implementacja
+
+Do przeprowadzenia unsupervised pretrainingu użyliśmy autoenkoderów z zadaniem odszumiania. Zasada działania jest następująca: Do części danych treningowych dodajemy szum (z rozkładu normalnego) Następnie trenujemy konwolucyjne autoenkodery tak, aby odszumiały obrazki. W kolejnym kroku przepisujemy wagi z nauczonego enkodera do jednej z warstw naszego docelowego modelu i blokujemy możliwość uczenia się parametrów tej warstwy. Tę czynność powtarzamy dla każdej warstwy konwolucyjnej (z uwagi na budowę autoenkodera, tylko do tych warstw mogliśmy przepisać wagi), a po przejściu przez wszystkie dostępne warstwy stosujemy model główny z tak zainicjowanymi wagami do zadania segmentacji.
+
 
 #### 3.1.3 Podsumowanie
 
