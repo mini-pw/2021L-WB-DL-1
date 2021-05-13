@@ -21,7 +21,7 @@ W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasi
 Wizualizacja trenowania GANa:
 
 <p align="center">
-<img src="https://i.imgur.com/Baoa1dh.gif" height="400">
+<img src="https://github.com/z-mrozu/2021L-WB-DL-1/blob/main/prace_domowe/praca_domowa_5/KurowskiMrozPodsiad/gif/output_N7Ojio.gif" height="400">
 </p>
 
 ### 2. Transfer learning (auxiliary task)
