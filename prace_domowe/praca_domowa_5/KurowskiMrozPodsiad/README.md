@@ -27,7 +27,8 @@ Wizualizacja trenowania GANa:
 Finalne wyniki trenowania:
 
 <p align="center">
-<img src="https://i.imgur.com/xuTddPn.jpeg" height="500">
+<img src="https://i.imgur.com/xuTddPn.jpeg" height="400">
+<img src="https://i.imgur.com/svkdMMI.jpeg" height="400">
 </p>
 
 Wyniki są całkiem zadowalające biorąc pod uwagę możliwości naszego sprzętu i to, że sieć była trenowana na 3000 zdjęć przez 400 epok. Kod do trenowania i wizualizacji znajduje się w pliku *gan_training/GAN.ipynb*.
