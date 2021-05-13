@@ -18,6 +18,10 @@ Struktury te nazywane są generatywnymi sieciami przeciwstawnymi (Generative Adv
 
 W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasie oraz trenować go na naszym zbiorze danych. Uzyskany w ten sposób model będzie w stanie wygenerować dużą liczbę zdjęć płuc gotowych do dalszego wstępnego trenowania nienadzorowanego (Transfer Learning). Chcemy, żeby generator po dostaniu losowego szumu na wejściu tworzył wiarygodne zdjęcia płuc o rozmiarze 224x224.
 
+Wizualizacja trenowania GANa:
+
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 ### 2. Transfer learning (auxiliary task)
 
 Metoda Transfer Learningu polega na wykorzystywaniu wiedzy o już wyszkolonym modelu uczenia maszynowego do innego, ale pokrewnego problemu. Dzięki temu próbujemy wykorzystać to, czego nauczyliśmy się w jednym zadaniu, aby poprawić generalizację w innym.
