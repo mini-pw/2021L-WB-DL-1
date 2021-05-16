@@ -26,15 +26,14 @@ Wcześniejsze próby generowania zdjęć z maskami niestety wpływały negatywni
 
 #### 1.2.1 CycleGAN
 
-Po dokładnym zgłebieniu tematu, okazało się, że aby wykonać taki generator należy posiadać zdjęcia kontrastowe i niekontrastowe. Niestety wszystkie nasze zdjęcia są w jednym kontraście. Dlatego drugi zbiór zdjęć został sztucznie dorobiony poprzez zastosowanie na zbiorze treningowym wyrównania histogramu. W ten sposób otrzymaliśmy dwa zbiory danych: zbiór oryginalny i zbiór ze zmienionym kontrastem. Następnie ze zdjęć ze zmienionym kontrastem przy pomocy CycleGANa próbowaliśmy odzyskać zdjęcia sprzed transformacji. Wygenerowane w ten sposób zdjęcia zostały poddane post processingowi - obszar płuc był modyfikowany przy użyciu metody dilate na całym zdjęciu, a rozmiar kernela był wybierany losowo z wartości {1, 3, 5, 7}. Takie przetworzenie danych powodowało zmniejszenie obszaru płuc na zdjęciach.
+Po dokładnym zgłebieniu tematu, okazało się, że aby wykonać taki generator należy posiadać zdjęcia kontrastowe i niekontrastowe. Niestety wszystkie nasze zdjęcia są w jednym kontraście. Dlatego drugi zbiór zdjęć został sztucznie dorobiony poprzez zastosowanie na zbiorze treningowym wyrównania histogramu. W ten sposób otrzymaliśmy dwa zbiory danych: zbiór oryginalny i zbiór ze zmienionym kontrastem. Następnie ze zdjęć ze zmienionym kontrastem przy pomocy [CycleGANa](https://github.com/LynnHo/CycleGAN-Tensorflow-2) próbowaliśmy odzyskać zdjęcia sprzed transformacji. Wygenerowane w ten sposób zdjęcia zostały poddane post processingowi - obszar płuc był modyfikowany przy użyciu metody dilate na całym zdjęciu, a rozmiar kernela był wybierany losowo z wartości {1, 3, 5, 7}. Takie przetworzenie danych powodowało zmniejszenie obszaru płuc na zdjęciach.
 
 ![Wygenerowane zdjęcia](./images/generated_examples.png)
 
 #### 1.2.2 Próba generowania zdjęć z maskami
 
-W tej próbie inspiracją był artykuł [Generative Adversarial Network based Synthesis for Supervised Medical Image Segmentation](https://www.researchgate.net/publication/317014710_Generative_Adversarial_Network_based_Synthesis_for_Supervised_Medical_Image_Segmentation). Proponowane przez autorów podejście zakładało, że generator równocześnie będzie wytwarzał zdjęcia płuc oraz odpowiadające im maski. A dyksryminator wygenrowaną parę zjęć płuca + maska porówna z prawdziwą parą zdjęć.
-Niestety tak skonstruowany GAN wymaga bardzo długiego trenowania w celu osiągnięcia zadowalających efektów, z tego powodu napotkaliśmy ograniczenia sprzętowe.
-
+W tej próbie inspiracją był artykuł [Generative Adversarial Network based Synthesis for Supervised Medical Image Segmentation](https://www.researchgate.net/publication/317014710_Generative_Adversarial_Network_based_Synthesis_for_Supervised_Medical_Image_Segmentation). Proponowane przez autorów podejście zakładało, że generator równocześnie będzie wytwarzał zdjęcia płuc oraz odpowiadające im maski, a dyksryminator wygenerowaną parę zdjęć płuca + maska porówna z prawdziwą parą zdjęć.
+Niestety tak skonstruowany GAN wymaga bardzo długiego trenowania w celu osiągnięcia zadowalających efektów, z tego powodu napotkaliśmy ograniczenia sprzętowe. 
 
 ## 2. Transfer learning - auxiliary task
 
