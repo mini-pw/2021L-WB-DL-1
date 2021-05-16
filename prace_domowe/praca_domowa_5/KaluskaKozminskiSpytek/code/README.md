@@ -5,3 +5,7 @@ Plik models zawiera funkcję zwracającą model, delikatnie zmieniony w celu roz
 Plik logs... to wartości funkcji straty i metryk w 20 epokach po dodaniu zadania dodatkowego.
 
 ~Paweł
+
+Notatnik GAN_for_images_with_masks.ipynb pokazuje alternatywne podejście do generowania zdjęć, które wymaga bardzo długiego trenowania.
+
+~Marysia
