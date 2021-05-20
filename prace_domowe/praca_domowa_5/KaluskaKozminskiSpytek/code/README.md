@@ -9,3 +9,8 @@ Plik logs... to wartości funkcji straty i metryk w 20 epokach po dodaniu zadani
 Notatnik GAN_for_images_with_masks.ipynb pokazuje alternatywne podejście do generowania zdjęć, które wymaga bardzo długiego trenowania.
 
 ~Marysia
+
+
+Po komentarzu w PR zmieniłem nazwy plików. Teraz w pliku unsupervised_autoencoder_architecture znajduje się cała architektura potrzebna do wykonania pretrainingu (zadanie 3), natomiast w pliku model_training_with_unsupervised_pretraining znajduje się skrypt, który stosuje ten pretraining do modelu z wyjściowego artykułu.
+
+~Mikołaj
