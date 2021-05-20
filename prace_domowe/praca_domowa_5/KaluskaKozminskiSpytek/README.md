@@ -19,6 +19,22 @@ Na oficjalnej stronie Tensorflow dostępny jest tutorial wprowadzający do korzy
 Augmentacja zdjęć CT klatki piersiowej została już częściowo zgłębiona. W pierwszej z przytoczonych przeze mnie prac autorzy wykorzystują powiększony zbiór danych do segmentacji nerek, wątroby oraz śledziony. Moim celem będzie sprawdzenie czy zastosowana metoda obniżania kontrastu zdjęć i mieszania ich ze zdjęciami oryginalnymi pomoże osiągnąć dokładniejsze wyniki dla segmentacji płuc w sieci BCDU. 
 Narzędziem którego zamierzam użyć do augmentacji zbioru zdjęć będzie CycleGAN.
 
+### 1.2 Pomysł i implementacja
+
+Ze względu na istotność masek da zdjęć w problemie segmentacji, postanowiliśmy wygenerować zdjęcia do uczenia nienadzorowanego, które mogą zostać wykorzystane w pretrainingu. Oznacza, to że zdjęcia były generowane bez masek. 
+Wcześniejsze próby generowania zdjęć z maskami niestety wpływały negatywnie na uczenie modelu, ze względu na to, że sztucznie wygenerowane maski do zdjęć nie pokrywały się w 100% z tym jak powinna wyglądać prawdziwa maska. Uczenie na takich danych wprowadzało model w błąd. 
+
+#### 1.2.1 CycleGAN
+
+Po dokładnym zgłebieniu tematu, okazało się, że aby wykonać taki generator należy posiadać zdjęcia kontrastowe i niekontrastowe. Niestety wszystkie nasze zdjęcia są w jednym kontraście. Dlatego drugi zbiór zdjęć został sztucznie dorobiony poprzez zastosowanie na zbiorze treningowym wyrównania histogramu. W ten sposób otrzymaliśmy dwa zbiory danych: zbiór oryginalny i zbiór ze zmienionym kontrastem. Następnie ze zdjęć ze zmienionym kontrastem przy pomocy [CycleGANa](https://github.com/LynnHo/CycleGAN-Tensorflow-2) próbowaliśmy odzyskać zdjęcia sprzed transformacji. Wygenerowane w ten sposób zdjęcia zostały poddane post processingowi - obszar płuc był modyfikowany przy użyciu metody dilate na całym zdjęciu, a rozmiar kernela był wybierany losowo z wartości {1, 3, 5, 7}. Takie przetworzenie danych powodowało zmniejszenie obszaru płuc na zdjęciach.
+
+![Wygenerowane zdjęcia](./images/generated_examples.png)
+
+#### 1.2.2 Próba generowania zdjęć z maskami
+
+W tej próbie inspiracją był artykuł [Generative Adversarial Network based Synthesis for Supervised Medical Image Segmentation](https://www.researchgate.net/publication/317014710_Generative_Adversarial_Network_based_Synthesis_for_Supervised_Medical_Image_Segmentation). Proponowane przez autorów podejście zakładało, że generator równocześnie będzie wytwarzał zdjęcia płuc oraz odpowiadające im maski, a dyksryminator wygenerowaną parę zdjęć płuca + maska porówna z prawdziwą parą zdjęć.
+Niestety tak skonstruowany GAN wymaga bardzo długiego trenowania w celu osiągnięcia zadowalających efektów, z tego powodu napotkaliśmy ograniczenia sprzętowe. 
+
 ## 2. Transfer learning - auxiliary task
 
 _Wymyśl dodatkowe zadanie (auxiliary task), które będzie dobrze nadawało się do Twojego problemu. Wykonaj uczenie wstępne za pomocą dodatkowego zadania._
@@ -80,6 +96,10 @@ W tej publikacji opisane jest zastosowanie autoenkoderów do inicjalizacji wag m
 #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) (Thomas Schlegl et al. 2014)
 
 Autorzy tej publikacji zastosowali Unsupervised pretraining jako sposób na poradzenie sobie z małą ilością danych treningowych. Tylko część obserwacji ze zbioru testowego była opisana etykietą, a co za tym idzie tylko ta część mogła być użyta do uczenia nadzorowanego. Naukowcy mieli jednak dużo więcej rekordów nieoznakowanych i za ich pomocą przeprowadzili trenowanie wstępne. Użyli oni CRBM (Convolutional Restricted Boltzmann Machine) jako model, który zainicjalizuje wagi poszczególnych warstw. Mamy nadzieję przetestować również to podejście w zastosowaniu do naszego projektu.
+
+### 3.2 Implementacja
+
+Do przeprowadzenia unsupervised pretrainingu użyliśmy autoenkoderów z zadaniem odszumiania. Zasada działania jest następująca: Do części danych treningowych dodajemy szum (z rozkładu normalnego) Następnie trenujemy konwolucyjne autoenkodery tak, aby odszumiały obrazki. W kolejnym kroku przepisujemy wagi z nauczonego enkodera do jednej z warstw naszego docelowego modelu i blokujemy możliwość uczenia się parametrów tej warstwy. Tę czynność powtarzamy dla każdej warstwy konwolucyjnej (z uwagi na budowę autoenkodera, tylko do tych warstw mogliśmy przepisać wagi), a po przejściu przez wszystkie dostępne warstwy stosujemy model główny z tak zainicjowanymi wagami do zadania segmentacji.
 
 
 #### 3.1.3 Podsumowanie
