@@ -18,6 +18,21 @@ Struktury te nazywane są generatywnymi sieciami przeciwstawnymi (Generative Adv
 
 W naszym przypadku planujemy zaimplementować generator i dyskryminator w kerasie oraz trenować go na naszym zbiorze danych. Uzyskany w ten sposób model będzie w stanie wygenerować dużą liczbę zdjęć płuc gotowych do dalszego wstępnego trenowania nienadzorowanego (Transfer Learning). Chcemy, żeby generator po dostaniu losowego szumu na wejściu tworzył wiarygodne zdjęcia płuc o rozmiarze 224x224.
 
+Wizualizacja trenowania GANa:
+
+<p align="center">
+<img src="https://github.com/z-mrozu/2021L-WB-DL-1/blob/main/prace_domowe/praca_domowa_5/KurowskiMrozPodsiad/gif/output_N7Ojio.gif" height="500">
+</p>
+
+Finalne wyniki trenowania:
+
+<p align="center">
+<img src="https://i.imgur.com/xuTddPn.jpeg" height="400">
+<img src="https://i.imgur.com/svkdMMI.jpeg" height="400">
+</p>
+
+Wyniki są całkiem zadowalające biorąc pod uwagę możliwości naszego sprzętu i to, że sieć była trenowana na 3000 zdjęć przez 400 epok. Kod do trenowania i wizualizacji znajduje się w pliku *gan_training/GAN.ipynb*.
+
 ### 2. Transfer learning (auxiliary task)
 
 Metoda Transfer Learningu polega na wykorzystywaniu wiedzy o już wyszkolonym modelu uczenia maszynowego do innego, ale pokrewnego problemu. Dzięki temu próbujemy wykorzystać to, czego nauczyliśmy się w jednym zadaniu, aby poprawić generalizację w innym.
@@ -37,6 +52,17 @@ W naszym przypadku zamierzamy wykorzystać dodatkowe informacje pojawiające si�
  
 Pomysł polega zatem na wytrenowaniu modelu z klasyfikacją jak z RSNA i dodanie dodatkowego zadania w postaci znajdywania położenia wspomnianej wyżej pneumonii. Wytworzone w ten sposób wagi modelu będą następnie przełożone do modelu, który ma rozwiązywać zadanie pierwotne - i to one posłużą jako pierwotne wagi do uczenia.  
 
+Po głębszym zbadaniu wspomnianego zbioru danych zdecydowaliśmy się nieco zmienić zadanie pomocnicze - tym razem uznaliśmy, że będzie nim zadanie klasyfikacji polegające na zdecydowaniu, czy dane płuca są płucami mężyczyzny, czy kobiety. W ten sposób utworzyliśmy model klasyfikujący dane na dwie możliwe kategorie, którego macierz pomyłek widać poniżej. 
+<p align="center">
+<img src="https://i.imgur.com/5Aykr6B.png " height="400">
+</p>
+Wagi z tego modelu zostału następnie wczytane jako pretrening dla klalsyfikacji oryginalnego zadania. Jak się jednak okazało, metoda ta przyniosła skutki odwrotne do zamierzonych - klasyfikacja trzech kategorii okazała się byc niemożliwa na modelu przetrenowanym na klasyfikacji na dwie kategorie, co przedstawia poniższa macież pomyłek:
+<p align="center">
+<img src="https://i.imgur.com/GHaBIEF.png " height="400">
+</p>
+
+Prawdopodobną przyczyną takiego rezultatu mógł być problematyczny stosunek danych w auxiliary task do original task. Teoretycznie auxiliary task miałby pozwalać osiągnąć dobre rezultaty na mniejszym zbiorze danych, ale po tym jak model został wyszkolony na dzielenie na 2 grupy ok. 4000 zdjęć, to następne, oryginalne zadanie klasyfikacji na 3 grupy zdjeć z undersamplingu (dla przetestowania czy stosunek danych może mieć znaczenie), wagi nie mogły wyjść z takich, które klasyfikowałyby na dwie pierwsze grupy. 
+
 ### 3. Transfer learning (unsupervised pretraining)
 
 Nienadzorowane uczenie wstępne modelu zwykle wykorzystuje się jeśli nie mamy dużej ilości danych treningowych z etykietami i nie możemy znaleźć modelu wytrenowanego dla podobnego zadania. Jeśli mamy dostęp do dużej ilości danych bez etykiet możemy spróbować wytrenować warstwy po kolei, zaczynając od najniższej i idąc w górę, używając nienadzorowanego algorytmu wykrywania cech (np. autoenkoder). Wszystkie warstwy oprócz trenowanej są zamrożone. Po wytrenowaniu wszystkich warstw w ten sposób można dodać warstwę wyjściową i dostroić sieć używając uczenia nadzorowanego (można odmrozić wszystkie wstępnie wytrenowane warstwy albo tylko niektóre z górnych).
@@ -52,4 +78,11 @@ W naszym przypadku pracujemy na wykorzystywanym przez autorów modelu VGG19. Ucz
 Do trenowania użyte przez nas zostaną oryginalne dane COVIDx (z wyodrębnieniem małego zbioru do uczenia nadzorowanego), które w zależności od tego czy uda nam się zaimplementować GAN z pomyślnymi wynikami czy nie, mogą zostać uzupełnione wygenerowanymi danymi.
 <p align="center">
 <img src="https://i.imgur.com/L06GVDv.png " height="390">
+</p>
+
+Wyniki uczenia wstępnego zamieszczamy w folderze *unsupervised_pretraining*. Działanie samych autoenkoderów wydaje się zadowalające - osiągamy ponad 99.9% *Accuracy*. Niestety po tym przy uczeniu nadzorowanym nie osiągamy już tak dobrych wyników, a wręcz są one słabsze niż w przypadku normalnego uczenia. Wykonaliśmy ten proces dwa razy - przy pierwszej próbie zaciął się dosyć długo komputer i chcieliśmy sprawdzić czy może przez to nie pogorszyły się wyniki. Jak widać poniżej zostały jednak uzyskane bardzo podobne rezultaty. Sieć kładzie zdecydowanie za duży nacisk na predykcję pneumonii i zdecydowanie za mały na predykcję płuc normalnych. 
+
+<p align="center">
+<img src="https://i.imgur.com/NpO3Ngz.png">
+<img src="https://i.imgur.com/CeLOhLh.png">
 </p>
