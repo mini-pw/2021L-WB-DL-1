@@ -1,15 +1,5 @@
----
-title: 'Homework 04'
-disqus: hackmd
----
-
 Homework 04
 ===
-
-
-## Table of Contents
-
-[TOC]
 
 ## Scope of this homework
 
