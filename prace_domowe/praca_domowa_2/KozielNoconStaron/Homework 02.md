@@ -1,16 +1,6 @@
----
-title: 'Homework 02'
-disqus: hackmd
----
-
 Homework 02
 ===
 
-
-
-## Table of Contents
-
-[TOC]
 
 ## Scope of this homework
 
@@ -64,9 +54,11 @@ After cutting 4th group of PEPX modules:
 Removal of those PEPX modules consisting of relatively large layers and the 4th convolution that is presented above them allowed for a noticeable reduction of the number of parameters. The difference is presented below by providing output of model.summary() method. 
 
 At he beginning:
+
 ![](https://i.imgur.com/B2NWqFe.png)
 
 After:
+
 ![](https://i.imgur.com/XhfioO3.png)
 
 Very last layers of new model implementation:
