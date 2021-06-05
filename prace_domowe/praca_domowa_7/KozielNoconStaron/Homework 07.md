@@ -1,8 +1,3 @@
----
-title: 'Homework 07'
-disqus: hackmd
----
-
 Homework 07
 ===
 
