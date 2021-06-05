@@ -19,6 +19,22 @@ Na oficjalnej stronie Tensorflow dostępny jest tutorial wprowadzający do korzy
 Augmentacja zdjęć CT klatki piersiowej została już częściowo zgłębiona. W pierwszej z przytoczonych przeze mnie prac autorzy wykorzystują powiększony zbiór danych do segmentacji nerek, wątroby oraz śledziony. Moim celem będzie sprawdzenie czy zastosowana metoda obniżania kontrastu zdjęć i mieszania ich ze zdjęciami oryginalnymi pomoże osiągnąć dokładniejsze wyniki dla segmentacji płuc w sieci BCDU. 
 Narzędziem którego zamierzam użyć do augmentacji zbioru zdjęć będzie CycleGAN.
 
+### 1.2 Pomysł i implementacja
+
+Ze względu na istotność masek da zdjęć w problemie segmentacji, postanowiliśmy wygenerować zdjęcia do uczenia nienadzorowanego, które mogą zostać wykorzystane w pretrainingu. Oznacza, to że zdjęcia były generowane bez masek. 
+Wcześniejsze próby generowania zdjęć z maskami niestety wpływały negatywnie na uczenie modelu, ze względu na to, że sztucznie wygenerowane maski do zdjęć nie pokrywały się w 100% z tym jak powinna wyglądać prawdziwa maska. Uczenie na takich danych wprowadzało model w błąd. 
+
+#### 1.2.1 CycleGAN
+
+Po dokładnym zgłebieniu tematu, okazało się, że aby wykonać taki generator należy posiadać zdjęcia kontrastowe i niekontrastowe. Niestety wszystkie nasze zdjęcia są w jednym kontraście. Dlatego drugi zbiór zdjęć został sztucznie dorobiony poprzez zastosowanie na zbiorze treningowym wyrównania histogramu. W ten sposób otrzymaliśmy dwa zbiory danych: zbiór oryginalny i zbiór ze zmienionym kontrastem. Następnie ze zdjęć ze zmienionym kontrastem przy pomocy [CycleGANa](https://github.com/LynnHo/CycleGAN-Tensorflow-2) próbowaliśmy odzyskać zdjęcia sprzed transformacji. Wygenerowane w ten sposób zdjęcia zostały poddane post processingowi - obszar płuc był modyfikowany przy użyciu metody dilate na całym zdjęciu, a rozmiar kernela był wybierany losowo z wartości {1, 3, 5, 7}. Takie przetworzenie danych powodowało zmniejszenie obszaru płuc na zdjęciach.
+
+![Wygenerowane zdjęcia](./images/generated_examples.png)
+
+#### 1.2.2 Próba generowania zdjęć z maskami
+
+W tej próbie inspiracją był artykuł [Generative Adversarial Network based Synthesis for Supervised Medical Image Segmentation](https://www.researchgate.net/publication/317014710_Generative_Adversarial_Network_based_Synthesis_for_Supervised_Medical_Image_Segmentation). Proponowane przez autorów podejście zakładało, że generator równocześnie będzie wytwarzał zdjęcia płuc oraz odpowiadające im maski, a dyksryminator wygenerowaną parę zdjęć płuca + maska porówna z prawdziwą parą zdjęć.
+Niestety tak skonstruowany GAN wymaga bardzo długiego trenowania w celu osiągnięcia zadowalających efektów, z tego powodu napotkaliśmy ograniczenia sprzętowe. 
+
 ## 2. Transfer learning - auxiliary task
 
 _Wymyśl dodatkowe zadanie (auxiliary task), które będzie dobrze nadawało się do Twojego problemu. Wykonaj uczenie wstępne za pomocą dodatkowego zadania._
@@ -47,23 +63,46 @@ Autorzy powyższego artykułu zmierzyli się z tematyką podobną do pola dział
 
 Świat uczenia maszynowego rozwija się z wysoką prędkością. Z pewnością można uzyskać dostęp do większej liczby opracowań na temat wykorzystywania dodatkowych zadań w sieciach neuronowych, jednak powyższe pozycje powinny być wystarczające do implementacji pierwszego takiego rozwiązania. Prezentowane prace zainspirowały do stworzenia zadania identyfikującego poszczególne organy (do czego niezbędne byłoby stworzenie odpowiednich etykiet wykorzystując wiedzę dziedzinową) czy też regresji liczby niezerowych pikseli na podstawie obrazu tomografii.
 
+### 2.2 Pomysł i implementacja
+
+#### 2.2.1 Dodatkowe zadanie - regresja liczby pikseli w kolorze białym maski
+
+Ważnym czynnikiem przy przygotowaniu dodatkowego zadania dla sieci neuronowej była możliwość pozyskania prawdziwych etykiet do zdjęć. Było to znaczne ograniczenie przy chęci stosowania niektórych z proponowanych w literaturze rozwiązań - pozyskanie masek poszczególnych organów, np. tchawicy, byłoby bardzo trudne. Z tego powodu zdecydowaliśmy się na zadanie sieci nieco mniej skomplikowanego zadania - predykcji liczby pikseli w kolorze białym (znakowanych przez 1) maski. Pozyskanie tych wartości na podstawie załączonych do repozytorium masek wymagało jedynie krótkiego przetworzenia obrazów. Regresja została przeprowadzona na znormalizowanych wartościach z przedziału 0-1, uzyskanych po podzieleniu przez maksymalną wartość liczby białych pikseli w zbiorze masek treningowych.
+
+#### 2.2.2 Nowa architektura sieci
+
+Na potrzeby zadania sieci nowego zadania nieznacznie została zmodyfikowana architektura sieci. Ostatnia warstwa LSTM w nowej sieci przekazuje sygnał do dwóch obszarów: jednego, odpowiedzialnego za segmentację obrazów oraz drugiego, zaznaczonego na czerwono, rozwiązującego zadanie regresji. Obszary te są do siebie podobne strukturą, z tą różnicą, że na koniec nowego fragmentu znajduje się warstwa połączeń gęstych poprzedzona operacją GlobalMaxPooling2D.
+
+!["Nowa architektura"](./images/New_schema.png)
+
+#### 2.2.3 Funkcja straty oraz metryka nowego zadania
+
+W trakcie kompilacji nowopowstałego modelu należy zdefiniować nowe funkcję straty oraz metrykę dedykowane zadaniu regresji. Zdecydowaliśmy się na błąd średniokwadratowy w przypadku funkcji straty oraz pierwiastek z błędu średniokwadratowego jako metrykę jakości dopasowania modelu. Ze względu na inny rząd funkcji celu w kolejnych epokach, wagi błędów zostały ustawione jako 1 dla entropii krzyżowej (oryginalne zadanie) oraz 2.5 dla błędu średniokwadratowego (który to czesto był ok. 8 razy niższy niż wartość krosentropii).
+
+### 2.3 Efekty trenowania sieci z dodatkowym zadaniem
+
+Zmodyfikowany model, podobnie do pierwotnego, osiąga wysokie wyniki skuteczności segmentacji. Po procesie trenowania na 20 epokach udało osiągnąć się skuteczność accuracy na poziomie 99.6% na zbiorze walidacyjnym. Bardziej dokładne testy, także na zbiorze testowym, oraz porównania z pierwotną wersją modelu zostaną przeprowadzone w kolejnych tygodniach, ze względu na złożoność obliczeniową operacji trenowania. W folderze `code` znajduje się plik csv z wartościami funkcji celu oraz metryk po poszczególnych epokach.
+
 ## 3. Transfer learning - unsupervised pretraining
 
 _Przeprowadź nienadzorowane uczenie wstępne modelu (unsupervised pretraining)._
 
 ### 3.1. Przegląd literatury
 
-
 #### 3.1.1 [Pre-Training CNNs Using Convolutional Autoencoders](https://www.ni.tu-berlin.de/fileadmin/fg215/teaching/nnproject/cnn_pre_trainin_paper.pdf) (Maximilian Kohlbrenner et al.)
 
 W tej publikacji opisane jest zastosowanie autoenkoderów do inicjalizacji wag modelu. Autorzy twierdzą, że dzięki tej metodzie accuracy ich modelu podniosło się z poziomu 0.7 do 0.736 tylko dzięki zastosowaniu uczenia wstępnego, co stanowi znaczną poprawę. W artykule tym bardzo dokładnie opisana jest architektura CAE (Convolutional Auto Encoders), które to stosowane są do wstępnego uczenia, a następnie ich wagi przepisywane są do warstw głównego modelu. Dzięki opisowi konkretnych parametrów warstw, będziemy mogli spróbować zastosować dokładnie tę samą architekturę w naszym projekcie i sprawdzić, czy również pozwoli na poprawę wyników.
 
-  #### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) (Thomas Schlegl et al. 2014)
+#### 3.1.2 [Unsupervised Pre-training Across Image Domains Improves Lung Tissue Classification](https://link.springer.com/chapter/10.1007/978-3-319-13972-2_8) (Thomas Schlegl et al. 2014)
 
 Autorzy tej publikacji zastosowali Unsupervised pretraining jako sposób na poradzenie sobie z małą ilością danych treningowych. Tylko część obserwacji ze zbioru testowego była opisana etykietą, a co za tym idzie tylko ta część mogła być użyta do uczenia nadzorowanego. Naukowcy mieli jednak dużo więcej rekordów nieoznakowanych i za ich pomocą przeprowadzili trenowanie wstępne. Użyli oni CRBM (Convolutional Restricted Boltzmann Machine) jako model, który zainicjalizuje wagi poszczególnych warstw. Mamy nadzieję przetestować również to podejście w zastosowaniu do naszego projektu.
 
+### 3.2 Implementacja
 
-### 3.1.3 Podsumowanie
+Do przeprowadzenia unsupervised pretrainingu użyliśmy autoenkoderów z zadaniem odszumiania. Zasada działania jest następująca: Do części danych treningowych dodajemy szum (z rozkładu normalnego) Następnie trenujemy konwolucyjne autoenkodery tak, aby odszumiały obrazki. W kolejnym kroku przepisujemy wagi z nauczonego enkodera do jednej z warstw naszego docelowego modelu i blokujemy możliwość uczenia się parametrów tej warstwy. Tę czynność powtarzamy dla każdej warstwy konwolucyjnej (z uwagi na budowę autoenkodera, tylko do tych warstw mogliśmy przepisać wagi), a po przejściu przez wszystkie dostępne warstwy stosujemy model główny z tak zainicjowanymi wagami do zadania segmentacji.
+
+
+#### 3.1.3 Podsumowanie
 
 Unsupervised pretraining jest używany razem z modelami konwolucyjnymi dość często. Pozwala na użycie nieopisanych danych jako początek uczenia modelu, co jest bardzo przydatne, ponieważ opisane dane medyczne są zazwyczaj trudno dostępne. Mamy nadzieję, że opisane prace pozwolą nam zaimplementować tę funkcjonalność do naszego modelu.
 

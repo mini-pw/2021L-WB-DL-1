@@ -1,0 +1,59 @@
+(base) root@a0f39779f10c:/opt/notebooks/LungNetNew# python train-lidc.py 
+2021-05-06 11:07:22.773795: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-05-06 11:07:23.283942: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: Quadro K2200 computeCapability: 5.0
+coreClock: 1.124GHz coreCount: 5 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 74.65GiB/s
+2021-05-06 11:07:23.284536: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-05-06 11:07:23.289544: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-05-06 11:07:23.293128: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-05-06 11:07:23.293781: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-05-06 11:07:23.298417: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-05-06 11:07:23.300828: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-05-06 11:07:23.310907: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-05-06 11:07:23.312769: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2021-05-06 11:07:23.314239: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2021-05-06 11:07:23.335299: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2194540000 Hz
+2021-05-06 11:07:23.339372: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5571ced39e40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-05-06 11:07:23.339415: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-05-06 11:07:23.340393: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: Quadro K2200 computeCapability: 5.0
+coreClock: 1.124GHz coreCount: 5 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 74.65GiB/s
+2021-05-06 11:07:23.340496: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-05-06 11:07:23.340560: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-05-06 11:07:23.340615: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-05-06 11:07:23.340675: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-05-06 11:07:23.340731: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-05-06 11:07:23.340785: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-05-06 11:07:23.340844: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-05-06 11:07:23.342505: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2021-05-06 11:07:23.342624: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-05-06 11:07:23.477822: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-06 11:07:23.477916: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
+2021-05-06 11:07:23.477950: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2021-05-06 11:07:23.480492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3714 MB memory) -> physical GPU (device: 0, name: Quadro K2200, pci bus id: 0000:08:00.0, compute capability: 5.0)
+2021-05-06 11:07:23.484878: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5571d2bf9d20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-05-06 11:07:23.484911: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Quadro K2200, Compute Capability 5.0
+[<tf.Tensor 'conv2d_8/Identity:0' shape=(None, None, None, 2) dtype=float32>]
+model-6de1aa68-4038-40bf-9c81-9bb7a887fe10
+tensorboard/20210506-110916
+Failed to import pydot. You must install pydot and graphviz for `pydotprint` to work.
+2021-05-06 11:09:16.984034: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2021-05-06 11:09:16.984109: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1363] Profiler found 1 GPUs
+2021-05-06 11:09:16.985426: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcupti.so.10.1
+2021-05-06 11:09:17.086060: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2021-05-06 11:09:17.086655: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2021-05-06 11:09:17.086750: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+WARNING:tensorflow:From train-lidc.py:86: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+Epoch 1/1000
+2021-05-06 11:11:43.214612: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-05-06 11:11:46.843271: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-05-06 11:11:49.065930: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.39GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-06 11:11:50.835384: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.50GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-06 11:11:53.047641: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2021-05-06 11:11:53.047817: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_NOT_INITIALIZED
+2021-05-06 11:11:53.047963: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_NOT_INITIALIZED
+Batch 0: Invalid loss, terminating training
+2021-05-06 11:11:53.575679: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+(base) root@a0f39779f10c:/opt/notebooks/LungNetNew# 
